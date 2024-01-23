@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('type_room')->enum('Deluxe', 'Suite', 'Standar');
             $table->date('check_in');
             $table->date('check_out');
-            $table->string('status')->enum('Confirmed', 'Not yet Confirmed');
+            $table->string('status')->enum('Not yet', 'Already');
             $table->timestamps();
         });
     }
