@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('check_in');
             $table->date('check_out');
             $table->string('type_room')->enum('Deluxe', 'Suite', 'Standar');
-            $table->integer('number_room')->index();
+            $table->integer('number_room');
             $table->decimal('price', 10, 2);
             $table->string('image');
             $table->string('status')->enum('Confirmed', 'Not yet Confirmed');
