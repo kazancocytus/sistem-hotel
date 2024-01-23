@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/customer', [HomeController::class, 'home']); //Home Page
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,3 +47,7 @@ Route::middleware([])->group(function(){
 
 
 require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
