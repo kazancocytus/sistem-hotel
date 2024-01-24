@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,13 @@ Route::middleware([])->group(function(){
     Route::get('/admin/report', [AdminController::class, 'AdminReport'])->name('admin.report');
     Route::get('/admin/user', [AdminController::class, 'AdminUser'])->name('admin.user');
 
+});
+
+Route::middleware([])->group(function(){
+
+    Route::get('/add/facility', [FacilityController::class, 'AddFacility'])->name('add.facility');
+    Route::post('/store/facility', [FacilityController::class, 'StoreFacility'])->name('store.facility');
+    
 });
 
 

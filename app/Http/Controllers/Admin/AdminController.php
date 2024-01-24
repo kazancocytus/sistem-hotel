@@ -15,6 +15,10 @@ class AdminController extends Controller
         return view('admin.facility');
     }
 
+    public function AddFacility(){
+        
+    }
+
     public function AdminFood(){
         return view('admin.food');
     }
