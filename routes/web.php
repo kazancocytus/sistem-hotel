@@ -19,7 +19,7 @@ use App\Http\Controllers\Api\HomeController;
 */
 
 Route::get('/customer', [HomeController::class, 'Home'])->name('home'); //Home Page
-Route::get('/customer/logout', [HomeController::class, 'CustomerLogout'])->name('costumer.logout');
+Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
 Route::get('/contact', function () {
     return view('contactpage');
 });//Contact Page

@@ -21,7 +21,7 @@ class UsersSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin1@gmail.com',
                 'password' => Hash::make('1234'),
-                'roles_name' => 2,
+                'roles_name' => "Admin",
                 'status' => 'Online'
             ],
 
@@ -30,7 +30,7 @@ class UsersSeeder extends Seeder
                 'name' => 'Agent',
                 'email' => 'agent@gmail.com',
                 'password' => Hash::make('4321'),
-                'roles_name' => 3,
+                'roles_name' => "Agent",
                 'status' => 'Online'
             ],
 
@@ -39,7 +39,7 @@ class UsersSeeder extends Seeder
                 'name' => 'User',
                 'email' => 'user@gmail.com',
                 'password' => Hash::make('1111'),
-                'roles_name' => 4,
+                'roles_name' => "User",
                 'status' => 'Online'
             ]
         ]);

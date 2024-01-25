@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="{{ asset('assets/evergreenlogobgcrop.png') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <title>Evergreen Hotel</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
     <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css" />
@@ -44,14 +44,9 @@
                 @if (Route::has('login'))
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                     @auth
-                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white"><a href="{{ route('costumer.logout') }}">Log out</a><span
-                                            aria-hidden="true">&rarr;</span></button>
+                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white"><a href="{{ route('costumer.logout') }}">Log out</a><span aria-hidden="true">&rarr;</span></button>
                 @else
-                   
-                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white"
-                                data-bs-toggle="modal" data-bs-target="#modalLogin">Log in <span
-                                    aria-hidden="true">&rarr;</span></button>
-                
+                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white" data-bs-toggle="modal" data-bs-target="#modalLogin">Log in <spanaria-hidden="true">&rarr;</spanaria-hidden=></button>
                     @endauth
                 </div>
                 @endif
@@ -77,17 +72,25 @@
                 <div class="modal-body">   
                         <div class="mb-3">
                             <label for="email" class="form-label font-josefin">Email</label>
-                            <input type="email" class="form-control rounded-xl " id="email" name="email"
-                                placeholder="Name/Email" />
+                            <input type="email" class="form-control rounded-xl @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email" name="email" placeholder="Email" required autofocus />
+                            @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label font-josefin">Password</label>
                             <input type="password" class="form-control rounded-xl" id="password" name="password"
-                                placeholder="Password" />
+                            placeholder="Password" required autofocus/>
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         <div class="d-grid gap-3">
-                            <button type="submit"
-                                class=" pt-2 font-josefin text-lg text-colorBg btn btn-success">LOGIN</button>
+                            <button type="submit" class=" pt-2 font-josefin text-lg text-colorBg btn btn-success">LOGIN</button>
                             <h2
                                 style="width: 100%; text-align: center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;">
                                 <span class="" style="background:#fff; padding:0 5px; font-size:10px;">OR</span>
@@ -114,30 +117,36 @@
                             style="font-size: 40px"></i></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="POST" action="{{ route('register') }}">
+                    @csrf
                         <div class="mb-3">
-                            <label class="form-label font-josefin">Email</label>
+                            <label for="email" class="form-label font-josefin">Email</label>
                             <input type="email" class="form-control rounded-xl" id="email" name="email"
                                 placeholder="Input Your Email Here" />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label font-josefin">Phone Number</label>
+                            <label for="phone" class="form-label font-josefin">Phone Number</label>
                             <input type="text" class="form-control rounded-xl" id="phone" name="phone"
                                 placeholder="Input Your Phone Number Here" />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label font-josefin">Fullname</label>
-                            <input type="text" class="form-control rounded-xl" id="fullname" name="ffullname"
+                            <label for="name" class="form-label font-josefin">Fullname</label>
+                            <input type="text" class="form-control rounded-xl" id="name" name="name"
                                 placeholder="Input Your Fullname Here" />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label font-josefin">Birth Date</label>
-                            <input type="date" class="form-control rounded-xl" id="birth" name="birth"
+                            <label for="birth_date" class="form-label font-josefin">Birth Date</label>
+                            <input type="date" class="form-control rounded-xl" id="birth_date" name="birth_date"
                                 placeholder="Input Your Birth Date Here" />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label font-josefin">Password</label>
+                            <label for="password" class="form-label font-josefin">Password</label>
                             <input type="password" class="form-control rounded-xl" id="password" name="password"
+                                placeholder="Input Your Password Here" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="password-confirm" class="form-label font-josefin">Confirm Password</label>
+                            <input type="password" class="form-control rounded-xl" id="password-confirm" name="password_confirmation"
                                 placeholder="Input Your Password Here" />
                         </div>
                         <div class="d-grid gap-3">
