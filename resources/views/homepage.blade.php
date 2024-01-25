@@ -23,6 +23,7 @@
 
     {{-- Navbar Start --}}
 
+    
     <div class="bg-colorPrimary">
         <header class="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-colorgreen from-70% to-transparent">
             <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -38,19 +39,33 @@
                     <a href="#" class="text-sm font-josefin font-light leading-6 text-white">Contact</a>
                     <a href="#" class="text-sm font-josefin font-light leading-6 text-white">About</a>
                 </div>
+
+
+                @if (Route::has('login'))
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                    @auth
+                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white"><a href="{{ route('costumer.logout') }}">Log out</a><span
+                                            aria-hidden="true">&rarr;</span></button>
+                @else
+                   
                     <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white"
-                        data-bs-toggle="modal" data-bs-target="#modalLogin">Log in <span
-                            aria-hidden="true">&rarr;</span></button>
+                                data-bs-toggle="modal" data-bs-target="#modalLogin">Log in <span
+                                    aria-hidden="true">&rarr;</span></button>
+                
+                    @endauth
                 </div>
+                @endif
             </nav>
     </div>
+    
 
     {{-- Navbar Stop --}}
 
     {{-- Login Start --}}
 
     <!-- Modal -->
+    <form action="{{ route('login') }}" method="POST">
+    @csrf
     <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-3xl p-6">
@@ -59,15 +74,14 @@
                     <button type="button" class="" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"
                             style="font-size: 40px"></i></button>
                 </div>
-                <div class="modal-body">
-                    <form>
+                <div class="modal-body">   
                         <div class="mb-3">
-                            <label class="form-label font-josefin">Email</label>
-                            <input type="email" class="form-control rounded-xl" id="email" name="email"
-                                placeholder="Email" />
+                            <label for="email" class="form-label font-josefin">Email</label>
+                            <input type="email" class="form-control rounded-xl " id="email" name="email"
+                                placeholder="Name/Email" />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label font-josefin">Password</label>
+                            <label for="password" class="form-label font-josefin">Password</label>
                             <input type="password" class="form-control rounded-xl" id="password" name="password"
                                 placeholder="Password" />
                         </div>
@@ -81,11 +95,11 @@
                             <button type="button" class=" pt-2 mb-2 font-josefin text-xs text-colorBg btn btn-success"
                                 data-bs-toggle="modal" data-bs-target="#modalRegister">SIGN UP</button>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
+    </form>
 
     {{-- Login Stop --}}
 

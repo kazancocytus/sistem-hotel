@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id('id_user');
+            $table->id();
             // $table->foreignId('id_roles')->constrained();
             $table->string('name');
             $table->string('email')->unique();
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('age')->nullable();
             $table->string('phone')->nullable();
-            $table->string('roles_name');
+            $table->integer('roles_name');
             $table->string('status')->enum('Online', 'Offline');
             $table->rememberToken();
             $table->timestamps();

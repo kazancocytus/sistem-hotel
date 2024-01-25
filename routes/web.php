@@ -18,7 +18,8 @@ use App\Http\Controllers\Api\HomeController;
 |
 */
 
-Route::get('/customer', [HomeController::class, 'home']); //Home Page
+Route::get('/customer', [HomeController::class, 'Home'])->name('home'); //Home Page
+Route::get('/customer/logout', [HomeController::class, 'CustomerLogout'])->name('costumer.logout');
 Route::get('/contact', function () {
     return view('contactpage');
 });//Contact Page
@@ -61,4 +62,3 @@ require __DIR__.'/auth.php';
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');

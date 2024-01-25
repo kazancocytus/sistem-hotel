@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;  
+use App\Models\User;  
+use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
@@ -18,8 +21,22 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function home()
+    public function Home()
     {
+        // $id = Auth::user()->id;
+        // $user = User::find($id);
         return view('homepage');
     }
+
+
+    public function CostumerLogout(Request $request):RedirectResponse { 
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+ 
+        $request->session()->regenerateToken();
+        
+        return redirect()->route('home');
+    }
+
 }
