@@ -13,11 +13,12 @@ class Role
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $role): Response
+    public function handle(Request $request, Closure $next, $roles_name): Response
     {
-        if($request->user()->role ==! $role){
-            return redirect('customer');
+        if(auth()->user()->roles_name ==! $roles_name){
+            return $next($request);
         }
-        return $next($request);
+
+        return response()->json(['gabisa bang']);
     }
 }

@@ -24,6 +24,10 @@ Route::get('/contact', function () {
     return view('contactpage');
 });//Contact Page
 
+Route::middleware(['auth', 'roles_name::Admin'])->group(function(){
+    Route::get('/admin', [AdminController::class, 'AdminIndex'])->name('admin.index_admin');
+});
+
 
 Route::get('/', function () {
     return view('welcome');
