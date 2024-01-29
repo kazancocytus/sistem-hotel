@@ -54,7 +54,7 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
 
 });
 
-Route::middleware([])->group(function(){
+Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
 
     Route::get('/add/facility', [FacilityController::class, 'AddFacility'])->name('add.facility');
     Route::post('/store/facility', [FacilityController::class, 'StoreFacility'])->name('store.facility');

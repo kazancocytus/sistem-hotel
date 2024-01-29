@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
+use App\Models\Facility;
 
 class AdminController extends Controller
 {
@@ -13,7 +14,8 @@ class AdminController extends Controller
     }
 
     public function AdminFacility(){
-        return view('admin.facility');
+        $facility = Facility::latest()->get();
+        return view('admin.facility',compact('facility'));
     }
 
     public function AddFacility(){
