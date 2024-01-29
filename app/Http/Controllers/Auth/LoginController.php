@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -25,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -36,4 +38,27 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function login(Request $request){
+        $request->session()->regenerate();
+
+        $input = $request->all();
+        
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))){
+            if(auth()->user()->roles_name === 'Admin'){
+                return redirect()->route('admin.index');
+            } elseif(auth()->user()->roles_name === 'Agent'){
+                $url = 'agent/dashboard';
+            } elseif(auth()->user()->roles_name === 'User'){
+                return redirect()->route('home');
+            }
+        }
+
+    }
+
 }

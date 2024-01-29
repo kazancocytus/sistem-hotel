@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('log', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_log');
             $table->string('name');
             $table->string('type_room')->enum('Deluxe', 'Suite', 'Standar');
             $table->integer('number_room')->index();

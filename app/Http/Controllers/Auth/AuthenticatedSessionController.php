@@ -29,13 +29,14 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        dd($request->roles_name);
         $url = '';
-        if($request->user()->role === 'Admin'){
-            $url = 'admin/dashboard';
-        } elseif($request->user()->role === 'Agent'){
+        if($request->user()->roles_name === 'Admin'){
+            $url = '/admin';
+        } elseif($request->user()->roles_name === 'Agent'){
             $url = 'agent/dashboard';
-        } elseif($request->user()->role === 'User'){
-            $url = 'user/dashboard';
+        } elseif($request->user()->roles_name === 'User'){
+            $url = '/customer';
         }
 
         return redirect()->intended($url);
