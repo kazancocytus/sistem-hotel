@@ -427,8 +427,8 @@
         width: 130,
         type: 'donut'
       },
-      labels: ['Electronic', 'Sports', 'Decor', 'Fashion'],
-      series: [85, 15, 50, 50],
+      labels: ['Booking Room', 'Ballroom', 'Check-in', 'Check-out'],
+      series: [40, 10, 50, 25],
       colors: [config.colors.primary, config.colors.secondary, config.colors.info, config.colors.success],
       stroke: {
         width: 5,
@@ -437,7 +437,7 @@
       dataLabels: {
         enabled: false,
         formatter: function (val, opt) {
-          return parseInt(val) + '%';
+          return parseInt(val) + '';
         }
       },
       legend: {
@@ -462,7 +462,7 @@
                 color: headingColor,
                 offsetY: -15,
                 formatter: function (val) {
-                  return parseInt(val) + '%';
+                  return parseInt(val) + '';
                 }
               },
               name: {
@@ -475,7 +475,7 @@
                 color: axisColor,
                 label: 'Weekly',
                 formatter: function (w) {
-                  return '38%';
+                  return '54%';
                 }
               }
             }

@@ -17,6 +17,7 @@ export default {
             colorThird: '#C6A969',
             colorgreen: '#597E52',
             colorBg: '#04152d',
+            colorchoco: '#D2B48C',
         },
         extend: {
             backgroundImage:{
@@ -29,6 +30,6 @@ export default {
             },
         },
     },
-
+    
     plugins: [forms],
 };

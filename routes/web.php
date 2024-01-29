@@ -18,7 +18,12 @@ use App\Http\Controllers\Api\HomeController;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/index', [HomeController::class, 'home']); //Home Page
+=======
+Route::get('/customer', [HomeController::class, 'Home'])->name('home'); //Home Page
+Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
+>>>>>>> 1c7f38ae529f5f41fc984758d0ad83db9c6afb8a
 Route::get('/contact', function () {
     return view('contactpage');
 });//Contact Page
@@ -29,6 +34,10 @@ Route::get('/about', function () {
     return view('aboutpage');
 });//About Page
 
+
+// Route::middleware(['auth', 'roles_name::Admin'])->group(function(){
+//     Route::get('/admin', [AdminController::class, 'AdminIndex'])->name('admin.index_admin');
+// });
 
 
 Route::get('/', function () {
@@ -45,21 +54,25 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware([])->group(function(){
+Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
 
     Route::get('/admin', [AdminController::class, 'AdminIndex'])->name('admin.index');
     Route::get('/admin/facility', [AdminController::class, 'AdminFacility'])->name('admin.facility');
     Route::get('/admin/food', [AdminController::class, 'AdminFood'])->name('admin.food');
     Route::get('/admin/report', [AdminController::class, 'AdminReport'])->name('admin.report');
     Route::get('/admin/user', [AdminController::class, 'AdminUser'])->name('admin.user');
+    Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 
 });
 
-Route::middleware([])->group(function(){
+Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
 
     Route::get('/add/facility', [FacilityController::class, 'AddFacility'])->name('add.facility');
     Route::post('/store/facility', [FacilityController::class, 'StoreFacility'])->name('store.facility');
-    
+    Route::get('/edit/facility/{id}', [FacilityController::class, 'EditFacility'])->name('edit.facility');
+    Route::get('/delete/facility/{id}', [FacilityController::class, 'DeleteFacility'])->name('delete.facility');
+    Route::post('/update/facility', [FacilityController::class, 'UpdateFacility'])->name('update.facility');
+
 });
 
 
@@ -68,4 +81,3 @@ require __DIR__.'/auth.php';
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');

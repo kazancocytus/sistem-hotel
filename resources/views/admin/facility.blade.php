@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Fasilitas(EH)</title>
+    <title>Facility (EH)</title>
 
     <meta name="description" content="" />
 
@@ -63,6 +63,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    @vite('resources/css/app.css')
   </head>
 
   <body>
@@ -73,7 +74,7 @@
       @include('admin.layout.sidebar_admin');
 
         <!-- Layout container -->
-        <div class="layout-page">
+        <div class="layout-page bg-colorPrimary">
           <!-- Navbar -->
 
           <nav
@@ -86,7 +87,7 @@
               </a>
             </div>
 
-            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+            <div class="navbar-nav-right d-flex align-items-center py-5" id="navbar-collapse">
               <!-- Search -->
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
@@ -99,49 +100,9 @@
                   />
                 </div>
               </div>
-              <!-- /Search -->
+              
+              @include('admin.layout.header_admin')
 
-              <ul class="navbar-nav flex-row align-items-center ms-auto">
-                <!-- Place this tag where you want the button to render. -->
-               
-
-                <!-- User -->
-                <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                  <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                    <div class="avatar avatar-online">
-                      <img src="../assets/img/avatars/user.png" alt class="w-px-40 h-auto rounded-circle" />
-                    </div>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end">
-                    <li>
-                      <a class="dropdown-item" href="#">
-                        <div class="d-flex">
-                          <div class="flex-shrink-0 me-3">
-                            <div class="avatar avatar-online">
-                              <img src="../assets/img/avatars/user.png" alt class="w-px-40 h-auto rounded-circle" />
-                            </div>
-                          </div>
-                          <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">Rallyn Jeong</span>
-                            <small class="text-muted">Admin</small>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
-                        <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <!--/ User -->
-              </ul>
-            </div>
           </nav>
 
           <!-- / Navbar -->
@@ -152,7 +113,7 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
               
-                <div class="col-lg-12 mb-4 order-0">
+                <!--div class="col-lg-12 mb-4 order-0">
                   <div class="card">
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
@@ -178,27 +139,87 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div-->
 
                 <!-- Basic Bootstrap Table -->
+
               <div class="card">
                 <a href="{{ route('add.facility') }}">Add Facility</a>
                 <h5 class="card-header">Fasilitas</h5>
                 <div class="table-responsive text-nowrap">
-                  <table class="table">
+                  <table class="table bg-colorPrimary">
                     <thead>
                       <tr>
-                        <th>Nama fasilitas</th>
-                        <th>Deskripsi</th>
-                        <th>Gambar</th>
+                        <th>facilitation name</th>
+                        <th>Description</th>
+                        <th>Picture</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                      @foreach($facility as $key => $list)
+                      <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $list->name }}</strong></td>
+                        <td>{{ $list->description }}</td>
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-x pull-up"
+                              title="Swimming Pool"
+                            >
+                              <img src="{{ url('assets/img/facility/'.$list->image) }}" alt="Avatar" class="rounded-circle" />
+                            </li>
+                        </td>
+                        
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="{{ route('edit.facility',$list->id) }}"
+                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                              >
+                              <a class="dropdown-item" href="{{ route('delete.facility',$list->id) }}"
+                                ><i class="bx bx-trash me-1"></i> Delete</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+
+
+                      @endforeach
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+            </div>
+
+
+            <div class=" col-lg-12 py-5">
+                <div class="card">
+                <h5 class="card-header bg-colorThird">Room Faciility</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table bg-colorPrimary">
+                    <thead>
+                      <tr>
+                        <th>facilitation name</th>
+                        <th>Description</th>
+                        <th>Picture</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                       <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Swimming Pool</strong></td>
-                        <td>Fasilitas hotel yang bisa di manfaatkan
-                            pengunjung untuk bersantai
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Wifi</strong></td>
+                        <td>Internet Access
                         </td>
                       
                         <td>
@@ -207,8 +228,8 @@
                               data-bs-toggle="tooltip"
                               data-popup="tooltip-custom"
                               data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Swimming Pool"
+                              class="avatar avatar-x pull-up"
+                              title="Wifi"
                             >
                               <img src="../assets/img/elements/renang.jpg" alt="Avatar" class="rounded-circle" />
                             </li>
@@ -232,9 +253,8 @@
                       </tr>
 
                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Gym</strong></td>
-                        <td>Fasilitas hotel yang bisa di manfaatkan
-                            pengunjung untuk berolahraga dan menyehatkan diri
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>House Keeping</strong></td>
+                        <td>beberes
                         </td>
                       
                         <td>
@@ -243,10 +263,10 @@
                               data-bs-toggle="tooltip"
                               data-popup="tooltip-custom"
                               data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Swimming Pool"
+                              class="avatar avatar-x pull-up"
+                              title="HK"
                             >
-                              <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                              <img src="../assets/gym.jpg " height="70" width="70" alt="Avatar" class="rounded-circle" />
                             </li>
                            
                         
@@ -342,6 +362,12 @@
                   </table>
                 </div>
               </div>
+
+
+            </div>
+             
+
+             
               <!--/ Basic Bootstrap Table -->
 
             <!-- / Content -->
