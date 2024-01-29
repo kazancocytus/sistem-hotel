@@ -63,6 +63,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    @vite('resources/css/app.css')
   </head>
 
   <body>
@@ -73,7 +74,7 @@
       @include('admin.layout.sidebar_admin');
 
         <!-- Layout container -->
-        <div class="layout-page">
+        <div class="layout-page bg-colorPrimary">
           <!-- Navbar -->
 
           <nav
@@ -86,14 +87,14 @@
               </a>
             </div>
 
-            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+            <div class="navbar-nav-right d-flex align-items-center " id="navbar-collapse">
               <!-- Search -->
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
+              <div class="navbar-nav align-items-center ">
+                <div class="nav-item d-flex align-items-center ">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
                     type="text"
-                    class="form-control border-0 shadow-none"
+                    class="form-control border-0 "
                     placeholder="Search..."
                     aria-label="Search..."
                   />
@@ -121,8 +122,8 @@
                               <img src="../assets/img/avatars/user.png" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
-                          <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">Rallyn Jeong</span>
+                          <div class=" float-start">
+                            <span class="fw-semibold d-block"> Rallyn Jeong</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>
@@ -150,10 +151,10 @@
         
             <!-- Content -->
 
-            <div class="container-xxl flex-grow-1 container-p-y">
+            <div class="container-xxl flex-grow-1 container-p-y ">
               
-                <div class="col-lg-12 mb-4 order-0">
-                  <div class="card">
+                <div class="col-lg-12 mb-4 order-0 ">
+                  <div class="card  ">
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
@@ -166,7 +167,7 @@
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
+                        <div class="card-body pb-0 px-0 px-md-4 ">
                           <img
                             src="../assets/img/illustrations/woman.png"
                             height="140"
@@ -179,15 +180,14 @@
                     </div>
                   </div>
                 </div>
-
                 <!-- Basic Bootstrap Table -->
 
-            <div class="col-lg-12  py-3">
+            <div class="col-lg-12 py-3">
 
-              <div class="card">
-                <h5 class="card-header">Customer</h5>
+              <div class="card ">
+                <h5 class="card-header bg-colorThird">Customer</h5>
                 <div class="table-responsive text-nowrap">
-                  <table class="table">
+                  <table class="table  bg-colorPrimary">
                     <thead>
                       <tr>
                         <th>Nama</th>
@@ -316,9 +316,10 @@
             </div>
               
                 <!-- Expense Overview -->
-                <div class="float-start col-lg-7 order-1 mb-4">
-                  <div class="card h-100">
-                    <div class="card-header">
+              <div class=" col-lg-12 py-5 ">
+                <div class="float-start col-lg-12 order-1 mb-4 ">
+                  <div class="card h-100 bg-colorPrimary">
+                    <div class="card-header bg-colorThird">
                       <ul class="nav nav-pills" role="tablist">
                         <li class="nav-item">
                           <button
@@ -374,9 +375,9 @@
                  
 
                 <!-- profit -->
-                <div class="float-end col-md-4 order-1">
+                <!--div class="float-end col-md-4 order-1">
                   <div class="row">
-                    <div class="col-lg-6 col-6 mb-5">
+                    <div-- class="col-lg-6 col-6 mb-5">
                       <div class="card">
                         <div class="card-body">
                           <div class="card-title d-flex align-items-center justify-content-between">
@@ -393,11 +394,11 @@
                           <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +72.80%</small>
                         </div>
                       </div>
-                    </div>
+                    </div-->
                      <!-- profit -->
 
                      <!-- sales -->
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
+                    <!--div class="col-lg-6 col-md-12 col-6 mb-4">
                       <div class="card">
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
@@ -414,11 +415,11 @@
                           <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.42%</small>
                         </div>
                       </div>
-                    </div>
+                    </div-->
                      <!-- sales-->
 
                      <!-- pay-->
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
+                    <!--div class="col-lg-6 col-md-12 col-6 mb-4">
                       <div class="card">
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
@@ -431,11 +432,11 @@
                           <small class="text-danger fw-semibold"><i class="bx bx-down-arrow-alt"></i> -14.82%</small>
                         </div>
                       </div>
-                    </div>
-                     <!-- pay-->
+                    </!--div>
+                     <pay-->
 
                       <!-- transaksi-->
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
+                    <!--div class="col-lg-6 col-md-12 col-6 mb-4">
                       <div class="card">
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
@@ -451,7 +452,7 @@
                     </div>
                   </div>
                 </div>
-
+              </div-->
             
                 <!-- /transaksi -->
                  

@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Fasilitas(EH)</title>
+    <title>Facility (EH)</title>
 
     <meta name="description" content="" />
 
@@ -63,6 +63,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    @vite('resources/css/app.css')
   </head>
 
   <body>
@@ -73,7 +74,7 @@
       @include('admin.layout.sidebar_admin');
 
         <!-- Layout container -->
-        <div class="layout-page">
+        <div class="layout-page bg-colorPrimary">
           <!-- Navbar -->
 
           <nav
@@ -86,7 +87,7 @@
               </a>
             </div>
 
-            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+            <div class="navbar-nav-right d-flex align-items-center py-5" id="navbar-collapse">
               <!-- Search -->
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
@@ -152,7 +153,7 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
               
-                <div class="col-lg-12 mb-4 order-0">
+                <!--div class="col-lg-12 mb-4 order-0">
                   <div class="card">
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
@@ -178,18 +179,20 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div-->
 
                 <!-- Basic Bootstrap Table -->
-              <div class="card">
-                <h5 class="card-header">Fasilitas</h5>
+              
+              <div class=" col-lg-12 py-5">
+                <div class="card">
+                <h5 class="card-header bg-colorThird">Hotel Faciility</h5>
                 <div class="table-responsive text-nowrap">
-                  <table class="table">
+                  <table class="table bg-colorPrimary">
                     <thead>
                       <tr>
-                        <th>Nama fasilitas</th>
-                        <th>Deskripsi</th>
-                        <th>Gambar</th>
+                        <th>facilitation name</th>
+                        <th>Description</th>
+                        <th>Picture</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -206,7 +209,7 @@
                               data-bs-toggle="tooltip"
                               data-popup="tooltip-custom"
                               data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
+                              class="avatar avatar-x pull-up"
                               title="Swimming Pool"
                             >
                               <img src="../assets/img/elements/renang.jpg" alt="Avatar" class="rounded-circle" />
@@ -242,10 +245,10 @@
                               data-bs-toggle="tooltip"
                               data-popup="tooltip-custom"
                               data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Swimming Pool"
+                              class="avatar avatar-x pull-up"
+                              title="Gym"
                             >
-                              <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                              <img src="../assets/gym.jpg " height="70" width="70" alt="Avatar" class="rounded-circle" />
                             </li>
                            
                         
@@ -341,6 +344,176 @@
                   </table>
                 </div>
               </div>
+
+
+            </div>
+
+
+            <div class=" col-lg-12 py-5">
+                <div class="card">
+                <h5 class="card-header bg-colorThird">Room Faciility</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table bg-colorPrimary">
+                    <thead>
+                      <tr>
+                        <th>facilitation name</th>
+                        <th>Description</th>
+                        <th>Picture</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+                      <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Wifi</strong></td>
+                        <td>Internet Access
+                        </td>
+                      
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-x pull-up"
+                              title="Wifi"
+                            >
+                              <img src="../assets/img/elements/renang.jpg" alt="Avatar" class="rounded-circle" />
+                            </li>
+                           
+                        
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                              >
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-trash me-1"></i> Delete</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+
+                     <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>House Keeping</strong></td>
+                        <td>beberes
+                        </td>
+                      
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-x pull-up"
+                              title="HK"
+                            >
+                              <img src="../assets/gym.jpg " height="70" width="70" alt="Avatar" class="rounded-circle" />
+                            </li>
+                           
+                        
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                              >
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-trash me-1"></i> Delete</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      
+                      <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Swimming Pool</strong></td>
+                        <td>Fasilitas hotel yang bisa di manfaatkan
+                            pengunjung untuk bersantai
+                        </td>
+                      
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Swimming Pool"
+                            >
+                              <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                           
+                        
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                              >
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-trash me-1"></i> Delete</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Swimming Pool</strong></td>
+                        <td>Fasilitas hotel yang bisa di manfaatkan
+                            pengunjung untuk bersantai
+                        </td>
+                      
+                        <td>
+                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                            <li
+                              data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Swimming Pool"
+                            >
+                              <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                            </li>
+                           
+                        
+                        <td>
+                          <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                              <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                              >
+                              <a class="dropdown-item" href="javascript:void(0);"
+                                ><i class="bx bx-trash me-1"></i> Delete</a
+                              >
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+
+            </div>
+             
+
+             
               <!--/ Basic Bootstrap Table -->
 
             <!-- / Content -->

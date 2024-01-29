@@ -3,3 +3,12 @@
 .heroname {
     font-family: 'Julius Sans One', sans-serif;
 }
+
+.menu-link.hover{
+    background-color: #fff
+
+}
+
+.menu-link.icon{
+    
+}

@@ -1,10 +1,15 @@
 <!-- Menu -->
+@vite('resources/css/app.css')
 
-<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+
+<aside id="layout-menu" class="layout-menu menu-vertical shadow  menu bg-colorSecondary   ">
           <div class="app-brand demo">
-            <a href="index.html" class="app-brand-link">
-              <span class="app-brand-logo demo">
-                <svg
+            <a href="../index_admin.blade.php" class="app-brand-link">
+              <span class=" col-span-2  align-items-center">
+                <img src="/assets/evergreenlogobgcrop.png" width="70;" height="70;"
+                alt="">
+
+                <!--svg
                   width="25"
                   viewBox="0 0 25 42"
                   version="1.1"
@@ -56,9 +61,10 @@
                       </g>
                     </g>
                   </g>
-                </svg>
+                </svg-->
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Evergreen</span>
+              <span class=" font-josefin text-colorBg text-xl ms-3 fw-bolder"> <h2>Evergreen </h2></span>
+            
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -66,14 +72,14 @@
             </a>
           </div>
 
-          <div class="menu-inner-shadow"></div>
+          <div class="menu-inner-shadow "></div>
 
-          <ul class="menu-inner py-1">
+          <ul class="menu-inner py-4">
             <!-- Dashboard -->
             <li class="menu-item">
               <a href="{{ route('admin.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Dashboard</div>
+                <div class="  ">Dashboard</div>
               </a>
             </li>
 
@@ -82,7 +88,7 @@
             <!-- Cards -->
             <li class="menu-item">
               <a href="{{ route('admin.report') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <i class="menu-icon tf-icons bx bxs-report"></i>
                 <div data-i18n="Basic">Report</div>
               </a>
             </li>
@@ -90,23 +96,23 @@
             
             <li class="menu-item">
               <a href="{{ route('admin.facility') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-crown"></i>
-                <div data-i18n="Boxicons">Fasilitas</div>
+                <i class="menu-icon tf-icons bx bx-building-house"></i>
+                <div data-i18n="Boxicons">Facility</div>
               </a>
             </li>
 
             <!-- Tables -->
             <li class="menu-item">
               <a href="{{ route('admin.user') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-table"></i>
+                <i class="menu-icon tf-icons bx bxs-user"></i>
                 <div data-i18n="Tables">User</div>
               </a>
             </li>
 
             <li class="menu-item">
               <a href="{{ route('admin.food') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-crown"></i>
-                <div data-i18n="Boxicons">Makanan</div>
+                <i class="menu-icon tf-icons bx bx-food-menu"></i>
+                <div data-i18n="Boxicons">Food</div>
               </a>
             </li>
             

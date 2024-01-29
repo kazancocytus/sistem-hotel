@@ -63,6 +63,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../assets/js/config.js"></script>
+    @vite('resources/css/app.css')
   </head>
 
   <body>
@@ -73,7 +74,7 @@
       @include('admin.layout.sidebar_admin');
 
         <!-- Layout container -->
-        <div class="layout-page">
+        <div class="layout-page bg-colorPrimary">
           <!-- Navbar -->
 
           <nav
@@ -82,7 +83,7 @@
           >
             <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
               <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                <i class="bx bx-menu bx-sm"></i>
+              <i class='bx bx-menu bx-sm'></i>
               </a>
             </div>
 
@@ -152,7 +153,7 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
               
-                <div class="col-lg-12 mb-4 order-0">
+                <!--div class="col-lg-12 mb-4 order-0">
                   <div class="card">
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
@@ -178,16 +179,16 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div-->
 
-                
+            <div class=" col-lg-12 py-5"> 
               <div class="row">
                 <!-- Total Revenue -->
                 <div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
-                  <div class="card">
+                  <div class="card bg-colorSecondary">
                     <div class="row row-bordered g-0">
                       <div class="col-md-8">
-                        <h5 class="card-header m-0 me-2 pb-3">Total Revenue</h5>
+                        <h5 class="card-header m-0 me-2 pb-3 ">Total Revenue</h5>
                         <div id="totalRevenueChart" class="px-2"></div>
                       </div>
                       <div class="col-md-4">
@@ -195,7 +196,7 @@
                           <div class="text-center">
                             <div class="dropdown">
                               <button
-                                class="btn btn-sm btn-outline-primary dropdown-toggle"
+                                class="btn btn-sm  dropdown-toggle"
                                 type="button"
                                 id="growthReportId"
                                 data-bs-toggle="dropdown"
@@ -221,7 +222,7 @@
                               <span class="badge bg-label-primary p-2"><i class="bx bx-dollar text-primary"></i></span>
                             </div>
                             <div class="d-flex flex-column">
-                              <small>2022</small>
+                              <small>2023</small>
                               <h6 class="mb-0">$32.5k</h6>
                             </div>
                           </div>
@@ -230,7 +231,7 @@
                               <span class="badge bg-label-info p-2"><i class="bx bx-wallet text-info"></i></span>
                             </div>
                             <div class="d-flex flex-column">
-                              <small>2021</small>
+                              <small>2024</small>
                               <h6 class="mb-0">$41.2k</h6>
                             </div>
                           </div>
@@ -244,11 +245,11 @@
 
                 <!-- Order Statistics -->
                 <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-                  <div class="card h-100">
-                    <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                  <div class="card h-100  bg-colorSecondary">
+                    <div class="card-header d-flex align-items-center justify-content-between pb-0 ">
                       <div class="card-title mb-0">
                         <h5 class="m-0 me-2">Reservation Statistics</h5>
-                        <small class="text-muted"> 12,988 Total Reservation</small>
+                        <small class=" fw-bold"> 10,234 Total Reservation This Year</small>
                       </div>
                       <div class="dropdown">
                         <button
@@ -271,7 +272,7 @@
                     <div class="card-body">
                       <div class="d-flex justify-content-between align-items-center mb-3">
                         <div class="d-flex flex-column align-items-center gap-1">
-                          <h2 class="mb-2">8,258</h2>
+                          <h2 class="mb-2 fw-bolder">546</h2>
                           <span>Total Reservation this month</span>
                         </div>
                         <div id="orderStatisticsChart"></div>
@@ -279,61 +280,59 @@
                       <ul class="p-0 m-0">
                         <li class="d-flex mb-4 pb-1">
                           <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-primary"
-                              ><i class="bx bx-mobile-alt"></i
-                            ></span>
+                            <span class="avatar-initial rounded bg-label-primary"><i class="bx bxs-building-house"></i></span>
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
-                              <h6 class="mb-0"></h6>
-                              <small class="text-muted">Booking room</small>
-                            </div>
-                            <div class="user-progress">
-                              <small class="fw-semibold">450</small>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-success"><i class="bx bx-closet"></i></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <h6 class="mb-0">check-in</h6>
-                             
-                            </div>
-                            <div class="user-progress">
-                              <small class="fw-semibold">338 </small>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="d-flex mb-4 pb-1">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-info"><i class="bx bx-home-alt"></i></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <h6 class="mb-0">check-out</h6>
+                              <h6 class="mb-0 fw-bolder">Booking Room </h6>
                               
                             </div>
                             <div class="user-progress">
-                              <small class="fw-semibold">239</small>
+                              <small class="fw-semibold">40</small>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-success"><i class="bx bx-door-open"></i></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <h6 class="mb-0 fw-bolder">check-in</h6>
+                             
+                            </div>
+                            <div class="user-progress">
+                              <small class="fw-semibold">50 </small>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="d-flex mb-4 pb-1">
+                          <div class="avatar flex-shrink-0 me-3">
+                            <span class="avatar-initial rounded bg-label-info"><i class="bx bx-up-arrow-alt"></i></span>
+                          </div>
+                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                            <div class="me-2">
+                              <h6 class="mb-0 fw-bolder">check-out</h6>
+                              
+                            </div>
+                            <div class="user-progress">
+                              <small class="fw-semibold">25</small>
                             </div>
                           </div>
                         </li>
                         <li class="d-flex">
                           <div class="avatar flex-shrink-0 me-3">
                             <span class="avatar-initial rounded bg-label-secondary"
-                              ><i class="bx bx-football"></i
+                              ><i class="bx bxs-building"></i
                             ></span>
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
-                              <h6 class="mb-0">Ballroom</h6>
+                              <h6 class="mb-0 fw-bolder">Ballroom</h6>
                               
                             </div>
                             <div class="user-progress">
-                              <small class="fw-semibold">104</small>
+                              <small class="fw-semibold">10</small>
                             </div>
                           </div>
                         </li>
@@ -345,6 +344,7 @@
 
                 
                 </div>
+              </div>
             </div>
             <!-- / Content -->
 
