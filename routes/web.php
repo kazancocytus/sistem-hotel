@@ -58,7 +58,10 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
 
     Route::get('/add/facility', [FacilityController::class, 'AddFacility'])->name('add.facility');
     Route::post('/store/facility', [FacilityController::class, 'StoreFacility'])->name('store.facility');
-    
+    Route::get('/edit/facility/{id}', [FacilityController::class, 'EditFacility'])->name('edit.facility');
+    Route::get('/delete/facility/{id}', [FacilityController::class, 'DeleteFacility'])->name('delete.facility');
+    Route::post('/update/facility', [FacilityController::class, 'UpdateFacility'])->name('update.facility');
+
 });
 
 

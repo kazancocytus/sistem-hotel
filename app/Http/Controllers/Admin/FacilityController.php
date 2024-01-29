@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Facility;
-
+use Illuminate\Http\RedirectResponse;
 
 class FacilityController extends Controller
 {
@@ -31,6 +31,43 @@ class FacilityController extends Controller
 
         Facility::create($input);
 
-        return redirect()->route('admin.facility')->with('success', 'Facility created Successfully');
+        return redirect()->route('admin.facility');
+    }
+
+    public function EditFacility($id){
+        $facility = Facility::findOrFail($id);
+        return view('manage.facility.edit_facility',compact('facility'));
+    }
+
+    public function UpdateFacility(Request $request, Facility $facility): RedirectResponse{
+        $fid = $request->id;
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'image' => 'required'
+        ]);
+
+        $input = $request->all();
+        
+        if($image = $request->file('image')){
+            $destinatiionPath = 'assets/img/facility';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalName();
+            $image->move($destinatiionPath, $profileImage);
+            $input['image'] = "$profileImage";
+        } else {
+            unset($input['image']);
+        }
+        
+        Facility::findOrFail($fid)->update($input);
+        
+        return redirect()->route('admin.facility');
+    }
+
+    public function DeleteFacility($id, Request $request){
+        $input = $request->all();
+        Facility::findOrFail($id)->delete($input);
+
+        return redirect()->route('admin.facility');
     }
 }
