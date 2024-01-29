@@ -24,9 +24,9 @@ Route::get('/contact', function () {
     return view('contactpage');
 });//Contact Page
 
-Route::middleware(['auth', 'roles_name::Admin'])->group(function(){
-    Route::get('/admin', [AdminController::class, 'AdminIndex'])->name('admin.index_admin');
-});
+// Route::middleware(['auth', 'roles_name::Admin'])->group(function(){
+//     Route::get('/admin', [AdminController::class, 'AdminIndex'])->name('admin.index_admin');
+// });
 
 
 Route::get('/', function () {
@@ -43,7 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware([])->group(function(){
+Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
 
     Route::get('/admin', [AdminController::class, 'AdminIndex'])->name('admin.index');
     Route::get('/admin/facility', [AdminController::class, 'AdminFacility'])->name('admin.facility');

@@ -40,6 +40,7 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
+        $request->session()->regenerate();
 
         $input = $request->all();
         
@@ -50,7 +51,7 @@ class LoginController extends Controller
 
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))){
             if(auth()->user()->roles_name === 'Admin'){
-                return redirect()->intended('/admin');
+                return redirect()->route('admin.index');
             } elseif(auth()->user()->roles_name === 'Agent'){
                 $url = 'agent/dashboard';
             } elseif(auth()->user()->roles_name === 'User'){
