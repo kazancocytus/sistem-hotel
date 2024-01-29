@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
 use App\Models\Facility;
+use App\Models\Food;
 
 class AdminController extends Controller
 {
@@ -18,12 +19,9 @@ class AdminController extends Controller
         return view('admin.facility',compact('facility'));
     }
 
-    public function AddFacility(){
-        
-    }
-
     public function AdminFood(){
-        return view('admin.food');
+        $food = Food::latest()->get();
+        return view('admin.food',compact('food'));
     }
 
     public function AdminReport(){

@@ -141,6 +141,7 @@
 
                 <!-- Basic Bootstrap Table -->
 
+                <a href="{{ route('add.food') }}">Add Food</a>
                 <div class=" col-lg-12 py-5">
                   <div class="card">
                   <h5 class="card-header bg-colorThird">Food</h5>
@@ -154,8 +155,9 @@
                         </tr>
                       </thead>
                       <tbody class="table-border-bottom-0">
+                        @foreach($food as $key => $list)
                         <tr>
-                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Nasi Goreng</strong></td>
+                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $list->name }}</strong></td>
                         
                           <td>
                             <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
@@ -166,7 +168,7 @@
                                 class="avatar avatar-xl pull-up"
                                 title="Nasi Goreng"
                               >
-                                <img src="../assets/img/elements/nasgor.jpg" alt="Avatar" class="rounded-circle"/>
+                                <img src="{{ url('assets/img/food/'.$list->image) }}" alt="Avatar" class="rounded-circle"/>
                               </li>
                             
                           
@@ -179,7 +181,7 @@
                                 <a class="dropdown-item" href="javascript:void(0);"
                                   ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                 >
-                                <a class="dropdown-item" href="javascript:void(0);"
+                                <a class="dropdown-item" href="{{ route('delete.food',$list->id) }}"
                                   ><i class="bx bx-trash me-1"></i> Delete</a
                                 >
                               </div>
@@ -187,106 +189,12 @@
                           </td>
                         </tr>
 
-                      <tr>
-                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Croissant</strong></td>
-                        
-                          <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xl pull-up"
-                                title="croissant"
-                              >
-                                <img src="../assets/img/elements/croisant.jpeg" alt="Avatar" class="rounded-circle" />
-                              </li>
-                            
-                          
-                          <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-trash me-1"></i> Delete</a
-                                >
-                              </div>
+                                                    
+                        </div>
                             </div>
                           </td>
                         </tr>
-                        
-                        <tr>
-                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Ayam Taliwang</strong></td>
-                        
-                        
-                          <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xl pull-up"
-                                title="Ayam Taliwang"
-                              >
-                                <img src="../assets/img/elements/ayam.jpeg" alt="Avatar" class="rounded-circle" />
-                              </li>
-                            
-                          
-                          <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-trash me-1"></i> Delete</a
-                                >
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-
-                        <tr>
-                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Cromboloni</strong></td>
-                          
-                        
-                          <td>
-                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                              <li
-                                data-bs-toggle="tooltip"
-                                data-popup="tooltip-custom"
-                                data-bs-placement="top"
-                                class="avatar avatar-xl pull-up"
-                                title="Cromboloni"
-                              >
-                                <img src="../assets/img/elements/cromboloni.jpg" alt="Avatar" class="rounded-circle" />
-                              </li>
-                            
-                          
-                          <td>
-                            <div class="dropdown">
-                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                              </button>
-                              <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                                >
-                                <a class="dropdown-item" href="javascript:void(0);"
-                                  ><i class="bx bx-trash me-1"></i> Delete</a
-                                >
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>

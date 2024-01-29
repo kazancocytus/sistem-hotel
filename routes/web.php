@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FacilityController;
+use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -62,6 +63,16 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
     Route::get('/edit/facility/{id}', [FacilityController::class, 'EditFacility'])->name('edit.facility');
     Route::get('/delete/facility/{id}', [FacilityController::class, 'DeleteFacility'])->name('delete.facility');
     Route::post('/update/facility', [FacilityController::class, 'UpdateFacility'])->name('update.facility');
+
+});
+
+Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
+
+    Route::get('/add/food', [FoodController::class, 'AddFood'])->name('add.food');
+    Route::post('/store/food', [FoodController::class, 'StoreFood'])->name('store.food');
+    Route::get('/edit/food/{id}', [FoodController::class, 'EditFood'])->name('edit.food');
+    Route::get('/delete/food/{id}', [FoodController::class, 'DeleteFood'])->name('delete.food');
+    Route::post('/update/food', [FoodController::class, 'UpdateFood'])->name('update.food');
 
 });
 
