@@ -21,76 +21,69 @@
 
 <body>
 
-    {{-- Navbar Start --}}
+    @include('components.navbar')
 
-    <div class="bg-colorPrimary">
-        <header class="fixed inset-x-0 top-0 z-50 bg-colorgreen">
-            <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div class="flex lg:flex-1">
-                    <a href="#" class="-m-3 p-3">
-                        <img class="h-10 w-auto" src="{{ asset('assets/evergreenlogobgcrop.png') }}" alt=""><a
-                            href="#" class="text-white self-center font-julius">EVERGREEN Hotel</a>
-                    </a>
-                </div>
-                <div class="lg:flex lg:gap-x-20 justify-self-end">
-                    <a href="#" class="text-sm font-josefin font-light leading-6 text-white">Room</a>
-                    <a href="#" class="text-sm font-josefin font-light leading-6 text-white">Reservation</a>
-                    <a href="#" class="text-sm font-josefin font-light leading-6 text-white">Contact</a>
-                    <a href="#" class="text-sm font-josefin font-light leading-6 text-white">About</a>
-                </div>
-                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white"
-                        data-bs-toggle="modal" data-bs-target="#modalLogin">Log in <span
-                            aria-hidden="true">&rarr;</span></button>
-                </div>
-            </nav>
-    </div>
-
-    {{-- Navbar Stop --}}
-
-
-    <div>
-        <div class=" pt-24"><iframe class=" w-full h-96"
+    <div class=" bg-colorSecondary">
+        <div class=" pt-20"><iframe class=" w-full h-96"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127310.60600675312!2d106.88066931291503!3d-6.644368248457376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69b6606aaf84c5%3A0xcf58f03e3918401d!2sEvergreen%20Hotel%20%26%20Village!5e0!3m2!1sid!2sid!4v1706001470228!5m2!1sid!2sid"
                 width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-        <div class=" items-baseline">
-            <div class=" w-2/5 mx-8">
-                <div class=" w-2/5 px-8 pt-8 font-josefin font-semibold text-4xl">Contact</div>
-                <hr class=" w-2/5">
-                <div class=" w-2/5 pt-8 font-josefin font-light text-xl"><i
-                        class="bi bi-geo-alt-fill mr-4 mb-10"></i>Jl. Raya Puncak - Gadog No.Km. 84, Tugu Utara, Kec.
-                    Cisarua</div>
-                <div class=" w-2/5 pb-4 font-josefin font-light text-xl ml-9">Kabupaten Bogor, Jawa Barat 16750</div>
-                <div class=" py-2 font-josefin font-light text-xl "><i
-                        class="bi bi-telephone-fill mr-4"></i>(0251)8250077</div>
-                <div class=" py-2 font-josefin font-light text-xl "><i class="bi bi-whatsapp mr-4"></i>08328434873</div>
-                <div class=" py-2 font-josefin font-light text-xl "><i
-                        class="bi bi-envelope-at-fill mr-4"></i>evergreenhotel@gmail.com</div>
-            </div>
-            <div class=" float-none w-2/5 mx-8">
-                <div class=" w-2/5 px-8 pt-8 font-josefin font-semibold text-4xl">Social Media</div>
-                <hr class=" w-2/5">
-                <div class=" w-2/5 pt-8 font-josefin font-light text-xl"><i
-                        class="bi bi-geo-alt-fill mr-4 mb-10"></i>Jl. Raya Puncak - Gadog No.Km. 84, Tugu Utara, Kec.
-                    Cisarua</div>
-                <div class=" w-2/5 pb-4 font-josefin font-light text-xl ml-9">Kabupaten Bogor, Jawa Barat 16750</div>
-                <div class=" py-2 font-josefin font-light text-xl "><i
-                        class="bi bi-telephone-fill mr-4"></i>(0251)8250077</div>
-                <div class=" py-2 font-josefin font-light text-xl "><i class="bi bi-whatsapp mr-4"></i>08328434873</div>
-                <div class=" py-2 font-josefin font-light text-xl "><i
-                        class="bi bi-envelope-at-fill mr-4"></i>evergreenhotel@gmail.com</div>
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class=" container">
+            <div class=" row">
+                <div class=" w-2/5 mx-8">
+                    <div class=" w-1/2 px-8 pt-8 font-josefin font-semibold text-4xl">Contact</div>
+                    <hr class=" w-2/5">
+                    <div class=" pt-8 font-josefin font-light text-xl">
+                        <i class="bi bi-geo-alt-fill mr-4 mb-6"></i>Jl.Raya Puncak - Gadog Km. 84, Tugu Utara
+                    </div>
+                    <div class=" pb-3 font-josefin font-light text-xl ml-9">Kec.Cisarua Kabupaten Bogor, Jawa Barat
+                        16750</div>
+                    <div class=" py-3 font-josefin font-light text-xl ">
+                        <i class="bi bi-telephone-fill mr-4"></i>(0251)8250077
+                    </div>
+                    <div class=" py-3 font-josefin font-light text-xl ">
+                        <i class="bi bi-whatsapp mr-4"></i>08328434873
+                    </div>
+                    <a href="">
+                        <div class=" py-2 font-josefin font-light text-xl ">
+                            <i class="bi bi-envelope-at-fill mr-4"></i>evergreenhotel@gmail.com
+                        </div>
+                    </a>
+                </div>
+                <div class=" w-2/5 mx-8">
+                    <div class=" px-8 pt-8 font-josefin font-semibold text-4xl">Social Media</div>
+                    <hr class=" w-3/5">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <div class=" pt-8 pb-3 font-josefin font-light text-2xl">
+                                    <i class="bi bi-instagram mr-4"></i>evergreen_hotel
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class=" py-3 font-josefin font-light text-2xl ">
+                                    <i class="bi bi-facebook mr-4"></i>Evergreen Hotel Indonesia
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class=" py-3 font-josefin font-light text-2xl ">
+                                    <i class="bi bi-twitter mr-4"></i>evergreen_hotel
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
+
+
+        @include('components.footer')
     </div>
-
-    <footer>
-        <div class=" mt-5 py-8 bg-colorBg ">
-            <div class=" text-center text-sm text-colorThird">Copyright<i class="bi bi-c-circle ml-2"></i>Evergreen
-                Hotel Company. All Rights Reserved.</div>
-        </div>
-    </footer>
-
 </body>
 
 </html>

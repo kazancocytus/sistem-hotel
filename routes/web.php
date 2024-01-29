@@ -18,10 +18,17 @@ use App\Http\Controllers\Api\HomeController;
 |
 */
 
-Route::get('/customer', [HomeController::class, 'home']); //Home Page
+Route::get('/index', [HomeController::class, 'home']); //Home Page
 Route::get('/contact', function () {
     return view('contactpage');
 });//Contact Page
+Route::get('/reservation', function () {
+    return view('reservationpage');
+});//Rooms Page
+Route::get('/about', function () {
+    return view('aboutpage');
+});//About Page
+
 
 
 Route::get('/', function () {
