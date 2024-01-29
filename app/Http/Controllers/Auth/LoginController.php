@@ -48,14 +48,14 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
+        
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))){
             if(auth()->user()->roles_name === 'Admin'){
-                return redirect()->route('admin.index');
+                return redirect()->route('dashboard');
             } elseif(auth()->user()->roles_name === 'Agent'){
                 $url = 'agent/dashboard';
             } elseif(auth()->user()->roles_name === 'User'){
-                return redirect()->route('home');
+                return redirect()->route('dashboard');
             }
         }
 
