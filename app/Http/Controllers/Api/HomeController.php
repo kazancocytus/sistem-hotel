@@ -28,6 +28,18 @@ class HomeController extends Controller
         return view('homepage');
     }
 
+    public function Contact(){
+        return view('contactpage');
+    }
+
+    public function Reservation(){
+        return view('reservationpage');
+    }
+
+    public function About(){
+        return view('aboutpage');
+    }
+
 
     public function CostumerLogout(Request $request):RedirectResponse { 
         Auth::guard('web')->logout();

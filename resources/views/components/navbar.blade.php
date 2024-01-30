@@ -4,14 +4,13 @@
                 <div class="flex lg:flex-1">
                     <a href="#" class="-m-3 p-3">
                         <img class="h-10 w-auto" src="{{ asset('assets/evergreenlogobgcrop.png') }}" alt=""><a
-                            href="#" class="text-white self-center font-julius">EVERGREEN Hotel</a>
+                            href="{{ route('home') }}" class="text-white self-center font-julius">EVERGREEN Hotel</a>
                     </a>
                 </div>
                 <div class="lg:flex lg:gap-x-20 justify-self-end">
-                    <a href="#" class="text-sm font-josefin font-light leading-6 text-white">Room</a>
-                    <a href="#" class="text-sm font-josefin font-light leading-6 text-white">Reservation</a>
-                    <a href="#" class="text-sm font-josefin font-light leading-6 text-white">Contact</a>
-                    <a href="#" class="text-sm font-josefin font-light leading-6 text-white">About</a>
+                    <a href="{{ route('reservation') }}" class="text-sm font-josefin font-light leading-6 text-white">Reservation</a>
+                    <a href="{{ route('contact') }}" class="text-sm font-josefin font-light leading-6 text-white">Contact</a>
+                    <a href="{{ route('about') }}" class="text-sm font-josefin font-light leading-6 text-white">About</a>
                 </div>
 
 

@@ -19,21 +19,12 @@ use App\Http\Controllers\Api\HomeController;
 |
 */
 
-Route::get('/customer', [HomeController::class, 'Home'])->name('home'); //Home Page
+Route::get('/', [HomeController::class, 'Home'])->name('home'); //Home Page
 Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
-Route::get('/contact', function () {
-    return view('contactpage');
-});//Contact Page
-Route::get('/reservation', function () {
-    return view('reservationpage');
-});//Rooms Page
-Route::get('/about', function () {
-    return view('aboutpage');
-});//About Page
+Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
+Route::get('/reservation', [HomeController::class, 'Reservation'])->name('reservation');
+Route::get('/about', [HomeController::class, 'About'])->name('about');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
