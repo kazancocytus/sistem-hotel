@@ -60,17 +60,38 @@ class FoodController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function EditFood(string $id)
     {
-        //
+        $food = Food::findOrFail($id);
+        return view('manage.food.edit_food',compact('food'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function UpdateFood(Request $request, Food $food)
     {
-        //
+        $fdid = $request->id;
+
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required'
+        ]);
+
+        $input = $request->all();
+        
+        if($image = $request->file('image')){
+            $destinatiionPath = 'assets/img/food';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalName();
+            $image->move($destinatiionPath, $profileImage);
+            $input['image'] = "$profileImage";
+        } else {
+            unset($input['image']);
+        }
+        
+        Food::findOrFail($fdid)->update($input);
+        
+        return redirect()->route('admin.food');
     }
 
     /**

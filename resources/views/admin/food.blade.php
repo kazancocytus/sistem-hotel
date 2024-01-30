@@ -178,7 +178,7 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                               </button>
                               <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"
+                                <a class="dropdown-item" href="{{ route('edit.food',$list->id) }}"
                                   ><i class="bx bx-edit-alt me-1"></i> Edit</a
                                 >
                                 <a class="dropdown-item" href="{{ route('delete.food',$list->id) }}"
