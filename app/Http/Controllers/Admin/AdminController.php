@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
 use App\Models\Facility;
 use App\Models\Food;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -29,7 +30,8 @@ class AdminController extends Controller
     }
 
     public function AdminUser(){
-        return view('admin.user');
+        $user = User::whereNotIn('id', [1, 2, 3])->get();
+        return view('admin.user',compact('user'));
     }
 
     public function AdminLogout(Request $request){
