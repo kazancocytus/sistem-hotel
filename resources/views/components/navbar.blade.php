@@ -93,6 +93,11 @@
                     <form method="POST" action="{{ route('register') }}">
                     @csrf
                         <div class="mb-3">
+                            <label for="nip" class="form-label font-josefin">NIP</label>
+                            <input type="text" class="form-control rounded-xl" id="nip" name="nip"
+                                placeholder="Input Your NIP Here" autofocus/>
+                        </div>
+                        <div class="mb-3">
                             <label for="email" class="form-label font-josefin">Email</label>
                             <input type="email" class="form-control rounded-xl" id="email" name="email"
                                 placeholder="Input Your Email Here" />
