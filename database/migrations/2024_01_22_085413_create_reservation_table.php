@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reservation', function (Blueprint $table) {
-            $table->id('id_reservation');
+            $table->id();
             $table->integer('no_reservation')->index();
             $table->string('name');
-            $table->date('check_in');
-            $table->date('check_out');
-            $table->string('type_room')->enum('Deluxe', 'Suite', 'Standar');
+            $table->dateTime('check_in');
+            $table->dateTime('check_out');
+            $table->enum('type_room', ['Suite', 'Standar', 'Deluxe']);
             $table->integer('number_room')->index();
             $table->decimal('price', 10, 2);
             $table->string('image');
-            $table->string('status')->enum('Confirmed', 'Not yet Confirmed');
+            $table->enum('status', ['Confirmed', 'Not yet']);
             $table->timestamps();
         });
     }

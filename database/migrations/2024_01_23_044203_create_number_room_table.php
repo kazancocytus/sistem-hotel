@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id('id_number_room');
             $table->integer('number_room')->index();
             $table->string('type_room')->enum('Deluxe', 'Suite', 'Standar');
+            $table->decimal('price', 10, 2);
             $table->string('status')->enum('Available', 'not Available');
             $table->timestamps();
         });
