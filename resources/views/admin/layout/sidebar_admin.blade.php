@@ -4,7 +4,7 @@
 
 <aside id="layout-menu" class="layout-menu menu-vertical shadow  menu bg-colorSecondary   ">
           <div class="app-brand demo">
-            <a href="../index_admin.blade.php" class="app-brand-link">
+            <a href="{{ route('admin.index') }}" class="app-brand-link">
               <span class=" col-span-2  align-items-center">
                 <img src="/assets/evergreenlogobgcrop.png" width="70;" height="70;"
                 alt="">

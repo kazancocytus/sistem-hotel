@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FacilityController;
+use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,7 @@ use App\Http\Controllers\Api\HomeController;
 |
 */
 
+<<<<<<< HEAD
 
 Route::get('/index', [HomeController::class, 'home']); //Home Page
 Route::get('/customer', [HomeController::class, 'Home'])->name('home'); //Home Page
@@ -34,16 +36,14 @@ Route::get('/about', function () {
 Route::get('/detail', function () {
     return view('detailpage');
 });//Detail Page
+=======
+Route::get('/', [HomeController::class, 'Home'])->name('home'); //Home Page
+Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
+Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
+Route::get('/reservation', [HomeController::class, 'Reservation'])->name('reservation');
+Route::get('/about', [HomeController::class, 'About'])->name('about');
+>>>>>>> 5af0acbc395280093c7095d599a8e0f22563dc82
 
-
-// Route::middleware(['auth', 'roles_name::Admin'])->group(function(){
-//     Route::get('/admin', [AdminController::class, 'AdminIndex'])->name('admin.index_admin');
-// });
-
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -73,6 +73,16 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
     Route::get('/edit/facility/{id}', [FacilityController::class, 'EditFacility'])->name('edit.facility');
     Route::get('/delete/facility/{id}', [FacilityController::class, 'DeleteFacility'])->name('delete.facility');
     Route::post('/update/facility', [FacilityController::class, 'UpdateFacility'])->name('update.facility');
+
+});
+
+Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
+
+    Route::get('/add/food', [FoodController::class, 'AddFood'])->name('add.food');
+    Route::post('/store/food', [FoodController::class, 'StoreFood'])->name('store.food');
+    Route::get('/edit/food/{id}', [FoodController::class, 'EditFood'])->name('edit.food');
+    Route::get('/delete/food/{id}', [FoodController::class, 'DeleteFood'])->name('delete.food');
+    Route::post('/update/food', [FoodController::class, 'UpdateFood'])->name('update.food');
 
 });
 

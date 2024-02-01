@@ -10,5 +10,5 @@
 <input type="text" id="description" name="description" value="{{ $facility->description }}">
 <label for="image">Image</label>
 <input type="file" id="image" name="image" src="{{ url('assets/img/facility/'.$facility->images) }}">
-<button type="submit">Submit</button>
+<button id="update" type="submit">Submit</button>
 </form>
