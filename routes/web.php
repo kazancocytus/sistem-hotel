@@ -19,30 +19,12 @@ use App\Http\Controllers\Api\HomeController;
 |
 */
 
-<<<<<<< HEAD
-
-Route::get('/index', [HomeController::class, 'home']); //Home Page
-Route::get('/customer', [HomeController::class, 'Home'])->name('home'); //Home Page
-Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
-Route::get('/contact', function () {
-    return view('contactpage');
-});//Contact Page
-Route::get('/reservation', function () {
-    return view('reservationpage');
-});//Rooms Page
-Route::get('/about', function () {
-    return view('aboutpage');
-});//About Page
-Route::get('/detail', function () {
-    return view('detailpage');
-});//Detail Page
-=======
 Route::get('/', [HomeController::class, 'Home'])->name('home'); //Home Page
 Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
 Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('/reservation', [HomeController::class, 'Reservation'])->name('reservation');
 Route::get('/about', [HomeController::class, 'About'])->name('about');
->>>>>>> 5af0acbc395280093c7095d599a8e0f22563dc82
+Route::get('/detail', [HomeController::class, 'Detail'])->name('detail');
 
 
 Route::get('/dashboard', function () {

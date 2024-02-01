@@ -39,6 +39,9 @@ class HomeController extends Controller
     public function About(){
         return view('aboutpage');
     }
+    public function Detail(){
+        return view('detailpage');
+    }
 
 
     public function CostumerLogout(Request $request):RedirectResponse { 
