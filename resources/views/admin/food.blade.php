@@ -143,11 +143,11 @@
 
                 <a href="{{ route('add.food') }}">Add Food</a>
                 <div class=" col-lg-12 py-5">
-                  <div class="card">
-                  <h5 class="card-header bg-colorThird">Food</h5>
+                  <div class="card shadow">
+                    <h5 class="card-header bg-colorThird"></h5>
                   <div class="table-responsive text-nowrap">
                     <table class="table bg-colorPrimary">
-                      <thead>
+                      <thead class=" bg-colorThird ">
                         <tr>
                           <th>Food Name</th>
                           <th>Picture</th>
@@ -166,7 +166,7 @@
                                 data-popup="tooltip-custom"
                                 data-bs-placement="top"
                                 class="avatar avatar-xl pull-up"
-                                title="Nasi Goreng"
+                                
                               >
                                 <img src="{{ url('assets/img/food/'.$list->image) }}" alt="Avatar" class="rounded-circle"/>
                               </li>
