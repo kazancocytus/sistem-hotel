@@ -21,30 +21,6 @@
 
 <body>
 
-    {{-- Navbar Start --}}
-
-    <div class=" bg-colorSecondary">
-        <header class="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-colorgreen from-70% to-transparent">
-            <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div class="flex lg:flex-1">
-                    <a href="#" class="-m-3 p-3">
-                        <img class="h-10 w-auto" src="{{ asset('assets/evergreenlogobgcrop.png') }}" alt=""><a
-                            href="#" class="text-white self-center font-julius">EVERGREEN Hotel</a>
-                    </a>
-                </div>
-                <div class="lg:flex lg:gap-x-20 justify-self-end">
-                    <a href="#" class="text-sm font-josefin font-light leading-6 text-white">Reservation</a>
-                    <a href="#" class="text-sm font-josefin font-light leading-6 text-white">Contact</a>
-                    <a href="#" class="text-sm font-josefin font-light leading-6 text-white">About</a>
-                </div>
-                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white"
-                        data-bs-toggle="modal" data-bs-target="#modalLogin">Log in <span
-                            aria-hidden="true">&rarr;</span></button>
-                </div>
-            </nav>
-    </div>
-
     @include('components.navbar')
 
     <div class=" bg-colorSecondary">
@@ -92,8 +68,8 @@
                         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                         <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="M5 1 1 5l4 4" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 1 1 5l4 4" />
                         </svg>
                         <span class="sr-only">Previous</span>
                     </span>
@@ -105,8 +81,8 @@
                         class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                         <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" d="m1 9 4-4-4-4" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 9 4-4-4-4" />
                         </svg>
                         <span class="sr-only">Next</span>
                     </span>
@@ -120,7 +96,7 @@
                 in-room dining. Pamper yourself in the spacious bathroom, featuring a deluxe shower and a range of
                 upscale amenities. Experience the epitome of sophistication in our Suites.</div>
             <div class=" mt-10 mb-6 px-10 py-2 text-sm text-left font-josefin">
-                <div class=" row text-slate-500">
+                <div class=" relative row text-slate-500">
                     <div class="font-josefin text-lg text-left">Facilities :</div>
                     <hr class="rounded-full mb-6" style="height: 2px!important;">
                     <ul class=" w-1/5">
@@ -137,9 +113,29 @@
                         <li class="py-2 font-josefin">Private balcony with panoramic views</li>
                         <li class="py-2 font-josefin">Fully equipped kitchenette</li>
                     </ul>
-                    <div>
-                        <button type="button" class="btn btn-primary btn-lg float-right"
-                            style="background-color: #597E52 !important">Book Now</button>
+                    <div class=" absolute bottom-0 right-0 w-3/12">
+                        <div class=" mb-3">
+                            <span class=" text-center font-josefin text-3xl font-bold text-colorgreen">$9.999 /
+                                Night</span>
+                        </div>
+                        <div class=" ml-3">
+                            <button class=" right">
+                                <a href="#_"
+                                    class="relative inline-flex items-center px-12 py-2 overflow-hidden text-lg font-josefin font-medium text-colorBg border-2 border-colorgreen rounded-full hover:text-white group hover:bg-gray-50">
+                                    <span
+                                        class="absolute left-0 block w-full h-0 transition-all bg-colorgreen opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                                    <span
+                                        class="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="relative">Book Now</span>
+                                </a>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -210,7 +206,7 @@
                 a relaxing bathtub and premium toiletries. Stay connected with high-speed Wi-Fi and unwind with a
                 selection of in-room entertainment options. Experience opulence at its best in our Deluxe Rooms.</div>
             <div class=" mt-10 mb-6 px-10 py-2 text-sm text-left font-josefin">
-                <div class=" row text-slate-500">
+                <div class=" relative row text-slate-500">
                     <div class="font-josefin text-lg text-left">Facilities :</div>
                     <hr class="rounded-full mb-6" style="height: 2px!important;">
                     <ul class=" w-1/5">
@@ -225,9 +221,29 @@
                         <li class="py-2 font-josefin">Elegant furnishings</li>
                         <li class="py-2 font-josefin">Spacious en-suite bathroom with bathtubs</li>
                     </ul>
-                    <div>
-                        <button type="button" class="btn btn-primary btn-lg float-right"
-                            style="background-color: #597E52 !important">Book Now</button>
+                    <div class=" absolute bottom-0 right-0 w-3/12">
+                        <div class=" mb-3">
+                            <span class=" text-center font-josefin text-3xl font-bold text-colorgreen">$9.999 /
+                                Night</span>
+                        </div>
+                        <div class=" ml-3">
+                            <button class=" right">
+                                <a href="#_"
+                                    class="relative inline-flex items-center px-12 py-2 overflow-hidden text-lg font-josefin font-medium text-colorBg border-2 border-colorgreen rounded-full hover:text-white group hover:bg-gray-50">
+                                    <span
+                                        class="absolute left-0 block w-full h-0 transition-all bg-colorgreen opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                                    <span
+                                        class="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="relative">Book Now</span>
+                                </a>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -299,7 +315,7 @@
                 offering a rejuvenating shower and complimentary toiletries. Standard Rooms at Evergreen Hotel provide a
                 welcoming and affordable accommodation option.</div>
             <div class=" mt-10 mb-6 px-10 py-2 text-sm text-left font-josefin">
-                <div class=" row text-slate-500">
+                <div class=" relative row text-slate-500">
                     <div class="font-josefin text-lg text-left">Facilities :</div>
                     <hr class="rounded-full mb-6" style="height: 2px!important;">
                     <ul class=" w-1/5">
@@ -309,9 +325,29 @@
                         <li class="py-2 font-josefin">Air conditioning and heating</li>
                         <li class="py-2 font-josefin">Daily housekeeping</li>
                     </ul>
-                    <div>
-                        <button type="button" class="btn btn-primary btn-lg float-right"
-                            style="background-color: #597E52 !important">Book Now</button>
+                    <div class=" absolute bottom-0 right-0 w-3/12">
+                        <div class=" mb-3">
+                            <span class=" text-center font-josefin text-3xl font-bold text-colorgreen">$9.999 /
+                                Night</span>
+                        </div>
+                        <div class=" ml-3">
+                            <button class=" right">
+                                <a href="#_"
+                                    class="relative inline-flex items-center px-12 py-2 overflow-hidden text-lg font-josefin font-medium text-colorBg border-2 border-colorgreen rounded-full hover:text-white group hover:bg-gray-50">
+                                    <span
+                                        class="absolute left-0 block w-full h-0 transition-all bg-colorgreen opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                                    <span
+                                        class="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="relative">Book Now</span>
+                                </a>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

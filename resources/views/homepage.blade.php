@@ -23,11 +23,14 @@
 
     @include('components.navbar')
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5af0acbc395280093c7095d599a8e0f22563dc82
     <div class=" bg-colorSecondary">
         <div class=" container p-0 m-0 self-stretc">
-            <div id="hero" class=" bg-gradient-to-b to-colorPrimary">
-                <img class="w-full max-h-screen flex relative" src="{{ asset('assets/heroimg.jpg') }}" alt="">
+            <div id="hero" class=" shadow-2xl bg-gradient-to-b to-colorPrimary">
+                <img class="w-full max-h-dvh flex relative" src="{{ asset('assets/heroimg.jpg') }}" alt="">
                 <div
                     class=" absolute font-josefin font-semibold text-colorPrimary text-9xl top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2">
                     <h1>Welcome</h1>
@@ -117,4 +120,11 @@
         </div>
 
         @include('components.footer')
+<<<<<<< HEAD
+    </div>
+</body>
+
+</html>
+=======
     
+>>>>>>> 5af0acbc395280093c7095d599a8e0f22563dc82
