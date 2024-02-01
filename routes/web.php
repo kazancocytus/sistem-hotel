@@ -18,12 +18,10 @@ use App\Http\Controllers\Api\HomeController;
 |
 */
 
-<<<<<<< HEAD
+
 Route::get('/index', [HomeController::class, 'home']); //Home Page
-=======
 Route::get('/customer', [HomeController::class, 'Home'])->name('home'); //Home Page
 Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
->>>>>>> 1c7f38ae529f5f41fc984758d0ad83db9c6afb8a
 Route::get('/contact', function () {
     return view('contactpage');
 });//Contact Page
@@ -33,6 +31,9 @@ Route::get('/reservation', function () {
 Route::get('/about', function () {
     return view('aboutpage');
 });//About Page
+Route::get('/detail', function () {
+    return view('detailpage');
+});//Detail Page
 
 
 // Route::middleware(['auth', 'roles_name::Admin'])->group(function(){
