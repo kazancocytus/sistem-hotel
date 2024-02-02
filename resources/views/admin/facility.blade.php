@@ -199,16 +199,12 @@
                 </div>
               </div>
 
-
-            </div>
-
-
-            <div class=" col-lg-12 py-5">
-                <div class="card">
-                <h5 class="card-header bg-colorThird">Room Faciility</h5>
+              <div class=" col-lg-12 py-5">
+                <div class="card shadow">
+                <h5 class="card-header bg-colorThird"></h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table bg-colorPrimary">
-                    <thead>
+                    <thead class=" bg-colorThird">
                       <tr>
                         <th>facilitation name</th>
                         <th>Description</th>
@@ -366,6 +362,11 @@
 
             </div>
              
+
+            
+
+            </div>
+
 
              
               <!--/ Basic Bootstrap Table -->

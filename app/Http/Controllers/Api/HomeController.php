@@ -39,7 +39,13 @@ class HomeController extends Controller
     public function About(){
         return view('aboutpage');
     }
+    public function Detail(){
+        return view('detailpage');
+    }
 
+    public function ModalLogin(){
+        // return view('#modalLogin');
+    }
 
     public function CostumerLogout(Request $request):RedirectResponse { 
         Auth::guard('web')->logout();

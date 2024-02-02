@@ -24,6 +24,8 @@ Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name(
 Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('/reservation', [HomeController::class, 'Reservation'])->name('reservation');
 Route::get('/about', [HomeController::class, 'About'])->name('about');
+Route::get('/detail', [HomeController::class, 'Detail'])->name('detail');
+Route::get('/modalLogin-show', [HomeController::class, 'ModalLogin'])->name('modalLogin_show');
 
 
 Route::get('/dashboard', function () {

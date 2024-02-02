@@ -145,13 +145,13 @@
 
             <div class="col-lg-12 py-3">
 
-              <div class="card ">
-                <h5 class="card-header bg-colorThird">Customer</h5>
+              <div class="card shadow">
+                <h1 class="card-header bg-colorThird"></h1>
                 <div class="table-responsive text-nowrap">
                   <table class="table  bg-colorPrimary">
-                    <thead>
+                    <thead class=" bg-colorThird ">
                       <tr>
-                        <th>Nama</th>
+                        <th>Customer Name</th>
                         <th>Phone</th>
                         <th>Type</th>
                         <th>check-in</th>
@@ -279,7 +279,7 @@
                 <!-- Expense Overview -->
               <div class=" col-lg-12 py-5 ">
                 <div class="float-start col-lg-12 order-1 mb-4 ">
-                  <div class="card h-100 bg-colorPrimary">
+                  <div class="card h-100 shadow bg-colorPrimary">
                     <div class="card-header bg-colorThird">
                       <ul class="nav nav-pills" role="tablist">
                         <li class="nav-item">
