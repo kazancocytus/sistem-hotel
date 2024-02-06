@@ -22,11 +22,6 @@
 <body>
 
     @include('components.navbar')
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 5af0acbc395280093c7095d599a8e0f22563dc82
     <div class=" bg-colorSecondary">
         <div class=" container p-0 m-0 self-stretc">
             <div id="hero" class=" shadow-2xl bg-gradient-to-b to-colorPrimary">
@@ -120,11 +115,9 @@
         </div>
 
         @include('components.footer')
-<<<<<<< HEAD
+
+   
     </div>
 </body>
 
 </html>
-=======
-    
->>>>>>> 5af0acbc395280093c7095d599a8e0f22563dc82

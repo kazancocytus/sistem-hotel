@@ -43,6 +43,9 @@ class HomeController extends Controller
         return view('detailpage');
     }
 
+    public function ModalLogin(){
+        // return view('#modalLogin');
+    }
 
     public function CostumerLogout(Request $request):RedirectResponse { 
         Auth::guard('web')->logout();
