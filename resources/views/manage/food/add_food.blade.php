@@ -31,6 +31,8 @@
 
     <meta name="description" content="" />
 
+     
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/favicon/evergreenlogobgcrop.png" />
 
@@ -45,8 +47,7 @@
     
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==
-    " crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
@@ -169,7 +170,8 @@
                                                     <tbody class="table-border-bottom-0">
                                                         <td><input type="text" id="name" name="name" autocomplete="off"></td>
                                                         <td><input type="file" id="image" name="image"></td>
-                                                        <td><button type="submit" id="">Submit</button></td>
+                                                        <td><button type="submit" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none" >Submit</button></td>
+                                                        
                                                 </form>   
                                                 
                                                 
@@ -233,27 +235,9 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==
-    " crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script>
-        swal({
-      title: "Succes",
-      text: "your data has been saved",
-      icon: "success",
-      button: "Okay",
-            });
-    </script>
-
-    
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>   
     
     
-
     
   </body>
 </html>
