@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;  
 use App\Models\User;  
 use Illuminate\Http\RedirectResponse;
+use App\Models\TypeRoom;
+use App\Models\NumberRoom;
+use Faker\Core\Number;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -33,7 +37,14 @@ class HomeController extends Controller
     }
 
     public function Reservation(){
-        return view('reservationpage');
+        $typeRoom = DB::table('type_room')
+        ->join('number_room', 'number_room.number_room_id', '=', 'type_room.number_room_id')
+        ->select('type_room.*', 'number_room.price')
+        ->get();
+        // dd($typeRoom);
+        // $numberRoom = NumberRoom::whereIn('id', [5, 4, 6])->get();
+        // $typeRoom = TypeRoom::latest()->get();
+        return view('reservationpage',compact('typeRoom'));
     }
 
     public function About(){
@@ -43,8 +54,8 @@ class HomeController extends Controller
         return view('detailpage');
     }
 
-    public function ModalLogin(){
-        // return view('#modalLogin');
+    public function Bwah(){
+        return view('bwah');
     }
 
     public function CostumerLogout(Request $request):RedirectResponse { 

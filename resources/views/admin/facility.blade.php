@@ -183,7 +183,7 @@
                               <a class="dropdown-item" href="{{ route('edit.facility',$list->id) }}"
                                 ><i class="bx bx-edit-alt me-1"></i> Edit</a
                               >
-                              <a class="dropdown-item" href="{{ route('delete.facility',$list->id) }}"
+                              <a class="dropdown-item" id="delete" href="{{ route('delete.facility',$list->id) }}"
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
                             </div>
@@ -407,6 +407,10 @@
 
     <!-- Page JS -->
     <script src="../assets/js/dashboards-analytics.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+ <script src="../assets/js/delete-pop-up.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

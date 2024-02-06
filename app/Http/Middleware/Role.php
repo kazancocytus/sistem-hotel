@@ -19,6 +19,6 @@ class Role
             return $next($request);
         }
 
-        return response()->json(['gabisa bang']);
+        return redirect()->route('bwah');
     }
 }
