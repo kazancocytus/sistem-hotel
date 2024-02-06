@@ -45,7 +45,7 @@ class FoodController extends Controller
 
         Food::create($input);
 
-        return redirect()->route('admin.food');
+        return redirect()->route('admin.food')->with('success', 'Your Data has been saved!');
 
     }
 
@@ -91,7 +91,7 @@ class FoodController extends Controller
         
         Food::findOrFail($fdid)->update($input);
         
-        return redirect()->route('admin.food');
+        return redirect()->route('admin.food')->with('success', 'Your Data has been saved!');
     }
 
     /**

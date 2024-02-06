@@ -141,7 +141,7 @@
 
                 <!-- Basic Bootstrap Table -->
 
-                <a href="{{ route('add.food') }}">Add Food</a>
+                <a href="{{ route('add.food') }}" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Add Food</a>
                 <div class=" col-lg-12 py-5">
                   <div class="card shadow">
                     <h5 class="card-header bg-colorThird"></h5>
@@ -245,5 +245,15 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
  <script src="../assets/js/delete-pop-up.js"></script>
+ <script src="../assets/js/update-pop-up.js"></script>
+ <script src="../assets/js/edit-pop-up.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+ 
+ @include('sweetalert::alert')
+
+    
+    <script type="text/javascript">
+      
+    </script>
   </body>
 </html>

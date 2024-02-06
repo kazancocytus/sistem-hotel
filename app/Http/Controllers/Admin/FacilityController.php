@@ -31,7 +31,7 @@ class FacilityController extends Controller
 
         Facility::create($input);
 
-        return redirect()->route('admin.facility');
+        return redirect()->route('admin.facility')->with('success', 'Your Data has been saved!');
     }
 
     public function EditFacility($id){
@@ -61,7 +61,7 @@ class FacilityController extends Controller
         
         Facility::findOrFail($fid)->update($input);
         
-        return redirect()->route('admin.facility');
+        return redirect()->route('admin.facility')->with('success', 'Your Data has been saved!');
     }
 
     public function DeleteFacility($id, Request $request){

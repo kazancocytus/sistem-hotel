@@ -161,7 +161,7 @@
                                                     <tbody class="table-border-bottom-0">
                                                         <td><input type="text" id="name" name="name" autocomplete="off" value="{{ $food->name }}"></td>
                                                         <td><input type="file" id="image" name="image" value="{{ url('assets/img/food/'.$food->image) }}"></td>
-                                                        <td><button type="submit">Submit</button></td>
+                                                        <td><button type="submit" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Submit</button></td>
                                                 </form>   
                                                       
 
@@ -221,5 +221,8 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script src="../assets/js/edit-pop-up.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>   
   </body>
 </html>
