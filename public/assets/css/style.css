@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Nerko+One&display=swap');
+
+
+
+.body{
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Nerko One', cursive;
+}
+
+#hero{
+    background-image: url('../../assets/hi.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 700px;
+}
+
+
+.hero-title{
+    font-family: 'Nerko One', cursive;
+    padding-top: 250px;
+    text-align: center;
+    font-size: 100px;
+    text-shadow: 5px 5px black;
+
+}
+
+.offcanvas-body{
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/*login*/
+

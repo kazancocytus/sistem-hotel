@@ -10,9 +10,18 @@ export default {
     ],
 
     theme: {
+        colors:{
+            colorText:'#fff',
+            colorPrimary: '#FFFFEC',
+            colorSecondary:'#F1E4C3',
+            colorThird:'#C6A969',
+            colorgreen:'#597E52',
+            colorBg:'#04152d',
+        },
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans], 
+                josefin: ["'Josefin Sans', sans serif"],
             },
         },
     },
