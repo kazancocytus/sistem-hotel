@@ -17,26 +17,23 @@
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
 
 <body>
 
     @include('components.navbar')
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5af0acbc395280093c7095d599a8e0f22563dc82
     <div class=" bg-colorSecondary">
-        <div class=" container p-0 m-0 self-stretc">
-            <div id="hero" class=" shadow-2xl bg-gradient-to-b to-colorPrimary">
-                <img class="w-full max-h-dvh flex relative" src="{{ asset('assets/heroimg.jpg') }}" alt="">
-                <div
-                    class=" absolute font-josefin font-semibold text-colorPrimary text-9xl top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2">
+        <div id="hero" class=" shadow-2xl">
+                <img class="w-full max-h-dvh relative bg-gradient-to-t from-colorBg from-80% to-transparent" src="{{ asset('assets/heroimg.jpg') }}" alt="">
+                <div class=" drop-shadow-2xl absolute font-josefin font-semibold text-colorPrimary text-9xl top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2">
                     <h1>Welcome</h1>
                     <h1>To Evergreen</h1>
                 </div>
             </div>
+        <div class=" container p-0 m-0 self-stretc">
+            
 
             <div class=" container mx-auto my-auto">
                 <div class="mt-60 text-center text-black text-4xl font-semibold font-josefin">EVERGREEN EXPERIENCE
@@ -120,11 +117,8 @@
         </div>
 
         @include('components.footer')
-<<<<<<< HEAD
     </div>
 </body>
 
 </html>
-=======
     
->>>>>>> 5af0acbc395280093c7095d599a8e0f22563dc82

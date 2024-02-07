@@ -17,6 +17,7 @@
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
 
 <body>
@@ -120,7 +121,7 @@
                         </div>
                         <div class=" ml-3">
                             <button class=" right">
-                                <a href="#_"
+                                <a href="{{ route('detail') }}"
                                     class="relative inline-flex items-center px-12 py-2 overflow-hidden text-lg font-josefin font-medium text-colorBg border-2 border-colorgreen rounded-full hover:text-white group hover:bg-gray-50">
                                     <span
                                         class="absolute left-0 block w-full h-0 transition-all bg-colorgreen opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
@@ -228,7 +229,7 @@
                         </div>
                         <div class=" ml-3">
                             <button class=" right">
-                                <a href="#_"
+                                <a href="{{ route('detail') }}"
                                     class="relative inline-flex items-center px-12 py-2 overflow-hidden text-lg font-josefin font-medium text-colorBg border-2 border-colorgreen rounded-full hover:text-white group hover:bg-gray-50">
                                     <span
                                         class="absolute left-0 block w-full h-0 transition-all bg-colorgreen opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
@@ -332,7 +333,7 @@
                         </div>
                         <div class=" ml-3">
                             <button class=" right">
-                                <a href="#_"
+                                <a href="{{ route('detail') }}"
                                     class="relative inline-flex items-center px-12 py-2 overflow-hidden text-lg font-josefin font-medium text-colorBg border-2 border-colorgreen rounded-full hover:text-white group hover:bg-gray-50">
                                     <span
                                         class="absolute left-0 block w-full h-0 transition-all bg-colorgreen opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
