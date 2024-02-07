@@ -9,6 +9,9 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\Roles;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Route;
+use League\CommonMark\Extension\SmartPunct\EllipsesParser;
 
 class LoginController extends Controller
 {
@@ -30,7 +33,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -42,36 +45,13 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    // Login User with Roles
+
     public function login(Request $request, Roles $roles_name)
     {
+        $this->validateLogin($request);
 
-    //     $request->session()->regenerate();
-
-    //     $input = $this->validateLogin($request);
-
-    //     $input = $request->all();        
-
-    //     // dd($request->all());
-    //     if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password']))) {
-    //         if (auth()->user()->roles_name === 'Admin') {
-    //             return redirect()->route('admin.index');
-    //         } elseif (auth()->user()->roles_name === 'Agent') {
-    //             // $url = 'agent/dashboard';
-    //         } elseif (auth()->user()->roles_name === 'User') {
-    //             return redirect()->route('home');
-    //         }
-            
-    //     // Auth::login($input);
-
-    //     return redirect(RouteServiceProvider::HOME);
-    //     }
-    // }
-    $this->validateLogin($request);
-
-        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
-        // dd($request->all());
+        // dd($roles_name);
         if (method_exists($this, 'hasTooManyLoginAttempts') &&
             $this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
@@ -87,11 +67,35 @@ class LoginController extends Controller
             return $this->sendLoginResponse($request, $roles_name);
         }
 
-        // If the login attempt was unsuccessful we will increment the number of attempts
-        // to login and redirect the user back to the login form. Of course, when this
-        // user surpasses their maximum number of attempts they will get locked out.
+
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
     }
+    protected function sendLoginResponse(Request $request, Roles $roles_name)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        // dd($roles_name);
+        $userRoles = auth()->user()->roles_name;
+
+        if ($userRoles === "Admin") {
+            return redirect()->route('admin.index');
+        } elseif($userRoles === "Agent"){
+
+        } elseif($userRoles === "User"){
+            $pageRoutes = url()->previous();
+            $redirectRoutes = (strpos($pageRoutes, route('reservation')) !== false) ? route('reservation') : route('home');
+
+            return redirect()->to($redirectRoutes);
+            
+        } 
+
+            return $request->wantsJson()
+                    ? new JsonResponse([], 204)
+                    : redirect()->route('home');
+    }
+
 }

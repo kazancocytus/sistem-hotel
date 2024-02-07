@@ -143,32 +143,36 @@
 
                 <!-- Basic Bootstrap Table -->
 
-              <div class="card">
-                <a href="{{ route('add.facility') }}">Add Facility</a>
-                <h5 class="card-header">Fasilitas</h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table bg-colorPrimary">
-                    <thead>
-                      <tr>
-                        <th>facilitation name</th>
-                        <th>Description</th>
-                        <th>Picture</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                      @foreach($facility as $key => $list)
-                      <tr>
+              
+            
+                  <a href="{{ route('add.facility') }}" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Add Facility</a>
+                  <div class=" col-lg-12 py-5">
+                    <div class="card shadow">
+                    <h5 class="card-header bg-colorThird"></h5>
+                    <div class="table-responsive text-nowrap">
+                      <table class="table bg-colorPrimary">
+                        <thead class=" bg-colorThird">
+                          <tr>
+                            <th>facilitation name</th>
+                            <th>Description</th>
+                            <th>Picture</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                        @foreach($facility as $key => $list)
+
+                        <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $list->name }}</strong></td>
-                        <td>{{ $list->description }}</td>
+                        <td>{{ $list->description_facility }}</td>
                         <td>
                           <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                             <li
                               data-bs-toggle="tooltip"
                               data-popup="tooltip-custom"
                               data-bs-placement="top"
-                              class="avatar avatar-x pull-up"
-                              title="Swimming Pool"
+                              class="avatar avatar-xl pull-up"
+                              title=""
                             >
                               <img src="{{ url('assets/img/facility/'.$list->image) }}" alt="Avatar" class="rounded-circle" />
                             </li>
@@ -183,7 +187,7 @@
                               <a class="dropdown-item" href="{{ route('edit.facility',$list->id) }}"
                                 ><i class="bx bx-edit-alt me-1"></i> Edit</a
                               >
-                              <a class="dropdown-item" href="{{ route('delete.facility',$list->id) }}"
+                              <a class="dropdown-item" id="delete" href="{{ route('delete.facility',$list->id) }}"
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
                             </div>
@@ -191,181 +195,22 @@
                         </td>
                       </tr>
 
+                          
+                          @endforeach
+                        </tbody>
+                        
+                      </table>
+                    </div>
+                  </div>
 
-                      @endforeach
 
-                    </tbody>
-                  </table>
                 </div>
+                
+
+                
+
               </div>
 
-
-            </div>
-
-
-            <div class=" col-lg-12 py-5">
-                <div class="card">
-                <h5 class="card-header bg-colorThird">Room Faciility</h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table bg-colorPrimary">
-                    <thead>
-                      <tr>
-                        <th>facilitation name</th>
-                        <th>Description</th>
-                        <th>Picture</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody class="table-border-bottom-0">
-                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Wifi</strong></td>
-                        <td>Internet Access
-                        </td>
-                      
-                        <td>
-                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-x pull-up"
-                              title="Wifi"
-                            >
-                              <img src="../assets/img/elements/renang.jpg" alt="Avatar" class="rounded-circle" />
-                            </li>
-                           
-                        
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-
-                     <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>House Keeping</strong></td>
-                        <td>beberes
-                        </td>
-                      
-                        <td>
-                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-x pull-up"
-                              title="HK"
-                            >
-                              <img src="../assets/gym.jpg " height="70" width="70" alt="Avatar" class="rounded-circle" />
-                            </li>
-                           
-                        
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      
-                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Swimming Pool</strong></td>
-                        <td>Fasilitas hotel yang bisa di manfaatkan
-                            pengunjung untuk bersantai
-                        </td>
-                      
-                        <td>
-                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Swimming Pool"
-                            >
-                              <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                           
-                        
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Swimming Pool</strong></td>
-                        <td>Fasilitas hotel yang bisa di manfaatkan
-                            pengunjung untuk bersantai
-                        </td>
-                      
-                        <td>
-                          <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li
-                              data-bs-toggle="tooltip"
-                              data-popup="tooltip-custom"
-                              data-bs-placement="top"
-                              class="avatar avatar-xs pull-up"
-                              title="Swimming Pool"
-                            >
-                              <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                           
-                        
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-
-            </div>
-             
 
              
               <!--/ Basic Bootstrap Table -->
@@ -406,8 +251,17 @@
 
     <!-- Page JS -->
     <script src="../assets/js/dashboards-analytics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+ <script src="../assets/js/delete-pop-up.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="../assets/js/delete-pop-up.js"></script>
+  
+    @include('sweetalert::alert')
+
   </body>
 </html>

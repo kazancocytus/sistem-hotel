@@ -16,8 +16,8 @@ class FacilityController extends Controller
     public function StoreFacility(Request $request){
         $request->validate([
             'name' => 'required',
-            'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'description_facility' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg',
         ]);
 
         $input = $request->all();
@@ -31,7 +31,7 @@ class FacilityController extends Controller
 
         Facility::create($input);
 
-        return redirect()->route('admin.facility');
+        return redirect()->route('admin.facility')->with('success', 'Your Data has been saved!');
     }
 
     public function EditFacility($id){
@@ -44,7 +44,7 @@ class FacilityController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            'description_facility' => 'required',
             'image' => 'required'
         ]);
 
@@ -61,7 +61,7 @@ class FacilityController extends Controller
         
         Facility::findOrFail($fid)->update($input);
         
-        return redirect()->route('admin.facility');
+        return redirect()->route('admin.facility')->with('success', 'Your Data has been saved!');
     }
 
     public function DeleteFacility($id, Request $request){

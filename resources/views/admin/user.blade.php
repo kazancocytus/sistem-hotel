@@ -141,14 +141,15 @@
                 </!--div-->
 
                 <!-- Basic Bootstrap Table -->
+                
                 <div class=" col-lg-12 py-5">
-                    <div class="card ">
-                      <h5 class="card-header bg-colorThird">Customer</h5>
+                    <div class="card shadow ">
+                      <h5 class="card-header bg-colorThird"></h5>
                       <div class="table-responsive text-nowrap">
                         <table class="table bg-colorPrimary">
-                          <thead>
+                          <thead class=" bg-colorThird">
                             <tr>
-                              <th>Name</th>
+                              <th>Customer Name</th>
                               <th>Email</th>
                               <th>Birth Date</th>
                               <th>Phone</th>

@@ -34,6 +34,7 @@
     <!-- Modal -->
     <form action="{{ route('login') }}" method="POST">
     @csrf
+    
     <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-3xl p-6">
@@ -45,7 +46,7 @@
                 <div class="modal-body">   
                         <div class="mb-3">
                             <label for="email" class="form-label font-josefin">Email</label>
-                            <input type="email" class="form-control rounded-xl @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email" name="email" placeholder="Email" required autofocus />
+                            <input type="text" class="form-control rounded-xl @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email" name="email" placeholder="Email" autofocus />
                             @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -55,7 +56,7 @@
                         <div class="mb-3">
                             <label for="password" class="form-label font-josefin">Password</label>
                             <input type="password" class="form-control rounded-xl" id="password" name="password"
-                            placeholder="Password" required autofocus/>
+                            placeholder="Password" autofocus/>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
