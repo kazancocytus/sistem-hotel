@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Authenticate;
+use App\Models\Facility;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;  
 use App\Models\User;  
@@ -27,9 +28,9 @@ class HomeController extends Controller
      */
     public function Home()
     {
-        // $id = Auth::user()->id;
-        // $user = User::find($id);
-        return view('homepage');
+        $facility = Facility::whereIn('id', [4, 5, 6, 7])
+        ->get();
+        return view('homepage',compact('facility'));
     }
 
     public function Contact(){
@@ -39,11 +40,9 @@ class HomeController extends Controller
     public function Reservation(){
         $typeRoom = DB::table('type_room')
         ->join('number_room', 'number_room.number_room_id', '=', 'type_room.number_room_id')
-        ->select('type_room.*', 'number_room.price')
+        ->join('facility', 'facility.id', '=', 'type_room.facility_id')
+        ->select('type_room.*', 'number_room.price', 'facility.description_facility')
         ->get();
-        // dd($typeRoom);
-        // $numberRoom = NumberRoom::whereIn('id', [5, 4, 6])->get();
-        // $typeRoom = TypeRoom::latest()->get();
         return view('reservationpage',compact('typeRoom'));
     }
 

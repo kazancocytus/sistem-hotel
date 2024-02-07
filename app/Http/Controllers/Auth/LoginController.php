@@ -44,7 +44,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-<<<<<<< HEAD
 
     // Login User with Roles
 
@@ -99,11 +98,4 @@ class LoginController extends Controller
                     : redirect()->route('home');
     }
 
-=======
-<<<<<<< HEAD
-
-    
-=======
->>>>>>> 5cb47a71cd41fa4c40a018d80095eec703fa8b2b
->>>>>>> dc8a931f64e6c438db3640d5fc13a41b98501c17
 }

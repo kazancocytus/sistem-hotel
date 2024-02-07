@@ -153,7 +153,7 @@
                                             @csrf
                                                   <input type="hidden" id="id" name="id" value="{{ $facility->id }}">
                                                     <th><label for="name">Name Facility</label></th>                                                 
-                                                    <th><label for="description">Description</label></th>
+                                                    <th><label for="description_facility">Description</label></th>
                                                     <th><label for="image">Image</label></th>
                                                     <td><label for="submit"></label></td>
                                                        
@@ -162,7 +162,7 @@
                                                     <tbody class="table-border-bottom-0">
                                                         <td><input type="text" id="name" name="name" autocomplete="off" value="{{ $facility->name }}"></td>
                                                         
-                                                        <td><input type="text" id="description" name="description" value="{{ $facility->description }}"></td>
+                                                        <td><input type="text" id="description_facility" name="description_facility" value="{{ $facility->description_facility }}"></td>
                                                         <td><input type="file" id="image" name="image" src="{{ url('assets/img/facility/'.$facility->images) }}"></td>
                                                         <td><button id="update" type="submit" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Submit</button></td>
                                                       </form>

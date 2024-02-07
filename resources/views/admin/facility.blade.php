@@ -164,7 +164,7 @@
 
                         <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $list->name }}</strong></td>
-                        <td>{{ $list->description }}</td>
+                        <td>{{ $list->description_facility }}</td>
                         <td>
                           <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                             <li

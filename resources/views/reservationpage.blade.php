@@ -95,18 +95,7 @@
                     <div class="font-josefin text-lg text-left">Facilities :</div>
                     <hr class="rounded-full mb-6" style="height: 2px!important;">
                     <ul class=" w-1/5">
-                        <li class="py-2 font-josefin">High-speed Wi-Fi</li>
-                        <li class="py-2 font-josefin">In-room entertainment options</li>
-                        <li class="py-2 font-josefin">Complimentary bottled water</li>
-                        <li class="py-2 font-josefin">Air conditioning and heating</li>
-                        <li class="py-2 font-josefin">Daily housekeeping</li>
-                    </ul>
-                    <ul class=" ml-32 w-1/5 float-right">
-                        <li class="py-2 font-josefin">Breathtaking city/surrounding views</li>
-                        <li class="py-2 font-josefin">Elegant furnishings</li>
-                        <li class="py-2 font-josefin">Spacious en-suite bathroom with bathtubs</li>
-                        <li class="py-2 font-josefin">Private balcony with panoramic views</li>
-                        <li class="py-2 font-josefin">Fully equipped kitchenette</li>
+                        <li class="py-2 font-josefin">{{ $typeRoom->description_facility }}</li>
                     </ul>
                     <div class=" absolute bottom-0 right-0 w-3/12">
                         <div class=" mb-3">
