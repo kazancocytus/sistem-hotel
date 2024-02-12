@@ -4,19 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="{{ asset('assets/evergreenlogobgcrop.png') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Evergreen Hotel</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
     <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
 
 <body>
@@ -26,98 +21,190 @@
     <div class=" bg-colorSecondary">
         <div class=" container p-0 m-0 self-stretch">
             <hr class="mx-auto w-44 rounded-full mb-32" style="height: 5px!important;">
-            <div class="block my-14 mx-10 w-auto p-6 bg-colorPrimary border border-gray-200 rounded-2xl shadow">
-                <div class="font-josefin font-extrabold text-4xl text-left">Input Your Detail Of Reservation</div>
-                <div class=" mt-14">
+            <div class="block mt-14 mx-10 w-auto p-6 bg-colorPrimary border border-gray-200 rounded-2xl shadow">
+                <div class=" mx-8 mt-10 font-josefin font-extrabold text-4xl text-left">Input Your Detail Of Reservation
+                </div>
+                <div class="">
                     <form class="row flex flex-wrap" action="">
-                        <div class=" mx-10 relative w-full h-20 z-0">
-                            <input type="text" id="floating_standard"
-                                class="block py-2.5 px-0 w-1/2 text-xl text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" " />
-                            <label for="floating_standard"
-                                class=" font-josefin absolute text-xl text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Your
-                                Fullname</label>
+                        <div class="relative ml-8 my-6">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <div class=" ml-2 w-10 h-8 text-black text-2xl"><i class="bi bi-credit-card"></i></div>
+                            </div>
+                            <input type="text" id="input-group-1"
+                                class=" bg-transparent border border-white text-gray-900 text-base rounded-2xl w-3/4 ps-12 p-2.5"
+                                placeholder="Your Bank Account Number">
                         </div>
                         <div class=" object-top flex flex-col mx-10 w-1/3">
                             <div class=" row w-1/2">
                                 <label class=" font-josefin mb-2" for="">Check In Date</label>
-                                <input class="  rounded-xl" type="date">
+                                <input class=" border-white text-colorBg bg-transparent rounded-2xl" type="date">
                             </div>
-                            <div class=" mx-4 my-4 row">
+                            <div class=" mx-4 my-1 row">
                                 <i class=" text-left text-4xl bi bi-arrow-down-short"></i>
                             </div>
                             <div class=" row w-1/2">
                                 <label class=" font-josefin mb-2" for="">Check Out Date</label>
-                                <input class=" rounded-xl" type="date">
+                                <input class=" border-white text-colorBg bg-transparent rounded-2xl" type="date">
                             </div>
                         </div>
                         <!-- Input Number -->
                         <div class=" flex flex-col w-2/6">
-                            <div class=" w-full py-2 px-3 bg-colorBg border border-white rounded-lg" data-hs-input-number>
+                            <div class=" w-full py-2 px-3 bg-transparent border border-white rounded-lg"
+                                data-hs-input-number>
                                 <div class="w-full flex justify-between items-center">
-                                <div>
-                                    <span class=" font-josefin mt-2 block font-medium text-base text-white">
-                                    Deluxe Room
-                                    </span>
-                                    <span class=" font-josefin mt-1 block text-xs text-white">
-                                    $399 a Night
-                                    </span>
-                                </div>
-                                <div class="flex items-center gap-x-1.5">
-                                    <button type="button" class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" data-hs-input-number-decrement>
-                                    <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
-                                    </button>
-                                    <input class="p-0 w-6 bg-transparent border-0 text-white text-center focus:ring-0" type="text" value="0" data-hs-input-number-input>
-                                    <button type="button" class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" data-hs-input-number-increment>
-                                    <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-                                    </button>
-                                </div>
+                                    <div>
+                                        <span class=" font-josefin mt-2 block font-medium text-base text-colorBg">
+                                            Suites Room
+                                        </span>
+                                        <span class=" font-josefin mt-1 block text-xs text-colorBg">
+                                            $399 a Night
+                                        </span>
+                                    </div>
+                                    <div id="suites-counter" class="flex items-center gap-x-1.5 room-selected">
+                                        <button type="button" id="suites-decrement"
+                                            class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                                            data-hs-input-number-decrement>
+                                            <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path d="M5 12h14" />
+                                            </svg>
+                                        </button>
+                                        <input id="suites-input"
+                                            class="p-0 w-6 bg-transparent border-0 text-colorBg text-center focus:ring-0"
+                                            type="text" value="0" data-hs-input-number-input>
+                                        <button type="button" id="suites-increment"
+                                            class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                                            data-hs-input-number-increment>
+                                            <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path d="M5 12h14" />
+                                                <path d="M12 5v14" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class=" w-full py-2 px-3 bg-colorBg border border-white rounded-lg" data-hs-input-number>
+
+                            <div class=" w-full py-2 px-3 bg-transparent border border-white rounded-lg"
+                                data-hs-input-number>
                                 <div class="w-full flex justify-between items-center">
-                                <div>
-                                    <span class=" font-josefin mt-2 block font-medium text-base text-white">
-                                    Suites Room
-                                    </span>
-                                    <span class=" font-josefin mt-1 block text-xs text-white">
-                                    $299 a Night
-                                    </span>
-                                </div>
-                                <div class="flex items-center gap-x-1.5">
-                                    <button type="button" class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" data-hs-input-number-decrement>
-                                    <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
-                                    </button>
-                                    <input class="p-0 w-6 bg-transparent border-0 text-white text-center focus:ring-0" type="text" value="0" data-hs-input-number-input>
-                                    <button type="button" class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" data-hs-input-number-increment>
-                                    <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-                                    </button>
-                                </div>
+                                    <div>
+                                        <span class=" font-josefin mt-2 block font-medium text-base text-colorBg">
+                                            Deluxe Room
+                                        </span>
+                                        <span class=" font-josefin mt-1 block text-xs text-colorBg">
+                                            $299 a Night
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center gap-x-1.5 room-selected" id="deluxe-counter">
+                                        <button type="button" id="deluxe-decrement"
+                                            class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                                            data-hs-input-number-decrement>
+                                            <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path d="M5 12h14" />
+                                            </svg>
+                                        </button>
+                                        <input id="deluxe-input"
+                                            class="p-0 w-6 bg-transparent border-0 text-colorBg text-center focus:ring-0"
+                                            type="text" value="0" data-hs-input-number-input>
+                                        <button type="button" id="deluxe-increment"
+                                            class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                                            data-hs-input-number-increment>
+                                            <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path d="M5 12h14" />
+                                                <path d="M12 5v14" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class=" w-full py-2 px-3 bg-colorBg border border-white rounded-lg" data-hs-input-number>
+
+                            <div class=" w-full py-2 px-3 bg-transparent border border-white rounded-lg"
+                                data-hs-input-number>
                                 <div class="w-full flex justify-between items-center">
-                                <div>
-                                    <span class=" font-josefin mt-2 block font-medium text-base text-white">
-                                    Standart Room
-                                    </span>
-                                    <span class=" font-josefin mt-1 block text-xs text-white">
-                                    $199 a Night
-                                    </span>
-                                </div>
-                                <div class="flex items-center gap-x-1.5">
-                                    <button type="button" class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" data-hs-input-number-decrement>
-                                    <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
-                                    </button>
-                                    <input class="p-0 w-6 bg-transparent border-0 text-white text-center focus:ring-0" type="text" value="0" data-hs-input-number-input>
-                                    <button type="button" class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" data-hs-input-number-increment>
-                                    <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-                                    </button>
-                                </div>
+                                    <div>
+                                        <span class=" font-josefin mt-2 block font-medium text-base text-colorBg">
+                                            Standart Room
+                                        </span>
+                                        <span class=" font-josefin mt-1 block text-xs text-colorBg">
+                                            $199 a Night
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center gap-x-1.5 room-selected" id="standart-counter">
+                                        <button type="button" id="standart-decrement"
+                                            class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                                            data-hs-input-number-decrement>
+                                            <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path d="M5 12h14" />
+                                            </svg>
+                                        </button>
+                                        <input id="standart-input"
+                                            class="p-0 w-6 bg-transparent border-0 text-colorBg text-center focus:ring-0"
+                                            type="text" value="0" data-hs-input-number-input>
+                                        <button type="button" id="standart-increment"
+                                            class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                                            data-hs-input-number-increment>
+                                            <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <path d="M5 12h14" />
+                                                <path d="M12 5v14" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
+
+
+
                         </div>
                         <!-- End Input Number -->
+
+
+                        <div
+                            class="mt-6 ml-12 block w-2/3 p-6 bg-colorPrimary border border-gray-200 rounded-2xl shadow">
+                            <table class="w-full border border-white hidden" aria-hidden="true"
+                                style="display: table !important;">
+                                <tbody class="">
+                                    <tr class="">
+                                        <th>Items</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                    <tr id="suites-row">
+                                        <td>Suites Room</td>
+                                        <td>0</td>
+                                        <td>$0</td>
+                                    </tr>
+                                    <tr id="deluxe-row">
+                                        <td>Deluxe Room</td>
+                                        <td>0</td>
+                                        <td>$0</td>
+                                    </tr>
+                                    <tr id="standart-row">
+                                        <td>Standart Room</td>
+                                        <td>0</td>
+                                        <td>$0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
                         <div>
                             <button class=" float-right ">
                                 <a href="#_"
@@ -142,6 +229,127 @@
         </div>
         @include('components.footer')
     </div>
+
+    <script>
+        // Get all the necessary elements
+        const suitesInput = document.getElementById('suites-input')
+        const deluxeInput = document.getElementById('deluxe-input')
+        const standartInput = document.getElementById('standart-input')
+        const suitesPrice = 399
+        const deluxePrice = 299
+        const standartPrice = 199
+        const table = document.querySelector('table tbody');
+
+
+        function updateTable() {
+            updateTableRow(suitesInput, tableRows[1], suitesPrice);
+            updateTableRow(deluxeInput, tableRows[2], deluxePrice);
+            updateTableRow(standartInput, tableRows[3], standartPrice);
+            updateTableVisibility();
+        }
+
+        // Toggle the visibility of the table based on the input values
+        function updateTableVisibility() {
+            if (suitesInput.value > 0) {
+                tableRows[1].classList.remove('hidden');
+            } else {
+                tableRows[1].classList.add('hidden');
+            }
+
+            if (deluxeInput.value > 0) {
+                tableRows[2].classList.remove('hidden');
+            } else {
+                tableRows[2].classList.add('hidden');
+            }
+            if (standartInput.value > 0) {
+                tableRows[3].classList.remove('hidden');
+            } else {
+                tableRows[3].classList.add('hidden');
+            }
+        }
+
+        // Update the table row based on the input value
+        function updateTableRow(input, row, price) {
+            const quantity = input.value
+            const totalPrice = price * quantity
+            row.children[1].textContent = quantity
+            row.children[2].textContent = `$${totalPrice}`
+        }
+
+        // Update all the table rows
+        const tableRows = document.querySelectorAll('table tbody tr')
+        let totalRow;
+
+        function updateTable() {
+            updateTableRow(suitesInput, tableRows[1], suitesPrice)
+            updateTableRow(deluxeInput, tableRows[2], deluxePrice)
+            updateTableRow(standartInput, tableRows[3], standartPrice)
+            updateTableVisibility()
+
+            const totalPrice = (suitesInput.value * suitesPrice) + (deluxeInput.value * deluxePrice) + (standartInput
+                .value * standartPrice);
+            if (totalPrice === 0) {
+                if (totalRow) {
+                    totalRow.classList.add('hidden');
+                }
+            } else {
+                if (!totalRow) {
+                    totalRow = table.insertRow();
+                    const totalCell1 = totalRow.insertCell();
+                    totalCell1.classList.add('text-left','font-bold');
+                    totalCell1.textContent = 'Total';
+                    const totalCell2 = totalRow.insertCell();
+                    totalCell2.classList.add('text-right', 'font-bold');
+                }
+                totalRow.cells[1].textContent = '$' + totalPrice.toFixed(2);
+                totalRow.classList.remove('hidden');
+            }
+        }
+
+        // Increment the input value and update the table
+        function incrementInput(input) {
+            input.value++
+            updateTable()
+            updateTableVisibility()
+        }
+
+        // Decrement the input value and update the table
+        function decrementInput(input) {
+            if (input.value > 0) {
+                input.value--
+                updateTable()
+                updateTableVisibility()
+            }
+        }
+
+        // Add event listeners to the input buttons
+        document.getElementById('suites-increment').addEventListener('click', () => {
+            incrementInput(suitesInput)
+        })
+
+        document.getElementById('suites-decrement').addEventListener('click', () => {
+            decrementInput(suitesInput)
+        })
+
+        document.getElementById('deluxe-increment').addEventListener('click', () => {
+            incrementInput(deluxeInput)
+        })
+
+        document.getElementById('deluxe-decrement').addEventListener('click', () => {
+            decrementInput(deluxeInput)
+        })
+
+        document.getElementById('standart-increment').addEventListener('click', () => {
+            incrementInput(standartInput)
+        })
+
+        document.getElementById('standart-decrement').addEventListener('click', () => {
+            decrementInput(standartInput)
+        })
+
+        // Initialize the table with the initial input values
+        updateTable();
+    </script>
 
 </body>
 

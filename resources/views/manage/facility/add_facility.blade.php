@@ -163,6 +163,8 @@
                                                     @csrf
                                                     <th> <label for="name">Name Food</label> </th>
                                                     <th><label for="description">Description</label></th>
+                                                    <th> <label for="name">Name Facility</label> </th>
+                                                    <th><label for="description_facility">Description</label></th>
                                                     <th><label for="image">Image</label></th>
                                                     
                                                     <th><label for="preview">Preview</label></th>
@@ -176,6 +178,8 @@
                                                         <td><input type="file" id="image" name="image" onchange="getImagePreview(event)"></td>
                                                        
                                                         <td id="preview"></td>
+                                                        <td><input type="text" id="description_facility" name="description_facility"></td>
+                                                        <td><input type="file" id="image" name="image"></td>
                                                         <td><button type="submit" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none" >Submit</button></td>
                                                         
                                                 </form>   

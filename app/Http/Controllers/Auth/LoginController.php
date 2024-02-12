@@ -9,6 +9,9 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\Roles;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Route;
+use League\CommonMark\Extension\SmartPunct\EllipsesParser;
 
 class LoginController extends Controller
 {
@@ -41,8 +44,64 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+<<<<<<< HEAD
 
 
     
+=======
+
+    // Login User with Roles
+
+    public function login(Request $request, Roles $roles_name)
+    {
+        $this->validateLogin($request);
+
+        // dd($roles_name);
+        if (method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        if ($this->attemptLogin($request)) {
+            if ($request->hasSession()) {
+                $request->session()->put('auth.password_confirmed_at', time());
+            }
+
+            return $this->sendLoginResponse($request, $roles_name);
+        }
+
+
+        $this->incrementLoginAttempts($request);
+
+        return $this->sendFailedLoginResponse($request);
+    }
+    protected function sendLoginResponse(Request $request, Roles $roles_name)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        // dd($roles_name);
+        $userRoles = auth()->user()->roles_name;
+
+        if ($userRoles === "Admin") {
+            return redirect()->route('admin.index');
+        } elseif($userRoles === "Agent"){
+
+        } elseif($userRoles === "User"){
+            $pageRoutes = url()->previous();
+            $redirectRoutes = (strpos($pageRoutes, route('reservation')) !== false) ? route('reservation') : route('home');
+
+            return redirect()->to($redirectRoutes);
+            
+        } 
+
+            return $request->wantsJson()
+                    ? new JsonResponse([], 204)
+                    : redirect()->route('home');
+    }
+>>>>>>> e7f92fb0848c9ec500c258b989706ec8eb9cb68e
 
 }

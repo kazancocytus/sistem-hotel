@@ -19,13 +19,15 @@ use App\Http\Controllers\Api\HomeController;
 |
 */
 
+// Route for User
+
 Route::get('/', [HomeController::class, 'Home'])->name('home'); //Home Page
 Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
 Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('/reservation', [HomeController::class, 'Reservation'])->name('reservation');
 Route::get('/about', [HomeController::class, 'About'])->name('about');
 Route::get('/detail', [HomeController::class, 'Detail'])->name('detail');
-Route::get('/modalLogin-show', [HomeController::class, 'ModalLogin'])->name('modalLogin_show');
+Route::get('/bwah', [HomeController::class, 'Bwah'])->name('bwah');
 
 
 Route::get('/dashboard', function () {
@@ -38,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Route Dashboard Admin
+
 Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
 
     Route::get('/admin', [AdminController::class, 'AdminIndex'])->name('admin.index');
@@ -49,6 +53,8 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
 
 });
 
+// Route CRUD Facility for Admin
+
 Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
 
     Route::get('/add/facility', [FacilityController::class, 'AddFacility'])->name('add.facility');
@@ -58,6 +64,8 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
     Route::post('/update/facility', [FacilityController::class, 'UpdateFacility'])->name('update.facility');
 
 });
+
+// Route CRUD Food for Admin
 
 Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
 
