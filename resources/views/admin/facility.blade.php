@@ -149,7 +149,7 @@
                   <div class=" col-lg-12 py-5">
                     <div class="card shadow">
                     <h5 class="card-header bg-colorThird"></h5>
-                    <div class="table-responsive text-nowrap">
+                    <div class="table">
                       <table class="table bg-colorPrimary">
                         <thead class=" bg-colorThird">
                           <tr>
