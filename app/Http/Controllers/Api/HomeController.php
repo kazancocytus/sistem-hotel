@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;  
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class HomeController extends Controller
 {
@@ -47,10 +48,12 @@ class HomeController extends Controller
         return view('reservationpage',compact('typeRoom'));
     }
 
-    public function About(Review $review,){
-        $review = Review::first()->get();
-        return view('aboutpage',compact('review'));
+    public function About(Review $review){
+        // dd($review);
+        $reviews = Review::orderBy('created_at','DESC')->paginate(4);
+        return view('aboutpage', compact('reviews'));
     }
+
     public function Detail(){
         return view('detailpage');
     }
