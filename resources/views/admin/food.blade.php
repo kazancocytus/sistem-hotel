@@ -157,7 +157,7 @@
                       <tbody class="table-border-bottom-0">
                         @foreach($food as $key => $list)
                         <tr>
-                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $list->name }}</strong></td>
+                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <p><strong>{{ $list->name }}</strong></p></td>
                         
                           <td>
                             <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">

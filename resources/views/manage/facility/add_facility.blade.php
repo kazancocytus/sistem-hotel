@@ -154,21 +154,30 @@
                     
                     <div class=" col-lg-12 py-5">
                         <div class="card-xl shadow">
+                            <h5 class="card-header bg-colorThird"></h5>
                             <div class="table-responsive text-nowrap">
                                 <table class="table bg-colorPrimary">
                                     <thead class=" bg-colorThird">
                                         <tr class=" bg-colorThird">
-                                            <form action="{{ route('store.facility') }}" method="POST" enctype="multipart/form-data">
+                                                <form action="{{ route('store.facility') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
+                                                    <th> <label for="name">Name Food</label> </th>
+                                                    <th><label for="description">Description</label></th>
                                                     <th> <label for="name">Name Facility</label> </th>
                                                     <th><label for="description_facility">Description</label></th>
                                                     <th><label for="image">Image</label></th>
+                                                    
+                                                    <th><label for="preview">Preview</label></th>
                                                     <td><label for="submit"></label></td>
                                                           
                                         </tr>
                                     </thead>
                                                     <tbody class="table-border-bottom-0">
                                                         <td><input type="text" id="name" name="name" autocomplete="off"></td>
+                                                        <td><input type="text" id="description" name="description"></td>
+                                                        <td><input type="file" id="image" name="image" onchange="getImagePreview(event)"></td>
+                                                       
+                                                        <td id="preview"></td>
                                                         <td><input type="text" id="description_facility" name="description_facility"></td>
                                                         <td><input type="file" id="image" name="image"></td>
                                                         <td><button type="submit" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none" >Submit</button></td>
@@ -236,17 +245,24 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      function getImagePreview(event)
+  {
+    var image=URL.createObjectURL(event.target.files[0]);
+    var imagediv= document.getElementById('preview');
+    var newimg=document.createElement('img');
+    imagediv.innerHTML='';
+    newimg.src=image;
+    newimg.width="150";
+    imagediv.appendChild(newimg);
+  }
+
+    </script>      
     
     
     
   </body>
 </html>
-
-
-
-
-
-
 
 
