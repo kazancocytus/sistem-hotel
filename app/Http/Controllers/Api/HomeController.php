@@ -3,16 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Middleware\Authenticate;
 use App\Models\Facility;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;  
-use App\Models\User;  
 use Illuminate\Http\RedirectResponse;
-use App\Models\TypeRoom;
-use App\Models\NumberRoom;
-use Faker\Core\Number;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\JsonResponse;
 
 class HomeController extends Controller
 {
@@ -33,6 +30,10 @@ class HomeController extends Controller
         return view('homepage',compact('facility'));
     }
 
+    public function __invoke(){
+        return view('homepage');
+    }
+
     public function Contact(){
         return view('contactpage');
     }
@@ -46,8 +47,9 @@ class HomeController extends Controller
         return view('reservationpage',compact('typeRoom'));
     }
 
-    public function About(){
-        return view('aboutpage');
+    public function About(Review $review,){
+        $review = Review::first()->get();
+        return view('aboutpage',compact('review'));
     }
     public function Detail(){
         return view('detailpage');

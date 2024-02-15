@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RatingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\HomeController;
@@ -20,19 +21,21 @@ use App\Http\Controllers\Api\HomeController;
 */
 
 // Route for User
-
-Route::get('/', [HomeController::class, 'Home'])->name('home'); //Home Page
+Route::get('/', [HomeController::class, 'Home'])->name('home');
+Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
 Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('/reservation', [HomeController::class, 'Reservation'])->name('reservation');
 Route::get('/about', [HomeController::class, 'About'])->name('about');
 Route::get('/detail', [HomeController::class, 'Detail'])->name('detail');
+
+// 
+Route::get('/review/store', [RatingController::class, 'store'])->name('review.store');
+
+
+// if user or agent want to acces admin dashboard
 Route::get('/bwah', [HomeController::class, 'Bwah'])->name('bwah');
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

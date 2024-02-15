@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use App\Models\Facility;
 use App\Models\Food;
 use App\Models\User;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
@@ -42,5 +45,11 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
         
         return redirect()->route('login');
+    }
+
+    public function UserActivity(Request $request){
+        $users = User::orderBy('last_seen','DESC')->get();
+
+        return view('admin.user',compact('users'));
     }
 }
