@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Nerko+One&display=swap');
 
@@ -32,3 +33,17 @@
 
 /*login*/
 
+@import "../css/vars.css";
+
+.heroname {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+.menu-link.hover{
+    background-color: #fff
+
+}
+
+.menu-link.icon{
+    
+}

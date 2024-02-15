@@ -6,13 +6,28 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@popperjs/core": "^2.11.6",
+        "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/forms": "^0.5.2",
         "alpinejs": "^3.4.2",
         "autoprefixer": "^10.4.17",
         "axios": "^1.6.4",
+        "bootstrap": "^5.2.3",
+        "bootstrap-icons": "^1.11.3",
+        "daisyui": "^4.6.1",
         "laravel-vite-plugin": "^1.0.0",
         "postcss": "^8.4.33",
+<<<<<<< HEAD
+=======
+        "sass": "^1.56.1",
+>>>>>>> f33fa90ab6eddb8b857d38c5c6f78f0ac5ada7d3
         "tailwindcss": "^3.4.1",
         "vite": "^5.0.0"
+    },
+    "dependencies": {
+        "@preline/input-number": "^2.0.2",
+        "bootstrap": "^5.3.2",
+        "preline": "^2.0.3",
+        "sweetalert2": "^11.10.4"
     }
 }
