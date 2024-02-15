@@ -189,7 +189,7 @@
                             <p>Pramadhika Radja Satrio</p>
                         </div>
                     </div>
-                    <form action="" class=" flex flex-wrap-reverse">
+                    <form action="" class=" flex flex-wrap-reverse" required>
                     <textarea class="py-3 px-2 block w-3/4 bg-transparent border-t-transparent border-b-2 border-x-transparent border-b-gray-200 text-lg focus:border-blue-500 focus:border-t-transparent focus:border-x-transparent focus:border-b-blue-500 focus:ring-0 disabled:opacity-50 disabled:pointer-events-none font-josefin" rows="1" placeholder="Tell Us Your Experience Here!"></textarea>
                     <a href="#_" class=" ml-6 w-1/5 relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-colorBg transition duration-300 ease-out border-2 border-colorSecondary rounded-full shadow-md group">
                         <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-colorgreen group-hover:translate-x-0 ease">

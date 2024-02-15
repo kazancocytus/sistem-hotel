@@ -64,7 +64,7 @@
                                     src="{{ url('assets/img/facility/' . $facility->image) }}" alt="">
                                 <div class="w-2/4 mt-28 text-center text-black text-3xl font-semibold font-josefin">
                                     {{ $facility->name }}</div>
-                                <p class="w-5/12 mt-6 ml-16 text-xl text-right float-start font-josefin">
+                                <p class="w-5/12 mt-6 ml-16 text-xl text-right font-josefin">
                                     {{ $facility->description_facility }}</p>
                             @else
                                 <img class="relative ml-20 rounded-xl bg-auto float-start w-5/12 h-72 mt-28"
@@ -73,7 +73,7 @@
                                     class="w-2/4 mt-28 text-center text-black text-3xl font-semibold font-josefin float-start">
                                     {{ $facility->name }}
                                 </div>
-                                <p class="float-start w-5/12 mt-6 ml-16 text-xl text-right float-start font-josefin">
+                                <p class="float-start w-5/12 mt-6 ml-16 text-xl text-left font-josefin">
                                     {{ $facility->description_facility }}</p>
                             @endif
                         </div>
