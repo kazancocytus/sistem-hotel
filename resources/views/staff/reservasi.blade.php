@@ -66,7 +66,7 @@
       <div class=" w-5/12 float-start">
       <label class=" form-label font-josefin text-xl font-medium" id=""> Check In</label>
       <input class=" form-control rounded-xl bg-amber-100"  type="date" name="" id="">
-    </div>
+    </div> 
     <div class=" w-5/12 float-right "> 
       <label class=" form-label font-josefin text-xl font-medium" id=""> Check Out</label>
       <input class=" form-control rounded-xl bg-amber-100" type="date" name="" id="">

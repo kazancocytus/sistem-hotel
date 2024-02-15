@@ -12,36 +12,36 @@
 
 </head>
 <body>
-  <nav class="static navbarfixed-top" style="width: 100%; height: 10%; background:#C6A969;">
-            <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-          <a class="navbar-brand" href="#"></a>
-          
-          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 15%; background: #FFFFEC" >
-            <div class="offcanvas-header">
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="container">
-                    <img class="col-1 align-items-center" style=" width: 60%; height: 100%" src="{{asset('assets/evergreenlogobg.png')}}" />
-                </li>
-                <li class=" font-josefin nav-item my-2">
-                  <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-fill mx-2"></i>Home</a>
-                </li>
-                <li class="font-josefin nav-item my-2">
-                  <a class="nav-link" href="#"><i class="bi bi-calendar-check-fill mx-2"></i>Reservasi</a>
-                </li>
-                <li class="font-josefin nav-item my-2">
-                    <a class="nav-link" href="#"><i class="bi bi-arrow-left-right mx-2"></i>Log</a>
-                  </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
+  <nav class="static navbar fixed-top" style="width: 100%; height: 10%; background:#C6A969;">
+    <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  <a class="navbar-brand" href="#"></a>
+  
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="width: 15%; background: #FFFFEC" >
+    <div class="offcanvas-header">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <li class="container">
+            <img class="col-1 align-items-center" style=" width: 60%; height: 100%" src="{{asset('assets/evergreenlogobg.png')}}" />
+        </li>
+        <li class=" font-josefin nav-item my-2">
+          <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house-fill mx-2"></i>Home</a>
+        </li>
+        <li class="font-josefin nav-item my-2">
+          <a class="nav-link" href="#"><i class="bi bi-calendar-check-fill mx-2"></i>Reservasi</a>
+        </li>
+        <li class="font-josefin nav-item my-2">
+            <a class="nav-link" href="#"><i class="bi bi-arrow-left-right mx-2"></i>Log</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</nav>
       
     <div>
         <div class="font-josefin text-2xl font-semibold mx-3 mt-3"> <i class="bi bi-people-fill mx-3"></i>Detail Order</div>
@@ -109,7 +109,7 @@
         </table> 
         
       </form>
-    </div><button type="button" class="text-black bg-colorThird hover:bg-amber-100 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mx-10 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 float-right ">SUBMIT</button>
+    </div><button type="button" class="text-white bg-yellow-800 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 float-right ">SUBMIT</button>
 
 
 
