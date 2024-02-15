@@ -1,12 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-use App\Http\Controllers\HomeController;
-=======
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\Admin\FoodController;
->>>>>>> f33fa90ab6eddb8b857d38c5c6f78f0ac5ada7d3
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;

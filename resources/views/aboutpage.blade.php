@@ -183,10 +183,8 @@
                         <p class=" mb-3 ml-2 font-josefin text-3xl font-semibold opacity-90">Make Your Reviews!</p>
                     </div>
                     <div class="flex items-center mb-1">
-                        <img class=" ml-2 row h-10 w-10 rounded-full ring-2 ring-white"
-                            src=" {{ asset('assets/prama.jpeg') }} " alt="">
-                        <div class=" ml-7 font-medium text-colorBg opacity-90">
-                            <p>Pramadhika Radja Satrio</p>
+                        <div class=" ml-2 font-medium text-colorBg opacity-90">
+                            <input class=" font-josefin border-b-2 border-b-colorThird rounded-xl border-t-0 border-r-0 border-l-0 drop-shadow-md" type="text" placeholder="Input Your Name..">
                         </div>
                     </div>
                     <form action="" class=" flex flex-wrap-reverse" required>
@@ -195,7 +193,7 @@
                         <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-colorgreen group-hover:translate-x-0 ease">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </span>
-                        <span class="absolute flex items-center justify-center w-full h-full bg-stone-100 text-colorBg transition-all duration-300 transform group-hover:translate-x-full ease">Post!</span>
+                        <span class="absolute flex items-center justify-center w-full h-full bg-colorThird text-co transition-all duration-300 transform group-hover:translate-x-full ease">Post!</span>
                         <span class="relative invisible">Button Text</span>
                     </a>
                     <!-- Rating -->

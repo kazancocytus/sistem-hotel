@@ -17,9 +17,9 @@
                 @if (Route::has('login'))
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                     @auth
-                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white"><a href="{{ route('costumer.logout') }}">Log out</a><span aria-hidden="true">&rarr;</span></button>
+                    <button  type="button" class="text-sm text-white"><a class="text-sm font-josefin font-semibold leading-6 text-white" href="{{ route('costumer.logout') }}">Log out</a><span aria-hidden="true">&rarr;</span></button>
                 @else
-                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white" data-bs-toggle="modal" data-bs-target="#modalLogin">Log in <spanaria-hidden="true">&rarr;</spanaria-hidden=></button>
+                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white" data-bs-toggle="modal" data-bs-target="#modalLogin">Log in <span aria-hidden="true">&rarr;</span aria-hidden=></button>
                     @endauth
                 </div>
                 @endif
