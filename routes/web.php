@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\Admin\FoodController;
@@ -7,7 +8,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RatingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,34 @@ use App\Http\Controllers\Api\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/staff',[HomeController::class, 'index']);
+
+Route::get('/reg', function () {
+    return view('staff/reg');
+});
+
+Route::get('/log', function () {
+    return view('staff/log');
+});
+
+Route::get('/payment', function () {
+    return view('staff/payment');
+});
+
+
+Route::get('/detail', function () {
+    return view('staff/detail');
+});
+
+
+Route::get('/info', function () {
+    return view('staff/info');
+});
+
+Route::get('/reservasi', function () {
+    return view('staff/reservasi');
+});
+
 
 // Route for User
 Route::get('/', [HomeController::class, 'Home'])->name('home');

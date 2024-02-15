@@ -21,17 +21,18 @@
     <div class=" bg-colorSecondary">
         <div class=" container p-0 m-0 self-stretch">
             <hr class="mx-auto w-44 rounded-full mb-32" style="height: 5px!important;">
-            <div class="block mt-14 mx-10 w-auto p-6 bg-colorPrimary border border-gray-200 rounded-2xl shadow">
-                <div class=" mx-8 mt-10 font-josefin font-extrabold text-4xl text-left">Input Your Detail Of Reservation
+            <div class="block mt-14 mx-10 w-auto p-16 bg-colorPrimary border border-gray-200 rounded-2xl shadow">
+                <div class=" mx-8 font-josefin font-extrabold text-4xl text-center">Input Your Detail Of Reservation
                 </div>
+                <hr class="mx-auto w-2/5 rounded-full mb-10 mt-3" style="height: 5px!important;">
                 <div class="">
                     <form class="row flex flex-wrap" action="">
-                        <div class="relative ml-8 my-6">
+                        <div class="relative ml-8 my-10">
                             <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                                <div class=" ml-2 w-10 h-8 text-black text-2xl"><i class="bi bi-credit-card"></i></div>
+                                <div class=" ml-2 h-10 text-black text-4xl"><i class="bi bi-credit-card"></i></div>
                             </div>
                             <input type="text" id="input-group-1"
-                                class=" bg-transparent border border-white text-gray-900 text-base rounded-2xl w-3/4 ps-12 p-2.5"
+                                class=" bg-transparent border border-white text-gray-900 text-xl rounded-2xl w-4/5 ps-16 p-2.5"
                                 placeholder="Your Bank Account Number">
                         </div>
                         <div class=" object-top flex flex-col mx-10 w-1/3">
@@ -48,7 +49,7 @@
                             </div>
                         </div>
                         <!-- Input Number -->
-                        <div class=" flex flex-col w-2/6">
+                        <div class=" ml-32 flex flex-col w-2/5">
                             <div class=" w-full py-2 px-3 bg-transparent border border-white rounded-lg"
                                 data-hs-input-number>
                                 <div class="w-full flex justify-between items-center">
@@ -176,7 +177,7 @@
 
 
                         <div
-                            class="mt-6 ml-12 block w-2/3 p-6 bg-colorPrimary border border-gray-200 rounded-2xl shadow">
+                            class="mt-8  ml-10 block w-11/12 p-6 bg-colorPrimary border border-gray-200 rounded-2xl shadow">
                             <table class="w-full border border-white hidden" aria-hidden="true"
                                 style="display: table !important;">
                                 <tbody class="">
@@ -205,23 +206,16 @@
                         </div>
 
 
-                        <div>
-                            <button class=" float-right ">
-                                <a href="#_"
-                                    class="relative inline-flex items-center px-12 py-2 overflow-hidden text-lg font-josefin font-medium text-colorBg border-2 border-colorgreen rounded-full hover:text-white group hover:bg-gray-50">
-                                    <span
-                                        class="absolute left-0 block w-full h-0 transition-all bg-colorgreen opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
-                                    <span
-                                        class="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                        </svg>
-                                    </span>
-                                    <span class="relative">Book Now</span>
-                                </a>
+                        <div class=" mt-12 justify-center flex flex-row ">
+                            <button type="button" href="" data-bs-toggle="modal" data-bs-target="#TransactionModal"class=" h-16 w-2/5 px-5 py-3 relative border-r-2 rounded-l-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
+                                <span class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
+                                <span class="relative group-hover:text-colorSecondary">Book Now</span>
                             </button>
+                            <button type="button" href="" class=" h-16 w-2/5 px-5 py-3 relative rounded-r-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
+                                <span class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
+                                <span class="relative group-hover:text-colorSecondary">Pay At Hotel</span>
+                            </button>
+                            @include('components.modaltrans')
                         </div>
                     </form>
                 </div>

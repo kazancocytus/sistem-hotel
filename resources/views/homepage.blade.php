@@ -54,28 +54,28 @@
                         and well-organised events and meetings.</p>
                     </div>
 
-                    <div class=" flex-col flex">
-                        <div class=" mt-40 text-center text-black text-3xl font-semibold font-josefin">FACILITIES</div>
-                        <hr class="mx-auto w-24 rounded-full mt-3" style="height: 5px!important;">
-                        @foreach ($facility as $key => $facility)
-                            <div class="container mx-auto">
-                                @if ($key % 2 == 0)
-                                    <img class="relative mr-20 rounded-xl bg-auto float-end w-5/12 h-72 mt-28"
-                                        src="{{ url('assets/img/facility/' . $facility->image) }}" alt="">
-                                    <div class="w-2/4 mt-28 text-center text-black text-3xl font-semibold font-josefin">
-                                        {{ $facility->name }}</div>
-                                    <p class="w-5/12 mt-6 ml-16 text-xl text-right float-start font-josefin">
-                                        {{ $facility->description_facility }}</p>
-                                @else
-                                    <img class="relative ml-20 rounded-xl bg-auto float-start w-5/12 h-72 mt-28"
-                                        src="{{ url('assets/img/facility/' . $facility->image) }}" alt="">
-                                    <div
-                                        class="w-2/4 mt-28 text-center text-black text-3xl font-semibold font-josefin float-start">
-                                        {{ $facility->name }}
-                                    </div>
-                                    <p class="float-start w-5/12 mt-6 ml-16 text-xl text-right float-start font-josefin">
-                                        {{ $facility->description_facility }}</p>
-                                @endif
+                <div class=" flex-col flex">
+                    <div class=" mt-40 text-center text-black text-3xl font-semibold font-josefin">FACILITIES</div>
+                    <hr class="mx-auto w-24 rounded-full mt-3" style="height: 5px!important;">
+                    @foreach ($facility as $key => $facility)
+                        <div class="container mx-auto">
+                            @if ($key % 2 == 0)
+                                <img class="relative mr-20 rounded-xl bg-auto float-end w-5/12 h-72 mt-28"
+                                    src="{{ url('assets/img/facility/' . $facility->image) }}" alt="">
+                                <div class="w-2/4 mt-28 text-center text-black text-3xl font-semibold font-josefin">
+                                    {{ $facility->name }}</div>
+                                <p class="w-5/12 mt-6 ml-16 text-xl text-right float-start font-josefin">
+                                    {{ $facility->description_facility }}</p>
+                            @else
+                                <img class="relative ml-20 rounded-xl bg-auto float-start w-5/12 h-72 mt-28"
+                                    src="{{ url('assets/img/facility/' . $facility->image) }}" alt="">
+                                <div
+                                    class="w-2/4 mt-28 text-center text-black text-3xl font-semibold font-josefin float-start">
+                                    {{ $facility->name }}
+                                </div>
+                                <p class="float-start w-5/12 mt-6 ml-16 text-xl text-right float-start font-josefin">
+                                    {{ $facility->description_facility }}</p>
+                            @endif
                         </div>
                     @endforeach
                 </div>
