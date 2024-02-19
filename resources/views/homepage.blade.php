@@ -36,12 +36,12 @@
         <div class=" container p-0 m-0 self-stretc">
 
 
-            <div class=" container mx-auto my-auto">
-                <div class="mt-60 text-center text-black text-4xl font-semibold font-josefin">EVERGREEN EXPERIENCE
-                </div>
-                <hr class="mx-auto w-96 rounded-full mt-3" style="height: 5px!important;">
-                <div>
-                    <p class="mx-28 my-10 h-36 text-center text-black text-xl font-josefin">Inspired by the beauty of
+            <div class="container mx-auto my-auto" id="facility-list">
+                    <div class="mt-60 text-center text-black text-4xl font-semibold font-josefin">EVERGREEN EXPERIENCE
+                    </div>
+                    <hr class="mx-auto w-96 rounded-full mt-3" style="height: 5px!important;">
+                    <div>
+                        <p class="mx-28 my-10 h-36 text-center text-black text-xl font-josefin">Inspired by the beauty of
                         Parahyangan, Evergreen Hotel Bandung offers spectacular mountain views, indulgent dining,
                         elegant
                         guestrooms and exceptional hospitality personified by its 24-hour Butler Service. Located in the
@@ -52,8 +52,14 @@
                         Evergreen Hotel Bandung is the perfect place for a rejuvenating, opulent getaway, private
                         gatherings,
                         and well-organised events and meetings.</p>
+                    </div>
+                
+                
+                <div>
+                    
                 </div>
 
+                
                 <div class=" flex-col flex">
                     <div class=" mt-40 text-center text-black text-3xl font-semibold font-josefin">FACILITIES</div>
                     <hr class="mx-auto w-24 rounded-full mt-3" style="height: 5px!important;">
@@ -64,7 +70,7 @@
                                     src="{{ url('assets/img/facility/' . $facility->image) }}" alt="">
                                 <div class="w-2/4 mt-28 text-center text-black text-3xl font-semibold font-josefin">
                                     {{ $facility->name }}</div>
-                                <p class="w-5/12 mt-6 ml-16 text-xl text-right font-josefin">
+                                <p class="w-5/12 mt-6 ml-16 text-xl text-right float-start font-josefin">
                                     {{ $facility->description_facility }}</p>
                             @else
                                 <img class="relative ml-20 rounded-xl bg-auto float-start w-5/12 h-72 mt-28"
@@ -73,16 +79,16 @@
                                     class="w-2/4 mt-28 text-center text-black text-3xl font-semibold font-josefin float-start">
                                     {{ $facility->name }}
                                 </div>
-                                <p class="float-start w-5/12 mt-6 ml-16 text-xl text-left font-josefin">
+                                <p class="float-start w-5/12 mt-6 ml-16 text-xl text-right float-start font-josefin">
                                     {{ $facility->description_facility }}</p>
                             @endif
                         </div>
                     @endforeach
                 </div>
             </div>
+            </div>
+            @include('components.footer')
         </div>
-
-        @include('components.footer')
     </div>
 </body>
 

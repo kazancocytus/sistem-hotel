@@ -207,13 +207,19 @@
                         </div>
 
 
-                        <div class=" mt-12 justify-center flex flex-row ">
-                            <button type="button" href="" data-bs-toggle="modal" data-bs-target="#TransactionModal" class=" h-16 w-2/5 px-5 py-3 relative border-r-2 rounded-l-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
-                                <span class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
+                        <div>
+                            <button type="button" href="" data-bs-toggle="modal"
+                                data-bs-target="#TransactionModal"
+                                class=" h-16 w-2/5 px-5 py-3 relative border-r-2 rounded-l-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
+                                <span
+                                    class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
                                 <span class="relative group-hover:text-colorSecondary">Book Now</span>
                             </button>
-                            <button type="button" href="" data-bs-toggle="modal" data-bs-target="#PayHotelModal" class=" h-16 w-2/5 px-5 py-3 relative rounded-r-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
-                                <span class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
+                            <button type="button" href="" data-bs-toggle="modal"
+                                data-bs-target="#PayHotelModal"
+                                class=" h-16 w-2/5 px-5 py-3 relative rounded-r-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
+                                <span
+                                    class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
                                 <span class="relative group-hover:text-colorSecondary">Pay At Hotel</span>
                             </button>
                             @include('components.modaltrans')
@@ -291,7 +297,7 @@
                 if (!totalRow) {
                     totalRow = table.insertRow();
                     const totalCell1 = totalRow.insertCell();
-                    totalCell1.classList.add('text-left','font-bold');
+                    totalCell1.classList.add('text-left', 'font-bold');
                     totalCell1.textContent = 'Total';
                     const totalCell2 = totalRow.insertCell();
                     totalCell2.classList.add('text-right', 'font-bold');

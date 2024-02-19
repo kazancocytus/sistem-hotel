@@ -46,11 +46,11 @@
   <div class="modal-dialog">
       <div class="modal-content rounded-2xl p-6">
           <div class="modal-header mb-2 justify-center">
-              <h1 class=" text-4xl font-bold text-colorBg font-josefin" id="exampleModalLabel"></h1>
+              <h2 class=" text-3xl font-bold text-colorBg font-josefin" id="exampleModalLabel">Pay at the Receptionist<i class="bi bi-buildings text-4xl pl-3"></i></h2>
           </div>
           <div class="modal-body">
               <p class="font-josefin font-medium text-center">Thank you for choosing to stay with us at Evergreen Hotel. Kindly make sure to arrive at the hotel at the appointed time.</p>
-              <p class="font-josefin font-medium text-center italic">Please note that any changes to the reservation or cancellations must be made at least 24 hours in advance.</p>
+              <p class="font-josefin font-medium text-center italic underline">Please note that any changes to the reservation or cancellations must be made at least 24 hours in advance.</p>
           </div>
       </div>
   </div>
