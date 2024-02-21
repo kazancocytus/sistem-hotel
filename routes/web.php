@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -51,18 +52,17 @@ Route::get('/reservasi', function () {
 // Route for User
 Route::get('/', [HomeController::class, 'Home'])->name('home');
 Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
+Route::get('/review/store', [RatingController::class, 'store'])->name('review.store');
 Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
 Route::get('/reservation', [HomeController::class, 'Reservation'])->name('reservation');
 Route::get('/about', [HomeController::class, 'About'])->name('about');
+Route::get('/bwah', [HomeController::class, 'Bwah'])->name('bwah');
 Route::get('/detail', [HomeController::class, 'Detail'])->name('detail');
 
-// 
-Route::get('/review/store', [RatingController::class, 'store'])->name('review.store');
-
-
-// if user or agent want to acces admin dashboard
-Route::get('/bwah', [HomeController::class, 'Bwah'])->name('bwah');
-
+Route::middleware(['auth'], 'roles_name:User')->group(function(){
+    Route::post('/store/transaction', TransactionController::class, 'StoreTransaction')->name('store.transaction');
+    Route::post('/calculate/transaction', TransactionController::class, 'Calculate')->name('calculate');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

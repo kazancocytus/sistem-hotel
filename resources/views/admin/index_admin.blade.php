@@ -151,25 +151,34 @@
                   <table class="table  bg-colorPrimary">
                     <thead class=" bg-colorThird ">
                       <tr>
+                        <th>No Reservation</th>
                         <th>Customer Name</th>
                         <th>Phone</th>
-                        <th>Type</th>
-                        <th>check-in</th>
-                        <th>check-out</th>
+                        <th>Suites Room</th>
+                        <th>Deluxe Room</th>
+                        <th>Standart Room</th>
+                        <th>Check-in</th>
+                        <th>Check-out</th>
+                        <th>Price</th>
                         <th>Status</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                      @foreach($transaction as $transactions)
                       <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angel</strong></td>
-                        <td>08999675345</td>
-                        <td>Deluxe Room </td>
-                        <td>12/05/2024</td>
-                        <td>15/05/2024</td>
+                        <td>{{ $transactions->no_reservation }} </td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $transactions->name }}</strong></td>
+                        <td>{{ $transactions->phone }}</td>
+                        <td>{{ $transactions->suites }}</td>
+                        <td>{{ $transactions->deluxe }}</td>
+                        <td>{{ $transactions->standart }}</td>
+                        <td>{{ $transactions->check_in }}</td>
+                        <td>{{ $transactions->check_out }}</td>
+                        <td> ${{ $transactions->price }}</td>
                         
                            
-                        <td><span class="badge bg-label-success me-1">Already</span></td>
+                        <td><span class="badge bg-label-success me-1">{{ $transactions->check_in >= now()->subDays() ? 'Not yet' : 'Already' }}</span></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -186,85 +195,7 @@
                           </div>
                         </td>
                       </tr>
-
-
-                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Arif</strong></td>
-                        <td>08213441321</td>
-                        <td>Standar Room </td>
-                        <td>14/05/2024</td>
-                        <td>20/05/2024</td>
-                        
-                           
-                        <td><span class="badge bg-label-warning me-1">not yet</span></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Rayyan</strong></td>
-                        <td>084199675345</td>
-                        <td>Suite Room </td>
-                        <td>14/05/2024</td>
-                        <td>17/05/2024</td>
-                        
-                           
-                        <td><span class="badge bg-label-success me-1">Already</span></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-
-                       <tr>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>alana</strong></td>
-                        <td>08999675345</td>
-                        <td>Deluxe Room </td>
-                        <td>23/05/2024</td>
-                        <td>25/05/2024</td>
-                        
-                           
-                        <td><span class="badge bg-label-warning me-1">not yet</span></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                              >
-                              <a class="dropdown-item" href="javascript:void(0);"
-                                ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>

@@ -30,14 +30,16 @@ class RatingController extends Controller
             'star' => 'required|integer|min:1|max:5',
         ]);
     
-        Review::create([
+        $create_review = Review::create([
             'name' => $request->name,
             'text' => $request->text,
             'star' => $request->star,
         ]);
     
+        // dd($create_review);
+
         return redirect()->back()
-                        ->with('success','Rating berhasil disimpan.');
+                        ->with('success','Rating has been saved');
     }
 
     /**

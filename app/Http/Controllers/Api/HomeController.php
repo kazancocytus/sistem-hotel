@@ -5,12 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Facility;
 use App\Models\Review;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;  
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
 
 class HomeController extends Controller
 {
@@ -28,11 +27,14 @@ class HomeController extends Controller
     {
         $facility = Facility::whereIn('id', [4, 5, 6, 7])
         ->get();
-        return view('homepage',compact('facility'));
+        // dd('access page home');
+        return view('homepage', ['facility' => $facility]);
     }
 
     public function __invoke(){
-        return view('homepage');
+        $facility = Facility::whereIn('id', [4, 5, 6, 7])
+        ->get();
+        return view('homepage', ['facility' => $facility]);
     }
 
     public function Contact(){

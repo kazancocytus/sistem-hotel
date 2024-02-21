@@ -26,6 +26,7 @@
         "@preline/input-number": "^2.0.2",
         "@preline/overlay": "^2.0.2",
         "bootstrap": "^5.3.2",
+        "lodash": "^4.17.21",
         "preline": "^2.0.3",
         "sweetalert2": "^11.10.4"
     }

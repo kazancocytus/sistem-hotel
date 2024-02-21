@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use App\Models\Facility;
+use App\Models\Transaction;
 use App\Models\Food;
 use App\Models\User;
 use Carbon\Carbon;
@@ -15,7 +16,9 @@ use Carbon\Carbon;
 class AdminController extends Controller
 {
     public function AdminIndex() {
-        return view('admin.index_admin');
+        $transaction = Transaction::orderBy('created_at','DESC')
+                    ->get();
+        return view('admin.index_admin', ['transaction' => $transaction]);
     }
 
     public function AdminFacility(){

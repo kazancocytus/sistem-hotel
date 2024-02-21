@@ -9,7 +9,7 @@ aria-hidden="true">
         <div class="modal-body">
             <form action="">
               <div class="d-grid gap-2">
-                <button class="btn font-josefin bg-colorsucceshover font-semibold hover:bg-colorgreen hover:text-colorText text-colorPrimary" type="button">Confirm Payment</button>
+                <button class="btn font-josefin bg-colorsucceshover font-semibold hover:bg-colorgreen hover:text-colorText text-colorPrimary" type="submit">Confirm Payment</button>
                 <button class="btn font-josefin bg-colordanger font-semibold hover:bg-colorcancelhover hover:text-colorText text-colorPrimary" type="button" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
               </div>
             </form>
