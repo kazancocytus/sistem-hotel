@@ -19,8 +19,12 @@ class StatusCostumer
     public function handle(Request $request, Closure $next): Response
     {
 
-        if(Auth::check()){
-            Transaction::where('id')->update(['check_out' => now()]);
+        if (Auth::check()) {
+            $transaction = Transaction::where('id', Auth::id())->orderBy('id', 'DESC')->first();
+            if ($transaction) {
+                $transaction->check_out = now();
+                $transaction->save();
+            }
         }
 
         return $next($request);

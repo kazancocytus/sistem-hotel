@@ -32,11 +32,16 @@ class AdminController extends Controller
     }
 
     public function AdminReport(){
-        return view('admin.report');
+        $transaction = Transaction::orderBy('id','DESC')->first();
+        $totalRooms = $this->calculateTotalRooms();
+        $latestId = $this->StatusCostumer();
+
+        return view('admin.report', ['totalRooms' => $totalRooms, 'transaction' => $transaction, 'latestId' => $latestId]);
     }
 
     public function AdminUser(){
         $user = User::whereNotIn('id', [1, 2, 3])->get();
+
         return view('admin.user',compact('user'));
     }
 
@@ -55,4 +60,22 @@ class AdminController extends Controller
 
         return view('admin.user',compact('users'));
     }
+
+    public function calculateTotalRooms() {
+        $transaction = Transaction::all();
+    
+        $totalRooms = 0;
+    
+        foreach ($transaction as $transactions) {
+            $totalRooms += $transactions->suites + $transactions->deluxe + $transactions->standart;
+        }
+
+        return $totalRooms;
+    }
+
+    public function StatusCostumer(){
+        $transactions = Transaction::where('check_out', '>=', now()->subDays(1))->count();
+        return $transactions;
+    }
+    
 }
