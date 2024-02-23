@@ -83,9 +83,9 @@ class LoginController extends Controller
 
         if ($userRoles === "Admin") {
             return redirect()->route('admin.index');
-        } elseif($userRoles === "Agent"){
-
-        } elseif($userRoles === "User"){
+        } else if($userRoles === "Agent"){
+            return redirect()->route('index.staff');
+        } else if($userRoles === "User"){
             $pageRoutes = url()->previous();
             if(!empty($pageRoutes)){
                 $redirectRoutes = (strpos($pageRoutes, route('reservation')) !== false) ? route('reservation') : route('home');

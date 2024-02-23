@@ -49,15 +49,26 @@
       </div>
         <div class="signup-form">
           <div class="title">Login</div>
-        <form action="#">
+        <form action="{{ route('login') }}" method="post">
+        @csrf
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required class="@error('email') is-invalid @enderror" value="{{ old('email') }}" ">
+                @error('email')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required class="@error('password') is-invalid @enderror">
+                @error('password')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
               </div>
               <div class="button input-box">
                 <input type="submit" value="Sumbit">

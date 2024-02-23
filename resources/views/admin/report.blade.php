@@ -275,7 +275,17 @@
                               
                             </div>
                             <div class="user-progress">
-                            <small class="fw-semibold">{{ $transaction->check_out >= now()->subDays() ? $latestId + 1 : 0 }}</small>  
+                            <?php
+                              $checkoutCount = 0; 
+                              foreach($latestId as $latestid) {
+                                  if($latestid->check_out < now()) {
+                                    $checkoutCount++; 
+                                }
+                                  
+                              }
+
+                              ?>
+                            <small class="fw-semibold">{{ $checkoutCount }}</small> 
                           </div>
                           </div>
                         </li>

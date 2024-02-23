@@ -35,6 +35,7 @@ class AdminController extends Controller
         $transaction = Transaction::orderBy('id','DESC')->first();
         $totalRooms = $this->calculateTotalRooms();
         $latestId = $this->StatusCostumer();
+        
 
         return view('admin.report', ['totalRooms' => $totalRooms, 'transaction' => $transaction, 'latestId' => $latestId]);
     }
@@ -74,7 +75,8 @@ class AdminController extends Controller
     }
 
     public function StatusCostumer(){
-        $transactions = Transaction::where('check_out', '>=', now()->subDays(1))->count();
+        $transactions = Transaction::orderBy('check_out','DESC')->get();   
+
         return $transactions;
     }
     

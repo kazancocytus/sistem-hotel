@@ -178,7 +178,7 @@
                         <td> ${{ $transactions->price }}</td>
                         
                            
-                        <td><span class="badge bg-label-success me-1">{{ $transactions->check_in >= now()->subDays() ? 'Not yet' : 'Already' }}</span></td>
+                        <td><span class="badge bg-label-success me-1">{{ $transactions->check_out >= now()->subDay()->startOfDay() ? 'Not yet' : 'Already' }}</span></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
