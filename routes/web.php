@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FacilityController;
@@ -53,8 +52,8 @@ Route::get('/reservasi', function () {
 // Route for User
 Route::get('/', [HomeController::class, 'Home'])->name('home');
 Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
-Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('/reservation', [HomeController::class, 'Reservation'])->name('reservation');
+Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('/about', [HomeController::class, 'About'])->name('about');
 Route::get('/food', [HomeController::class, 'Food'])->name('fnb');
 Route::get('/detail', [HomeController::class, 'Detail'])->name('detail');

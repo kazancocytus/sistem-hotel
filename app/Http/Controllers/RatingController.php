@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Review;
 
 use Illuminate\Http\Request;
@@ -29,15 +30,17 @@ class RatingController extends Controller
             'text' => 'required|max:255',
             'star' => 'required|integer|min:1|max:5',
         ]);
-    
-        Review::create([
+
+        $create_review = Review::create([
             'name' => $request->name,
             'text' => $request->text,
             'star' => $request->star,
         ]);
-    
+
+        // dd($create_review);
+
         return redirect()->back()
-                        ->with('success','Rating berhasil disimpan.');
+            ->with('success', 'Rating berhasil disimpan.');
     }
 
     /**
