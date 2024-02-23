@@ -1,16 +1,12 @@
 <?php
 
-<<<<<<< HEAD
-use App\Http\Controllers\HomeController;
-=======
+use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\Admin\FoodController;
->>>>>>> f33fa90ab6eddb8b857d38c5c6f78f0ac5ada7d3
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +18,9 @@ use App\Http\Controllers\Api\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/staff',[HomeController::class, 'index']);
+Route::get('/staff', function(){
+    return view('staff/home');
+});
 
 Route::get('/reg', function () {
     return view('staff/reg');
@@ -37,7 +35,7 @@ Route::get('/payment', function () {
 });
 
 
-Route::get('/detail', function () {
+Route::get('/staffdetail', function () {
     return view('staff/detail');
 });
 

@@ -49,11 +49,7 @@
         <form action="">
           <div class=" w-4/5 mx-28">
             <div class=" container">
-            <div class=" row w-full  mt-10 float-start " action="">
-                <div class=" w-1/4 float-start">
-                <label class=" form-label font-josefin text-xl font-medium" id=""> No Booking</label>
-                <input class=" form-control rounded-xl bg-amber-100"  type="text" name="" id="">
-                </div>
+            <div class=" mb-10 row w-full  mt-10 float-start " action="">
                 <div class=" w-1/4 float-right">
                 <label class=" form-label font-josefin text-xl font-medium" id=""> Check In</label>
                 <input class=" form-control rounded-xl bg-amber-100"  type="date" name="" id="">
@@ -64,52 +60,33 @@
               </div>
             </div>
           </div>
-            <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Personal information</label>
-          <table class=" table-row-group">
-            <thead>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Name :</th>
-              </tr>
-              <tr>
-                <th>Email :</th>
-              </tr>
-              <tr>
-                <th>Phone Number :</th>
-              </tr>
-              <tr>
-                <th> Birth Date :</th>
-              </tr>
-            </tbody>
-          </table>
-        
-      
-        <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Booking Details</label>
-        <table class=" table-row-group">
-          <thead>
-          </thead>
-          <tbody>
-            <tr>
-              <th> Type Room:</th>
-            </tr>
-            <tr>
-              <th>Rooms :</th>
-            </tr>
-            <tr>
-              <th>Number of rooms  :</th>
-            </tr>
-            <tr>
-              <th>Price :</th>
-            </tr>
-            <tr>
-              <th>Total :</th>
-            </tr>
-          </tbody>
-        </table> 
-        
+          </div>
+          <div class="card w-1/2 mx-28">
+            <div class="card-body">
+          <h5 class="card-title font-josefin text-xl font-bold">Costumer</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Name : </li>
+            <li class="list-group-item">Email :</li>
+            <li class="list-group-item">Phone Number :</li>
+            <li class="list-group-item">Birth date :</li>
+          </ul>
+          </div>
+       </div> 
+        <div class="card w-1/2 mt-12 mx-28">
+          <div class="card-body">
+        <h5 class="card-title font-josefin text-xl font-bold">Booking Details</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Type rooms :</li>
+          <li class="list-group-item">Number room :</li>
+          <li class="list-group-item">Room :</li>
+          <li class="list-group-item">Price :</li>
+          <li class="list-group-item">Booking :</li>
+          <li class="list-group-item">Total :</li>
+        </ul>
+        </div>
+    </div>  
       </form>
-    </div><button type="button" class="text-white bg-yellow-800 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 float-right ">SUBMIT</button>
+    </div><button type="button" class="text-white bg-yellow-800 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  mx-28 mt-5 float-right ">SUBMIT</button>
 
 
 
