@@ -215,7 +215,7 @@
                                 <span class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
                                 <span class="relative group-hover:text-colorSecondary">Book Now</span>
                             </button>
-                            <button type="submit" href="" class=" h-16 w-2/5 px-5 py-3 relative rounded-r-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
+                            <button type="button" href="" class=" h-16 w-2/5 px-5 py-3 relative rounded-r-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
                                 <span class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
                                 <span class="relative group-hover:text-colorSecondary">Pay At Hotel</span>
                             </button>

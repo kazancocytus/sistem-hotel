@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('birth_date')->nullable();
             $table->string('phone')->nullable();
             $table->string('roles_name');
-            $table->timestamp('last_seen');
+            $table->timestamp('last_seen')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

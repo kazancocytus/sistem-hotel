@@ -11,6 +11,7 @@ class TransactionController extends Controller
 {
     public function __invoke(Request $request){
         $request->validate([
+            'no_rekening' => 'required|min:10|max:16',
             'check_in' => 'required',
             'check_out' => 'required',
         ]);
