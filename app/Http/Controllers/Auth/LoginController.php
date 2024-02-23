@@ -44,11 +44,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-<<<<<<< HEAD
-
-
-    
-=======
 
     // Login User with Roles
 
@@ -102,6 +97,5 @@ class LoginController extends Controller
                     ? new JsonResponse([], 204)
                     : redirect()->route('home');
     }
->>>>>>> e7f92fb0848c9ec500c258b989706ec8eb9cb68e
 
 }

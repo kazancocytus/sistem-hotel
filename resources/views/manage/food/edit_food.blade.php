@@ -234,7 +234,7 @@
     var newimg=document.createElement('img');
     imagediv.innerHTML='';
     newimg.src=image;
-    newimg.width="200";
+    newimg.width="150";
     imagediv.appendChild(newimg);
   }
 

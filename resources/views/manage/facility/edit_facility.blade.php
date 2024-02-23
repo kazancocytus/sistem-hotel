@@ -156,7 +156,6 @@
                                                     <th><label for="description_facility">Description</label></th>
                                                     <th><label for="image">Image</label></th>
                                                     <th><label for="preview">Preview</label></th>
-
                                                     <td><label for="submit"></label></td>
                                                        
                                         </tr>
@@ -167,7 +166,7 @@
                                                         <td><input type="file" id="image" name="image" src="{{ url('assets/img/facility/'.$facility->images) }}"  onchange="getImagePreview(event)"></td>
                                                         <td id="preview"></td>
                                                         <td><button type="submit" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Submit</button></td>
-                                                      </form>
+                                                </form> 
                                                       
 
                                                                                                                       
