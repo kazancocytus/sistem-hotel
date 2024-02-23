@@ -41,7 +41,7 @@ class AdminController extends Controller
     }
 
     public function AdminUser(){
-        $user = User::whereNotIn('id', [1, 2, 3])->get();
+        $user = User::all();
 
         return view('admin.user',compact('user'));
     }

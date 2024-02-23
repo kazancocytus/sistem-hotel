@@ -21,6 +21,7 @@
 
     @include('components.navbar')
 
+
     <div class=" bg-colorSecondary">
         <div class=" container p-0 m-0 self-stretch">
             <hr class="mx-auto w-44 rounded-full mb-32" style="height: 5px!important;">
@@ -30,7 +31,7 @@
                 <hr class="mx-auto w-2/5 rounded-full mb-10 mt-3" style="height: 5px!important;">
                 <div class="">
                     <form class="row flex flex-wrap" action="{{ route('store.transaction') }}" method="POST">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        @csrf
                         <div class="relative ml-8 my-10">
                             <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                                 <div class=" ml-2 h-10 text-black text-4xl"><i class="bi bi-credit-card"></i></div>
