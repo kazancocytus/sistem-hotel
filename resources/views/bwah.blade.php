@@ -1,1 +1,1 @@
-<img src="{{ asset('assets/img/bwah.jpg') }}">
+<img src="{{ asset('assets/img/bwah.jpg') }}" width="100%" height="100%">

@@ -15,8 +15,14 @@ return new class extends Migration
             $table->id();
             $table->integer('no_reservation')->index();
             $table->string('name');
-            $table->integer('no_rekening')->index();
-            $table->date('date');
+            $table->integer('no_rekening');
+            $table->string('phone');
+            $table->date('check_in');
+            $table->date('check_out');
+            $table->decimal('price', 10,2);
+            $table->integer('suites');
+            $table->integer('deluxe');
+            $table->integer('standart');
             $table->timestamps();
         });
     }

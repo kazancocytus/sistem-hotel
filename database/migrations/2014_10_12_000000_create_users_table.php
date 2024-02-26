@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('id_roles')->constrained();
             $table->integer('nip')->unique()->nullable();
             $table->string('name');
             $table->string('email')->unique();
@@ -22,7 +21,7 @@ return new class extends Migration
             $table->date('birth_date')->nullable();
             $table->string('phone')->nullable();
             $table->string('roles_name');
-            $table->enum('status', ['Online', 'Offline'])->default('Online');
+            $table->timestamp('last_seen')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

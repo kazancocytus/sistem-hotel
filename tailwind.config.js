@@ -18,6 +18,9 @@ export default {
             colorThird: '#C6A969',
             colorgreen: '#597E52',
             colorBg: '#04152d',
+            colordanger: '#dc2626',
+            colorsucceshover: '#16a34a',
+            colorcancelhover: '#B91C1C',
             colorchoco: '#D2B48C',
         },
         extend: {
