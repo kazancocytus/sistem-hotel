@@ -24,10 +24,11 @@ use Illuminate\Support\Facades\Route;
 
 // Route for User
 Route::get('/', [HomeController::class, 'Home'])->name('home');
-Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
 Route::get('/reservation', [HomeController::class, 'Reservation'])->name('reservation');
+Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('/about', [HomeController::class, 'About'])->name('about');
+Route::get('/fnb', [HomeController::class, 'Food'])->name('fnb');
 Route::get('/bwah', [HomeController::class, 'Bwah'])->name('bwah');
 Route::get('/detail', [HomeController::class, 'Detail'])->name('detail');
 
@@ -59,7 +60,7 @@ Route::middleware(['auth', 'roles_name:Agent'])->group(function(){
 
 // Route Dashboard Admin
 
-Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
+Route::middleware(['auth', 'roles_name:Admin'])->group(function () {
 
     Route::get('/admin', [AdminController::class, 'AdminIndex'])->name('admin.index');
     Route::get('/admin/facility', [AdminController::class, 'AdminFacility'])->name('admin.facility');
@@ -67,32 +68,30 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
     Route::get('/admin/report', [AdminController::class, 'AdminReport'])->name('admin.report');
     Route::get('/admin/user', [AdminController::class, 'AdminUser'])->name('admin.user');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
-
 });
 
 // Route CRUD Facility for Admin
 
-Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
+Route::middleware(['auth', 'roles_name:Admin'])->group(function () {
 
     Route::get('/add/facility', [FacilityController::class, 'AddFacility'])->name('add.facility');
     Route::post('/store/facility', [FacilityController::class, 'StoreFacility'])->name('store.facility');
     Route::get('/edit/facility/{id}', [FacilityController::class, 'EditFacility'])->name('edit.facility');
     Route::get('/delete/facility/{id}', [FacilityController::class, 'DeleteFacility'])->name('delete.facility');
     Route::post('/update/facility', [FacilityController::class, 'UpdateFacility'])->name('update.facility');
-
 });
 
 // Route CRUD Food for Admin
 
-Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
+Route::middleware(['auth', 'roles_name:Admin'])->group(function () {
 
     Route::get('/add/food', [FoodController::class, 'AddFood'])->name('add.food');
     Route::post('/store/food', [FoodController::class, 'StoreFood'])->name('store.food');
     Route::get('/edit/food/{id}', [FoodController::class, 'EditFood'])->name('edit.food');
     Route::get('/delete/food/{id}', [FoodController::class, 'DeleteFood'])->name('delete.food');
     Route::post('/update/food', [FoodController::class, 'UpdateFood'])->name('update.food');
-
 });
+
 
 
 
@@ -101,4 +100,3 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
 require __DIR__.'/auth.php';
 
 Auth::routes();
-

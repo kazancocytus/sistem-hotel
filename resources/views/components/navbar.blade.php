@@ -11,15 +11,16 @@
                     <a href="{{ route('reservation') }}" class="text-sm font-josefin font-light leading-6 text-white">Reservation</a>
                     <a href="{{ route('contact') }}" class="text-sm font-josefin font-light leading-6 text-white">Contact</a>
                     <a href="{{ route('about') }}" class="text-sm font-josefin font-light leading-6 text-white">About</a>
+                    <a href="{{ route('fnb') }}" class="text-sm font-josefin font-light leading-6 text-white">Food and Baverages</a>
                 </div>
 
 
                 @if (Route::has('login'))
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                     @auth
-                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white"><a href="{{ route('costumer.logout') }}">Log out</a><span aria-hidden="true">&rarr;</span></button>
+                    <button  type="button" class="text-sm text-white"><a class="text-sm font-josefin font-semibold leading-6 text-white" href="{{ route('costumer.logout') }}">Log out</a><span aria-hidden="true">&rarr;</span></button>
                 @else
-                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white" data-bs-toggle="modal" data-bs-target="#modalLogin">Log in <spanaria-hidden="true">&rarr;</spanaria-hidden=></button>
+                    <button type="button" class="text-sm font-josefin font-semibold leading-6 text-white" data-bs-toggle="modal" data-bs-target="#modalLogin">Log in <span aria-hidden="true">&rarr;</span aria-hidden=></button>
                     @endauth
                 </div>
                 @endif
@@ -123,7 +124,7 @@
                             <input type="password" class="form-control rounded-xl" id="password" name="password"
                                 placeholder="Input Your Password Here" />
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-5">
                             <label for="password-confirm" class="form-label font-josefin">Confirm Password</label>
                             <input type="password" class="form-control rounded-xl" id="password-confirm" name="password_confirmation"
                                 placeholder="Input Your Password Here" />

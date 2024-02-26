@@ -21,39 +21,36 @@
 </head>
 
 <body>
-
     @include('components.navbar')
     <div class=" bg-colorSecondary">
-        <div id="hero" class=" shadow-2xl">
-            <img class="w-full max-h-dvh relative bg-gradient-to-t from-colorBg from-80% to-transparent"
-                src="{{ asset('assets/heroimg.jpg') }}" alt="">
+        <div id="hero" class="shadow-2xl">
+            <img class="w-full relative" src="{{ asset('assets/hero2.jpg') }}" alt="">
             <div
-                class=" drop-shadow-2xl absolute font-josefin font-semibold text-colorPrimary text-9xl top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2">
+                class="absolute font-josefin font-semibold text-colorPrimary text-9xl top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2">
                 <h1>Welcome</h1>
                 <h1>To Evergreen</h1>
             </div>
         </div>
         <div class=" container p-0 m-0 self-stretc">
-
-
             <div class="container mx-auto my-auto" id="facility-list">
-                    <div class="mt-60 text-center text-black text-4xl font-semibold font-josefin">EVERGREEN EXPERIENCE
-                    </div>
-                    <hr class="mx-auto w-96 rounded-full mt-3" style="height: 5px!important;">
-                    <div>
-                        <p class="mx-28 my-10 h-36 text-center text-black text-xl font-josefin">Inspired by the beauty of
+                <div class="mt-60 text-center text-black text-4xl font-semibold font-josefin">EVERGREEN EXPERIENCE
+                </div>
+                <hr class="mx-auto w-96 rounded-full mt-3" style="height: 5px!important;">
+                <div>
+                    <p class="mx-28 my-10 h-36 text-center text-black text-xl font-josefin">Inspired by the beauty of
                         Parahyangan, Evergreen Hotel Bandung offers spectacular mountain views, indulgent dining,
                         elegant
                         guestrooms and exceptional hospitality personified by its 24-hour Butler Service. Located in the
                         hills
-                        of Cimareme, and yet only minutes from the bustle of Bandung's city centre, the hotel is 10 km
+                        of Bogor, and yet only minutes from the bustle of Bandung's city centre, the hotel is 10 km
                         from
                         Husein Sastranegara International Airport and 9km from Bandung train station.
                         Evergreen Hotel Bandung is the perfect place for a rejuvenating, opulent getaway, private
                         gatherings,
                         and well-organised events and meetings.</p>
-                    </div>
-
+                </div>
+                <div>
+                </div>
                 <div class=" flex-col flex">
                     <div class=" mt-40 text-center text-black text-3xl font-semibold font-josefin">FACILITIES</div>
                     <hr class="mx-auto w-24 rounded-full mt-3" style="height: 5px!important;">
@@ -73,17 +70,16 @@
                                     class="w-2/4 mt-28 text-center text-black text-3xl font-semibold font-josefin float-start">
                                     {{ $facilities->name }}
                                 </div>
-                                <p class="float-start w-5/12 mt-6 ml-16 text-xl text-right float-start font-josefin">
+                                <p class="w-5/12 mt-6 ml-16 text-xl text-right float-start font-josefin">
                                     {{ $facilities->description_facility }}</p>
                             @endif
                         </div>
                     @endforeach
                 </div>
             </div>
-            </div>
         </div>
-
         @include('components.footer')
+    </div>
     </div>
 </body>
 

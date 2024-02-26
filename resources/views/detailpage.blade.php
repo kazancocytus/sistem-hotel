@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
     @vite('resources/css/app.css')
@@ -43,14 +44,16 @@
                         <div class=" object-top flex flex-col mx-10 w-1/3">
                             <div class=" row w-1/2">
                                 <label class=" font-josefin mb-2" for="check_in">Check In Date</label>
-                                <input class=" border-white text-colorBg bg-transparent rounded-2xl" type="date" id="check_in" name="check_in">
+                                <input class=" border-white text-colorBg bg-transparent rounded-2xl" type="date"
+                                    id="check_in" name="check_in">
                             </div>
                             <div class=" mx-4 my-1 row">
                                 <i class=" text-left text-4xl bi bi-arrow-down-short"></i>
                             </div>
                             <div class=" row w-1/2">
                                 <label class=" font-josefin mb-2" for="check_out">Check Out Date</label>
-                                <input class=" border-white text-colorBg bg-transparent rounded-2xl" type="date" id="check_out" name="check_out">
+                                <input class=" border-white text-colorBg bg-transparent rounded-2xl" type="date"
+                                    id="check_out" name="check_out">
                             </div>
                         </div>
                         <!-- Input Number -->
@@ -157,7 +160,8 @@
                                                 <path d="M5 12h14" />
                                             </svg>
                                         </button>
-                                        <input id="standart-input" name="standart-input" min="0" data-max="10"
+                                        <input id="standart-input" name="standart-input" min="0"
+                                            data-max="10"
                                             class="p-0 w-6 bg-transparent border-0 text-colorBg text-center focus:ring-0"
                                             type="text" value="0" data-hs-input-number-input>
                                         <button type="button" id="standart-increment"
@@ -211,13 +215,19 @@
                             </table>
                         </div>
 
+
                         <div class=" mt-12 justify-center flex flex-row ">
-                            <button type="button" href="" data-bs-toggle="modal" data-bs-target="#TransactionModal"class=" h-16 w-2/5 px-5 py-3 relative border-r-2 rounded-l-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
-                                <span class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
+                            <button type="button" href="" data-bs-toggle="modal"
+                                data-bs-target="#TransactionModal"class=" h-16 w-2/5 px-5 py-3 relative border-r-2 rounded-l-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
+                                <span
+                                    class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
                                 <span class="relative group-hover:text-colorSecondary">Book Now</span>
                             </button>
-                            <button type="button" href="" class=" h-16 w-2/5 px-5 py-3 relative rounded-r-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
-                                <span class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
+                            <button type="button" href="" data-bs-toggle="modal"
+                                data-bs-target="#PayHotelModal"
+                                class=" h-16 w-2/5 px-5 py-3 relative rounded-r-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
+                                <span
+                                    class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
                                 <span class="relative group-hover:text-colorSecondary">Pay At Hotel</span>
                             </button>
                             @include('components.modaltrans')
@@ -230,248 +240,283 @@
     </div>
 
     <script type="text/javascript">
-    const debounce = _.debounce; 
-    // Get all the necessary elements 
-    const suitesInput = document.getElementById('suites-input') 
-    const deluxeInput = document.getElementById('deluxe-input') 
-    const standartInput = document.getElementById('standart-input') 
-    const checkInInput = document.getElementById('check_in');
-    const checkOutInput = document.getElementById('check_out');
-    const suitesPrice = 399 
-    const deluxePrice = 299 
-    const standartPrice = 199 
-    const table = document.querySelector('table tbody'); 
+        const debounce = _.debounce;
+        // Get all the necessary elements 
+        const suitesInput = document.getElementById('suites-input')
+        const deluxeInput = document.getElementById('deluxe-input')
+        const standartInput = document.getElementById('standart-input')
+        const checkInInput = document.getElementById('check_in');
+        const checkOutInput = document.getElementById('check_out');
+        const suitesPrice = 399
+        const deluxePrice = 299
+        const standartPrice = 199
+        const table = document.querySelector('table tbody');
 
 
-    function getDaysBetweenDates(date1, date2){ 
-        const timeDifference = Math.abs(date2 - date1); 
-        const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24)); 
-        return daysDifference; } 
-        
-    function updateTable() { 
-        updateTableRow(suitesInput, tableRows[1], suitesPrice); 
-        updateTableRow(deluxeInput, tableRows[2], deluxePrice); 
-        updateTableRow(standartInput, tableRows[3], standartPrice); 
-        updateTableVisibility(); } 
-            
+        function getDaysBetweenDates(date1, date2) {
+            const timeDifference = Math.abs(date2 - date1);
+            const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+            return daysDifference;
+        }
+
+        function updateTable() {
+            updateTableRow(suitesInput, tableRows[1], suitesPrice);
+            updateTableRow(deluxeInput, tableRows[2], deluxePrice);
+            updateTableRow(standartInput, tableRows[3], standartPrice);
+            updateTableVisibility();
+        }
+
         // Toggle the visibility of the table based on the input values 
-    function updateTableVisibility() { 
-        const checkIn = new Date(Date.parse(checkInInput.value)); 
-        const checkOut = new Date(Date.parse(checkOutInput.value)); 
+        function updateTableVisibility() {
+            const checkIn = new Date(Date.parse(checkInInput.value));
+            const checkOut = new Date(Date.parse(checkOutInput.value));
 
-        if(checkIn && checkOut){
-        if (suitesInput.value > 0) { 
-            tableRows[1].classList.remove('hidden'); 
-            } else { 
-            tableRows[1].classList.add('hidden'); 
-            } if (deluxeInput.value > 0) { 
-            tableRows[2].classList.remove('hidden'); 
-            } else { 
-            tableRows[2].classList.add('hidden'); 
-            } if (standartInput.value > 0) {
-            tableRows[3].classList.remove('hidden'); 
-            } else { 
-            tableRows[3].classList.add('hidden'); 
-            } 
-        } 
-    }
+            if (checkIn && checkOut) {
+                if (suitesInput.value > 0) {
+                    tableRows[1].classList.remove('hidden');
+                } else {
+                    tableRows[1].classList.add('hidden');
+                }
+                if (deluxeInput.value > 0) {
+                    tableRows[2].classList.remove('hidden');
+                } else {
+                    tableRows[2].classList.add('hidden');
+                }
+                if (standartInput.value > 0) {
+                    tableRows[3].classList.remove('hidden');
+                } else {
+                    tableRows[3].classList.add('hidden');
+                }
+            }
+        }
 
         // Update the table row based on the input value 
-        function updateTableRow(input, row, price, daysDifference) { 
-            const quantity = input.value 
-            const totalPrice = price * quantity * daysDifference 
-            row.children[1].textContent = quantity 
-            row.children[2].textContent = `$${parseInt(totalPrice)}` 
-            
-        } 
+        function updateTableRow(input, row, price, daysDifference) {
+            const quantity = input.value
+            const totalPrice = price * quantity * daysDifference
+            row.children[1].textContent = quantity
+            row.children[2].textContent = `$${parseInt(totalPrice)}`
+
+        }
         // Update all the table rows 
-        const tableRows = document.querySelectorAll('table tbody tr') 
-        let totalRow; 
-        
-        function updateTable() { 
-            const checkIn = new Date(Date.parse(checkInInput.value)); 
-            const checkOut = new Date(Date.parse(checkOutInput.value)); 
-            const NoRekening = document.getElementById('no_rekening').value; 
-            const daysDifference = getDaysBetweenDates(checkIn, checkOut); 
-            
-            if(daysDifference === 0){ 
-                alert('please input check-in and check-out dates'); 
-                return; 
-            } 
-            
-            if(checkIn > checkOut){ 
-                alert('check-out must be later than check-in'); 
-                return; 
-            }  
-            
-            
-            if(checkIn < checkOut){
-                updateTableRow(suitesInput, tableRows[1], suitesPrice, daysDifference) 
-                updateTableRow(deluxeInput, tableRows[2], deluxePrice, daysDifference) 
-                updateTableRow(standartInput, tableRows[3], standartPrice, daysDifference) 
-            
-            
-            let totalPrice = (parseInt(suitesInput.value * suitesPrice * daysDifference)) + (parseInt(deluxeInput.value * deluxePrice * daysDifference)) + (parseInt(standartInput.value * standartPrice * daysDifference)); 
+        const tableRows = document.querySelectorAll('table tbody tr')
+        let totalRow;
+
+        function updateTable() {
+            const checkIn = new Date(Date.parse(checkInInput.value));
+            const checkOut = new Date(Date.parse(checkOutInput.value));
+            const NoRekening = document.getElementById('no_rekening').value;
+            const daysDifference = getDaysBetweenDates(checkIn, checkOut);
+
+            if (daysDifference === 0) {
+                alert('please input check-in and check-out dates');
+                return;
+            }
+
+            if (checkIn > checkOut) {
+                alert('check-out must be later than check-in');
+                return;
+            }
 
 
-            if (+suitesInput.value === 0 && +deluxeInput.value === 0 && +standartInput.value === 0) { 
-                if (totalRow) { 
-                    totalRow.classList.add('hidden'); } 
-                } else { 
-                    if (!totalRow) { 
-                    totalRow = table.insertRow(); 
-                    const totalCell1 = totalRow.insertCell(); 
-                    totalCell1.classList.add('text-left','font-bold'); 
-                    totalCell1.textContent = 'Total'; 
-                    const totalCell2 = totalRow.insertCell(); 
-                    totalCell2.classList.add('text-right', 'font-bold'); 
-                } 
-                    totalRow.cells[1].textContent = '$' + Number(totalPrice.toFixed(2)); 
-                    totalRow.classList.remove('hidden'); 
-                }  
-                        
-                    console.log(totalPrice); 
-                        
-                    // send data to controller  
-                    $.ajax({ 
-                        method: "POST", 
-                        url: "{{ route('store.transaction') }}", 
-                        data: { 
-                            'total_price': totalPrice.toString(),
-                            'check_out': checkOutInput.value, 
-                            'check_in': checkInInput.value,
-                            'no_rekening': NoRekening.value,
-                            'suites-input': suitesInput.value,
-                            'deluxe-input': deluxeInput.value,
-                            'standart-input': standartInput.value,
-                        },
-                        success: function (response) { 
-                            console.log(response); 
-                        },
-                        error : function(xhr){
-                            console.log(xhr.responseText);
-                        } 
-                    }); 
+            if (checkIn < checkOut) {
+                updateTableRow(suitesInput, tableRows[1], suitesPrice, daysDifference)
+                updateTableRow(deluxeInput, tableRows[2], deluxePrice, daysDifference)
+                updateTableRow(standartInput, tableRows[3], standartPrice, daysDifference)
+
+
+                let totalPrice = (parseInt(suitesInput.value * suitesPrice * daysDifference)) + (parseInt(deluxeInput
+                    .value * deluxePrice * daysDifference)) + (parseInt(standartInput.value * standartPrice *
+                    daysDifference));
+
+
+                if (+suitesInput.value === 0 && +deluxeInput.value === 0 && +standartInput.value === 0) {
+                    if (totalRow) {
+                        totalRow.classList.add('hidden');
+                    }
+                } else {
+                    if (!totalRow) {
+                        totalRow = table.insertRow();
+                        const totalCell1 = totalRow.insertCell();
+                        totalCell1.classList.add('text-left', 'font-bold');
+                        totalCell1.textContent = 'Total';
+                        const totalCell2 = totalRow.insertCell();
+                        totalCell2.classList.add('text-right', 'font-bold');
+                    }
+                    totalRow.cells[1].textContent = '$' + Number(totalPrice.toFixed(2));
+                    totalRow.classList.remove('hidden');
                 }
+
+                console.log(totalPrice);
+
+                // send data to controller  
+                $.ajax({
+                    method: "POST",
+                    url: "{{ route('store.transaction') }}",
+                    data: {
+                        'total_price': totalPrice.toString(),
+                        'check_out': checkOutInput.value,
+                        'check_in': checkInInput.value,
+                        'no_rekening': NoRekening.value,
+                        'suites-input': suitesInput.value,
+                        'deluxe-input': deluxeInput.value,
+                        'standart-input': standartInput.value,
+                    },
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(xhr) {
+                        console.log(xhr.responseText);
+                    }
+                });
+            }
             updateTableVisibility()
 
-        } 
-        
-        // Increment the input value and update the table 
-        function incrementInput(input) {
-                if(input.value = 0){
-                    input.value++;
-                    updateTable();
-                    updateTableVisibility();
-                } 
+                <<
+                << << < HEAD
+            const totalPrice = (suitesInput.value * suitesPrice) + (deluxeInput.value * deluxePrice) + (standartInput
+                .value * standartPrice);
+            if (totalPrice === 0) {
+                if (totalRow) {
+                    totalRow.classList.add('hidden');
+                }
+            } else {
+                if (!totalRow) {
+                    totalRow = table.insertRow();
+                    const totalCell1 = totalRow.insertCell();
+                    totalCell1.classList.add('text-left', 'font-bold');
+                    totalCell1.textContent = 'Total';
+                    const totalCell2 = totalRow.insertCell();
+                    totalCell2.classList.add('text-right', 'font-bold');
+                }
+                totalRow.cells[1].textContent = '$' + totalPrice.toFixed(2);
+                totalRow.classList.remove('hidden');
             }
-        
-        
+        }
+
+        // Increment the input value and update the table
+        ===
+        === =
+        }
+
+        // Increment the input value and update the table 
+        >>>
+        >>> > d44f00a2bd06327d355a80dd0422de89254afcbe
+
+        function incrementInput(input) {
+            if (input.value = 0) {
+                input.value++;
+                updateTable();
+                updateTableVisibility();
+            }
+        }
+
+
         // Decrement the input value and update the table 
-        function decrementInput(input) { 
-            if (input.value > 0) { 
-                input.value-- 
-                updateTable() 
-                updateTableVisibility() 
-                } 
-        } 
-                
+        function decrementInput(input) {
+            if (input.value > 0) {
+                input.value--
+                updateTable()
+                updateTableVisibility()
+            }
+        }
+
         const debouncedUpdateTable = debounce(updateTable, 500);
 
         // Add event listeners to the input buttons 
-        document.getElementById('suites-increment').addEventListener('click', () => { 
+        document.getElementById('suites-increment').addEventListener('click', () => {
             if (checkInInput.value && checkOutInput.value) {
                 incrementInput(suitesInput)
                 debouncedUpdateTable();
-                updateTableVisibility(); 
-            } else{
+                updateTableVisibility();
+            } else {
                 alert('please complete check in and check out first');
                 document.getElementById('suites-increment').setAttribute('disabled', 'disabled');
                 document.getElementById('suites-decrement').setAttribute('disabled', 'disabled');
                 return;
             }
-            }); 
-            
-        document.getElementById('suites-decrement').addEventListener('click', () => { 
-            if(checkInInput.value && checkOutInput.value){
+        });
+
+        document.getElementById('suites-decrement').addEventListener('click', () => {
+            if (checkInInput.value && checkOutInput.value) {
                 decrementInput(suitesInput)
                 debouncedUpdateTable();
-                updateTableVisibility(); 
-            }else{
+                updateTableVisibility();
+            } else {
                 alert('please complete check in and check out first');
                 suitesInput.setAttribute('disabled', 'disabled');
                 deluxeInput.setAttribute('disabled', 'disabled');
                 standartInput.setAttribute('disabled', 'disabled');
                 return;
             }
-            });
-        
+        });
+
         document.getElementById('deluxe-increment').addEventListener('click', () => {
-            if(checkInInput.value && checkOutInput.value){
+            if (checkInInput.value && checkOutInput.value) {
                 incrementInput(deluxeInput)
                 debouncedUpdateTable();
-                updateTableVisibility(); 
-            } else{
+                updateTableVisibility();
+            } else {
                 alert('please complete check in and check out first');
             }
-            });
-            
-        document.getElementById('deluxe-decrement').addEventListener('click', () => { 
-            if(checkInInput.value && checkOutInput.value){
-                incrementInput(deluxeInput)
-                debouncedUpdateTable();
-                updateTableVisibility(); 
-            } else{
-                alert('please complete check in and check out first');
-            }
-            });
-            
-        document.getElementById('standart-increment').addEventListener('click', () => { 
-            if(checkInInput.value && checkOutInput.value){
-                incrementInput(deluxeInput)
-                debouncedUpdateTable();
-                updateTableVisibility(); 
-            } else{
-                alert('please complete check in and check out first');
-            }
-            });
-            
-        document.getElementById('standart-decrement').addEventListener('click', () => { 
-            if(checkInInput.value && checkOutInput.value){
-                incrementInput(deluxeInput)
-                debouncedUpdateTable();
-                updateTableVisibility(); 
-            } else{
-                alert('please complete check in and check out first');
-            }
-            });
+        });
 
-            checkInInput.addEventListener('input', () => {
-                if (checkInInput.value && checkOutInput.value) {
-                    document.getElementById('suites-increment').removeAttribute('disabled');
-                    document.getElementById('suites-decrement').removeAttribute('disabled');
-                    document.getElementById('deluxe-increment').removeAttribute('disabled');
-                    document.getElementById('deluxe-decrement').removeAttribute('disabled');
-                    document.getElementById('standart-increment').removeAttribute('disabled');
-                    document.getElementById('standart-decrement').removeAttribute('disabled');
-                    
-                }
-            });
+        document.getElementById('deluxe-decrement').addEventListener('click', () => {
+            if (checkInInput.value && checkOutInput.value) {
+                incrementInput(deluxeInput)
+                debouncedUpdateTable();
+                updateTableVisibility();
+            } else {
+                alert('please complete check in and check out first');
+            }
+        });
 
-                checkOutInput.addEventListener('input', () => {
-                if (checkInInput.value && checkOutInput.value) {
-                    document.getElementById('suites-increment').removeAttribute('disabled');
-                    document.getElementById('suites-decrement').removeAttribute('disabled');
-                    document.getElementById('deluxe-increment').removeAttribute('disabled');
-                    document.getElementById('deluxe-decrement').removeAttribute('disabled');
-                    document.getElementById('standart-increment').removeAttribute('disabled');
-                    document.getElementById('standart-decrement').removeAttribute('disabled');
-                }
-                });
-        
+        document.getElementById('standart-increment').addEventListener('click', () => {
+            if (checkInInput.value && checkOutInput.value) {
+                incrementInput(deluxeInput)
+                debouncedUpdateTable();
+                updateTableVisibility();
+            } else {
+                alert('please complete check in and check out first');
+            }
+        });
+
+        document.getElementById('standart-decrement').addEventListener('click', () => {
+            if (checkInInput.value && checkOutInput.value) {
+                incrementInput(deluxeInput)
+                debouncedUpdateTable();
+                updateTableVisibility();
+            } else {
+                alert('please complete check in and check out first');
+            }
+        });
+
+        checkInInput.addEventListener('input', () => {
+            if (checkInInput.value && checkOutInput.value) {
+                document.getElementById('suites-increment').removeAttribute('disabled');
+                document.getElementById('suites-decrement').removeAttribute('disabled');
+                document.getElementById('deluxe-increment').removeAttribute('disabled');
+                document.getElementById('deluxe-decrement').removeAttribute('disabled');
+                document.getElementById('standart-increment').removeAttribute('disabled');
+                document.getElementById('standart-decrement').removeAttribute('disabled');
+
+            }
+        });
+
+        checkOutInput.addEventListener('input', () => {
+            if (checkInInput.value && checkOutInput.value) {
+                document.getElementById('suites-increment').removeAttribute('disabled');
+                document.getElementById('suites-decrement').removeAttribute('disabled');
+                document.getElementById('deluxe-increment').removeAttribute('disabled');
+                document.getElementById('deluxe-decrement').removeAttribute('disabled');
+                document.getElementById('standart-increment').removeAttribute('disabled');
+                document.getElementById('standart-decrement').removeAttribute('disabled');
+            }
+        });
+
         // Initialize the table with the initial input values 
-        updateTable(); 
-        </script>
+        updateTable();
+    </script>
 
     @include('sweetalert::alert')
 </body>
