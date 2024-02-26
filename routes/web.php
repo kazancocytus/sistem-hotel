@@ -22,7 +22,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 // Route for User
 Route::get('/', [HomeController::class, 'Home'])->name('home');
 Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');

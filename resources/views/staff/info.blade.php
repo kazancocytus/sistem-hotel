@@ -46,20 +46,25 @@
       <div >
         <div class="font-josefin text-2xl font-semibold mx-3 mt-3"> <i class="bi bi-people-fill mx-3"></i>  Information</div>
     </div>
-    <form class="card w-3/4 mx-28 py-5 float-start" action="">
+    <form class=" w-3/4 mx-28 py-5" action="">
       <div class=" container">
-        <div class="card-body row">
-            <form class=" w-2/5 ml-14 py-2" action=" ">
+        <div class=" ">
+            <form class=" w-3/4 mx-28 py-5" action=" ">
                 <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Name</label>
-              <input class="form-control rounded-xl bg-amber-100 w-2/5" type="text" id=" " value="">
-              <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Email</label>
-              <input class="form-control rounded-xl bg-amber-100 w-2/5" type="text" id=" " value="">
-              <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Phone number</label>
-              <input class="form-control rounded-xl bg-amber-100 w-2/5" type="text" id=" " value="">
-              <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Birth date</label>
               <input class="form-control rounded-xl bg-amber-100" type="text" id=" " value="">
+              <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Email</label>
+              <input class="form-control rounded-xl bg-amber-100" type="text" id=" " value="">
+              <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Phone number</label>
+              <input class="form-control rounded-xl bg-amber-100" type="text" id=" " value="">
+              <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Birth Date</label>
+              <input class="form-control rounded-xl bg-amber-100" type="date" id=" " value="">
+            </form>
+              </div>
             </div>
-            </div><button type="button"  class="text-white bg-yellow-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 float-right "><a href="{{ route('detail.reservation') }}">NEXT</button>
+          </div><button type="button" class="text-white bg-yellow-800 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 float-right ">NEXT</button>
+
+            </div>
+            
           </form>
              
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
