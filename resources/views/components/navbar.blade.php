@@ -124,7 +124,7 @@
                             <input type="password" class="form-control rounded-xl" id="password" name="password"
                                 placeholder="Input Your Password Here" />
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-5">
                             <label for="password-confirm" class="form-label font-josefin">Confirm Password</label>
                             <input type="password" class="form-control rounded-xl" id="password-confirm" name="password_confirmation"
                                 placeholder="Input Your Password Here" />

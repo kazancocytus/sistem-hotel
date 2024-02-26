@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\AgentController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,34 +22,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/staff', [HomeController::class, 'index']);
-
-Route::get('/reg', function () {
-    return view('staff/reg');
-});
-
-Route::get('/log', function () {
-    return view('staff/log');
-});
-
-Route::get('/payment', function () {
-    return view('staff/payment');
-});
-
-
-Route::get('/detail', function () {
-    return view('staff/detail');
-});
-
-
-Route::get('/info', function () {
-    return view('staff/info');
-});
-
-Route::get('/reservasi', function () {
-    return view('staff/reservasi');
-});
-
 
 // Route for User
 Route::get('/', [HomeController::class, 'Home'])->name('home');
@@ -55,15 +29,13 @@ Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name(
 Route::get('/reservation', [HomeController::class, 'Reservation'])->name('reservation');
 Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
 Route::get('/about', [HomeController::class, 'About'])->name('about');
-Route::get('/food', [HomeController::class, 'Food'])->name('fnb');
+Route::get('/fnb', [HomeController::class, 'Food'])->name('fnb');
+Route::get('/bwah', [HomeController::class, 'Bwah'])->name('bwah');
 Route::get('/detail', [HomeController::class, 'Detail'])->name('detail');
 
-// 
+
 Route::get('/review/store', [RatingController::class, 'store'])->name('review.store');
-
-
-// if user or agent want to acces admin dashboard
-Route::get('/bwah', [HomeController::class, 'Bwah'])->name('bwah');
+Route::post('/store/transaction', TransactionController::class, 'StoreTransaction')->name('store.transaction');
 
 
 Route::middleware('auth')->group(function () {
@@ -71,6 +43,21 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/agent/login', function(){
+    return view('staff/reg');
+});
+
+Route::middleware(['auth', 'roles_name:Agent'])->group(function(){
+    
+    Route::get('/agent', [AgentController::class, 'IndexStaff'])->name('index.staff');
+    Route::get('/agent/reservation', [AgentController::class, 'AgentReservation'])->name('agent.reservation');
+    Route::get('/agent/log', [AgentController::class, 'LogCostumer'])->name('log.costumer');
+    Route::get('/agent/info', [AgentController::class, 'InfoReservation'])->name('info.reservation');
+    Route::get('/agent/detail', [AgentController::class, 'DetailReservation'])->name('detail.reservation');
+
+});
+
 
 // Route Dashboard Admin
 
@@ -108,6 +95,9 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function () {
 
 
 
-require __DIR__ . '/auth.php';
+
+
+
+require __DIR__.'/auth.php';
 
 Auth::routes();

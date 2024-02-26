@@ -231,7 +231,7 @@
                     <div class="card-body">
                       <div class="d-flex justify-content-between align-items-center mb-3">
                         <div class="d-flex flex-column align-items-center gap-1">
-                          <h2 class="mb-2 fw-bolder">546</h2>
+                          <h2 class="mb-2 fw-bolder">{{ $transaction->id }}</h2>
                           <span>Total Reservation this month</span>
                         </div>
                         <div id="orderStatisticsChart"></div>
@@ -247,7 +247,7 @@
                               
                             </div>
                             <div class="user-progress">
-                              <small class="fw-semibold">40</small>
+                              <small class="fw-semibold">{{ $totalRooms }}</small>
                             </div>
                           </div>
                         </li>
@@ -261,7 +261,7 @@
                              
                             </div>
                             <div class="user-progress">
-                              <small class="fw-semibold">50 </small>
+                              <small class="fw-semibold">{{ $transaction->id }} </small>
                             </div>
                           </div>
                         </li>
@@ -271,28 +271,22 @@
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
-                              <h6 class="mb-0 fw-bolder">check-out</h6>
+                              <h6 class="mb-0 fw-bolder">Check-out</h6>
                               
                             </div>
                             <div class="user-progress">
-                              <small class="fw-semibold">25</small>
-                            </div>
+                            <?php
+                              $checkoutCount = 0; 
+                              foreach($latestId as $latestid) {
+                                  if($latestid->check_out < now()) {
+                                    $checkoutCount++; 
+                                }
+                                  
+                              }
+
+                              ?>
+                            <small class="fw-semibold">{{ $checkoutCount }}</small> 
                           </div>
-                        </li>
-                        <li class="d-flex">
-                          <div class="avatar flex-shrink-0 me-3">
-                            <span class="avatar-initial rounded bg-label-secondary"
-                              ><i class="bx bxs-building"></i
-                            ></span>
-                          </div>
-                          <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                            <div class="me-2">
-                              <h6 class="mb-0 fw-bolder">Ballroom</h6>
-                              
-                            </div>
-                            <div class="user-progress">
-                              <small class="fw-semibold">10</small>
-                            </div>
                           </div>
                         </li>
                       </ul>

@@ -6,10 +6,10 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
+use App\Models\Transaction;
 
 
-class UserActivity
+class StatusCostumer
 {
     /**
      * Handle an incoming request.
@@ -18,9 +18,13 @@ class UserActivity
      */
     public function handle(Request $request, Closure $next): Response
     {
-        
-        if(Auth::check()){
-            User::where('id',Auth::user()->id)->update(['last_seen' => now()]);
+
+        if (Auth::check()) {
+            $transaction = Transaction::where('id', Auth::id())->orderBy('id', 'DESC')->first();
+            if ($transaction) {
+                $transaction->check_out = now();
+                $transaction->save();
+            }
         }
 
         return $next($request);
