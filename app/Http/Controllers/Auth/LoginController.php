@@ -7,7 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\Roles;
-use Illuminate\Support\Facades\Auth;
+
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Route;
@@ -44,11 +44,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-<<<<<<< HEAD
-
-
-    
-=======
 
     // Login User with Roles
 
@@ -88,11 +83,16 @@ class LoginController extends Controller
 
         if ($userRoles === "Admin") {
             return redirect()->route('admin.index');
-        } elseif($userRoles === "Agent"){
-
-        } elseif($userRoles === "User"){
+        } else if($userRoles === "Agent"){
+            return redirect()->route('index.staff');
+        } else if($userRoles === "User"){
             $pageRoutes = url()->previous();
-            $redirectRoutes = (strpos($pageRoutes, route('reservation')) !== false) ? route('reservation') : route('home');
+            if(!empty($pageRoutes)){
+                $redirectRoutes = (strpos($pageRoutes, route('reservation')) !== false) ? route('reservation') : route('home');
+            } else{
+                route('about');
+            }
+            
 
             return redirect()->to($redirectRoutes);
             
@@ -102,6 +102,5 @@ class LoginController extends Controller
                     ? new JsonResponse([], 204)
                     : redirect()->route('home');
     }
->>>>>>> e7f92fb0848c9ec500c258b989706ec8eb9cb68e
 
 }

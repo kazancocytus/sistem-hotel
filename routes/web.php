@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Api\AgentController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\FacilityController;
 use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RatingController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,57 +21,41 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/staff', function(){
-    return view('staff/home');
-});
-
-Route::get('/reg', function () {
-    return view('staff/reg');
-});
-
-Route::get('/log', function () {
-    return view('staff/log');
-});
-
-Route::get('/payment', function () {
-    return view('staff/payment');
-});
-
-
-Route::get('/staffdetail', function () {
-    return view('staff/detail');
-});
-
-
-Route::get('/info', function () {
-    return view('staff/info');
-});
-
-Route::get('/reservasi', function () {
-    return view('staff/reservasi');
-});
-
 
 // Route for User
-
-Route::get('/', [HomeController::class, 'Home'])->name('home'); //Home Page
-Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
+Route::get('/', [HomeController::class, 'Home'])->name('home');
 Route::get('/contact', [HomeController::class, 'Contact'])->name('contact');
+Route::get('/costumer/logout', [HomeController::class, 'CostumerLogout'])->name('costumer.logout');
 Route::get('/reservation', [HomeController::class, 'Reservation'])->name('reservation');
 Route::get('/about', [HomeController::class, 'About'])->name('about');
-Route::get('/detail', [HomeController::class, 'Detail'])->name('detail');
 Route::get('/bwah', [HomeController::class, 'Bwah'])->name('bwah');
+Route::get('/detail', [HomeController::class, 'Detail'])->name('detail');
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/review/store', [RatingController::class, 'store'])->name('review.store');
+Route::post('/store/transaction', TransactionController::class, 'StoreTransaction')->name('store.transaction');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/agent/login', function(){
+    return view('staff/reg');
+});
+
+Route::middleware(['auth', 'roles_name:Agent'])->group(function(){
+    
+    Route::get('/agent', [AgentController::class, 'IndexStaff'])->name('index.staff');
+    Route::get('/agent/reservation', [AgentController::class, 'AgentReservation'])->name('agent.reservation');
+    Route::get('/agent/log', [AgentController::class, 'LogCostumer'])->name('log.costumer');
+    Route::get('/agent/info', [AgentController::class, 'InfoReservation'])->name('info.reservation');
+    Route::get('/agent/detail', [AgentController::class, 'DetailReservation'])->name('detail.reservation');
+
+});
+
 
 // Route Dashboard Admin
 
@@ -106,6 +93,8 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function(){
     Route::post('/update/food', [FoodController::class, 'UpdateFood'])->name('update.food');
 
 });
+
+
 
 
 

@@ -24,6 +24,8 @@ class TypeRoomSeeder extends Seeder
                 a relaxing bathtub and premium toiletries. Stay connected with high-speed Wi-Fi and unwind with a
                 selection of in-room entertainment options. Experience opulence at its best in our Deluxe Rooms.",
                 'image' => 'assets/deluxepic (1).jpg',
+                'number_room_id' => 1,
+                'facility_id' => 1,
             ],
             [
                 'name' => 'Suite',
@@ -34,7 +36,9 @@ class TypeRoomSeeder extends Seeder
                 Suites come complete with a fully equipped kitchenette, ideal for those who prefer the convenience of
                 in-room dining. Pamper yourself in the spacious bathroom, featuring a deluxe shower and a range of
                 upscale amenities. Experience the epitome of sophistication in our Suites.",
-                'image' => 'assets/suitespic.jpg'
+                'image' => 'assets/suitespic.jpg',
+                'number_room_id' => 2,
+                'facility_id' => 2,
             ],
             [
                 'name' => 'Standar',
@@ -45,7 +49,9 @@ class TypeRoomSeeder extends Seeder
                 the comfortable seating area is perfect for relaxation. The en-suite bathroom is well-appointed,
                 offering a rejuvenating shower and complimentary toiletries. Standard Rooms at Evergreen Hotel provide a
                 welcoming and affordable accommodation option.',
-                'image' => 'standarpic.jpg'
+                'image' => 'assets/standartpic.jpg',
+                'number_room_id' => 3,
+                'facility_id' => 3,
             ]
         ]);
     }

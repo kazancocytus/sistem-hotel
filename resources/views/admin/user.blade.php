@@ -153,6 +153,7 @@
                               <th>Email</th>
                               <th>Birth Date</th>
                               <th>Phone</th>
+                              <th>Last Seen</th>
                               <th>Status</th>
                               <th>Actions</th>
                             </tr>
@@ -168,7 +169,9 @@
                               <td>
                                 {{ $list->phone }}
                               </td>
-                              <td><span class="badge bg-label-primary me-1">{{ $list->status }}</span></td>
+                              
+                              <td><span class="badge bg-label-primary me-1">{{ Carbon\Carbon::parse($list->last_seen)->diffForHumans() }}</span></td>
+                              <td><span class="badge bg-label-primary me-1">{{ $list->last_seen >= now()->subMinutes(2) ? 'Online' : 'Offline' }}</span></td>
                               <td>
                                 <div class="dropdown">
                                   <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

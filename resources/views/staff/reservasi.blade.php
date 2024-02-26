@@ -13,7 +13,7 @@
 
 </head>
 <body>
-    <nav class="static navbar fixed-top" style="width: 100%; height: 10%; background:#C6A969;">
+    <nav class="static navbar fixed-top bg-amber" style="width: 100%; height: 10%;">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -83,7 +83,7 @@
       <label class=" form-label font-josefin text-xl font-medium" id=""> Check Out</label>
       <input class=" form-control rounded-xl bg-amber-100" type="date" name="" id="">
     </div>
-  </div><button type="button" class="text-white bg-yellow-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 float-right ">NEXT</button>
+  </div><button type="button"  class="text-white bg-yellow-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 float-right "><a href="{{ route('info.reservation') }}">NEXT</button>
 
 </form>
     

@@ -20,19 +20,16 @@ class NumberRoomSeeder extends Seeder
                 'number_room' => 1,
                 'type_room' => 'Deluxe',
                 'price' => 299,
-                'status' => 'Available',
             ],
             [
                 'number_room' => 2,
                 'type_room' => 'Suite',
                 'price' => 399,
-                'status' => 'Available',
             ],
             [
                 'number_room' => 3,
                 'type_room' => 'Standar',
                 'price' => 199,
-                'status' => 'Available',
             ],
         ]);
     }

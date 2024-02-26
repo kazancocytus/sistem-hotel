@@ -134,11 +134,9 @@
                 </div>
             </div>
         @endif
-    </div>
-    </div>
-    </div>
     @endforeach
     @include('components.footer')
+    </div>
     </div>
 
 

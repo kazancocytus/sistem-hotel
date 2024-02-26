@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Middleware\Authenticate;
 use App\Models\Facility;
+use App\Models\Review;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;  
-use App\Models\User;  
 use Illuminate\Http\RedirectResponse;
-use App\Models\TypeRoom;
-use App\Models\NumberRoom;
-use Faker\Core\Number;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -30,7 +27,14 @@ class HomeController extends Controller
     {
         $facility = Facility::whereIn('id', [4, 5, 6, 7])
         ->get();
-        return view('homepage',compact('facility'));
+        // dd('access page home');
+        return view('homepage', ['facility' => $facility]);
+    }
+
+    public function __invoke(){
+        $facility = Facility::whereIn('id', [4, 5, 6, 7])
+        ->get();
+        return view('homepage', ['facility' => $facility]);
     }
 
     public function Contact(){
@@ -46,9 +50,12 @@ class HomeController extends Controller
         return view('reservationpage',compact('typeRoom'));
     }
 
-    public function About(){
-        return view('aboutpage');
+    public function About(Review $review){
+        // dd($review);
+        $reviews = Review::orderBy('created_at','DESC')->paginate(4);
+        return view('aboutpage', compact('reviews'));
     }
+
     public function Detail(){
         return view('detailpage');
     }
