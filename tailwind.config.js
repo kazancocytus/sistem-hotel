@@ -39,3 +39,4 @@ export default {
         require('preline/plugin'),
         forms],
 };
+ 

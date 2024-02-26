@@ -13,7 +13,7 @@
 
 </head>
 <body>
-    <nav class="static navbar fixed-top" style="width: 100%; height: 10%; background:#C6A969;">
+    <nav class="static navbar fixed-top bg-amber" style="width: 100%; height: 10%;">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,18 +50,30 @@
     <div class="">
       <label class=" form-label font-josefin text-xl font-medium mt-5" id="">No Booking</label>
       <input class="form-control rounded-xl bg-amber-100" type="text" id=" " value="">
-      <label class=" form-label font-josefin text-xl font-medium mt-5 ">Type Room</label>
-      <select class="form-control rounded-xl bg-amber-100" name="" id="">
-        <option value=""></option>
-        <option value="">Deluxe</option>
-        <option value="">Suite</option>
-        <option value="">Standar</option>
+      <div>
+        <table class="w-3/4 mt-5 form-label border-y-2  border-x-2 font-josefin text-xl font-medium bg-amber-100 border-color-black">
+          <tr >
+          <th class="p-4">Type Rooms </th>
+          <th>Number Of Rooms</th>
+        </tr>
+        <tr>
+          <td class="p-4">Deluxe</td>
+          <td><input class= "border-none bg-amber-50 rounded-xl" type="number"></td>
+        </tr> 
+        <tr>
+          <td class="p-4">Suite</td>
+          <td><input class="border-none bg-amber-50 rounded-xl" type="number"></td>
+        </tr>
+        <tr> 
+          <td class="p-4">Standar</td>
+          <td><input class="border-none bg-amber-50 rounded-xl" type="number"></td>
+        </tr>
+        <tr>
+          <td class="p-4 font-black">Total</td>
+        </tr>
+        </table>
       </div>
-    </select>
-      <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Number of rooms</label>
-      <input class="form-control rounded-xl bg-amber-100"  type="number" id=" " value="">
-      <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Price</label>
-      <input class="form-control rounded-xl bg-amber-100" type="text" id=" " value="">
+      
     <div class="w-3/5  mt-10  " action="">
       <div class=" w-5/12 float-start">
       <label class=" form-label font-josefin text-xl font-medium" id=""> Check In</label>
