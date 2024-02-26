@@ -3,7 +3,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> evergreen hotel </title>
+    <title> Evergreen hotel </title>
+    <link rel="icon" href="{{asset('assets/evergreenlogobgcrop.png')}}">
     <link rel="stylesheet" href="{{asset('assets/css/login.css')}}">
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -14,7 +15,7 @@
     <input type="checkbox" id="flip">
     <div class="cover">
       <div class="front">
-        <img src="assets/hi.jpeg" alt="">
+        <img src=" {{asset('assets/hi.jpeg')}} " alt="">
         <div class="text">
           <span class="text-1">Every new friend is a <br> new adventure</span>
           <span class="text-2">Let's get connected</span>
