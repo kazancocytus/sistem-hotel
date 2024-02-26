@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Review;
 
 use Illuminate\Http\Request;
@@ -35,6 +36,7 @@ class RatingController extends Controller
             'text' => $request->text,
             'star' => $request->star,
         ]);
+
     
         // dd($create_review);
 

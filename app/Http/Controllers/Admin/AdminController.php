@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use App\Models\Facility;
@@ -15,21 +15,25 @@ use Carbon\Carbon;
 
 class AdminController extends Controller
 {
+
     public function AdminIndex() {
         $transaction = Transaction::orderBy('created_at','DESC')
                     ->get();
         return view('admin.index_admin', ['transaction' => $transaction]);
     }
 
-    public function AdminFacility(){
+    public function AdminFacility()
+    {
         $facility = Facility::latest()->get();
-        return view('admin.facility',compact('facility'));
+        return view('admin.facility', compact('facility'));
     }
 
-    public function AdminFood(){
+    public function AdminFood()
+    {
         $food = Food::latest()->get();
-        return view('admin.food',compact('food'));
+        return view('admin.food', compact('food'));
     }
+
 
     public function AdminReport(){
         $transaction = Transaction::orderBy('id','DESC')->first();
@@ -46,18 +50,20 @@ class AdminController extends Controller
         return view('admin.user',compact('user'));
     }
 
-    public function AdminLogout(Request $request){
+    public function AdminLogout(Request $request)
+    {
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
- 
+
         $request->session()->regenerateToken();
-        
+
         return redirect()->route('login');
     }
 
     public function UserActivity(Request $request){
         $users = User::orderBy('last_seen','DESC')->get();
+
 
         return view('admin.user',compact('users'));
     }
