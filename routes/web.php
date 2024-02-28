@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|--------------------------------------------------------------------------`
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
@@ -68,6 +68,8 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function () {
     Route::get('/admin/report', [AdminController::class, 'AdminReport'])->name('admin.report');
     Route::get('/admin/user', [AdminController::class, 'AdminUser'])->name('admin.user');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+    Route::get('/admin/pdf', [AdminController::class, 'ShowPDF'])->name('show.pdf');
+    
 });
 
 // Route CRUD Facility for Admin

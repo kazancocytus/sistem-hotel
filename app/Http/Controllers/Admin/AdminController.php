@@ -86,4 +86,13 @@ class AdminController extends Controller
         return $transactions;
     }
     
+    public function ShowPDF(){
+        $mpdf = new \Mpdf\Mpdf();
+        $transaction = Transaction::orderBy('id','DESC')->first();
+        $totalRooms = $this->calculateTotalRooms();
+        $latestId = $this->StatusCostumer();
+        $mpdf->WriteHTML('hai');
+        $mpdf->Output();
+    }
+   
 }

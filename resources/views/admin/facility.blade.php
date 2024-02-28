@@ -67,15 +67,15 @@
   </head>
 
   <body>
-    <!-- Layout wrapper -->
+  
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
         
       @include('admin.layout.sidebar_admin');
 
-        <!-- Layout container -->
+        
         <div class="layout-page bg-colorPrimary">
-          <!-- Navbar -->
+        
 
           <nav
             class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
@@ -88,7 +88,7 @@
             </div>
 
             <div class="navbar-nav-right d-flex align-items-center py-5" id="navbar-collapse">
-              <!-- Search -->
+            
               <div class="navbar-nav align-items-center">
                 <div class="nav-item d-flex align-items-center">
                   <i class="bx bx-search fs-4 lh-0"></i>
@@ -105,49 +105,10 @@
 
           </nav>
 
-          <!-- / Navbar -->
-
-          <!-- Content wrapper -->
-        
-            <!-- Content -->
-
             <div class="container-xxl flex-grow-1 container-p-y">
-              
-                <!--div class="col-lg-12 mb-4 order-0">
-                  <div class="card">
-                    <div class="d-flex align-items-end row">
-                      <div class="col-sm-7">
-                        <div class="card-body">
-                          <h5 class="card-title text-primary">Hello Rallyn !</h5>
-                          <p class="mb-4">
-                            Welcome to Dashboard Admin Evergreen Hotel
-                          </p>
-
-                         
-                        </div>
-                      </div>
-                      <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="../assets/img/illustrations/woman.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div-->
-
-                <!-- Basic Bootstrap Table -->
-
-              
-            
-                  <a href="{{ route('add.facility') }}" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Add Facility</a>
-                  <div class=" col-lg-12 py-5">
-                    <div class="card shadow">
+              <a href="{{ route('add.facility') }}" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Add Facility</a>
+                <div class=" col-lg-12 py-5">
+                  <div class="card shadow">
                     <h5 class="card-header bg-colorThird"></h5>
                     <div class="table">
                       <table class="table bg-colorPrimary">
@@ -212,11 +173,7 @@
               </div>
 
 
-             
-              <!--/ Basic Bootstrap Table -->
-
-            <!-- / Content -->
-
+           
           @include('admin.layout.footer_admin');
             
 
