@@ -26,7 +26,7 @@
 <body class="bg-colorSecondary bg-gradient-to-b from-colorSecondary from-5% to-colorPrimary to-35%">
     <div class="">
         @include('components.navbar')
-        <div class=" w-full h-screen bg-cover bg-center" style="background-image: url({{asset('assets/abouthero.jpg')}})"></div>
+        <div class=" w-full h-screen bg-cover bg-center" style="background-image: url({{ asset('assets/abouthero.jpg') }})"></div>
         <div class="flex flex-wrap container">
             <div class=" mt-20 p-20">
                 <div class="">
