@@ -102,6 +102,7 @@
                               <th>Phone</th>
                               <th>Last Seen</th>
                               <th>Status</th>
+                              <th>Actions</th>
                              
                             
                             </tr>
@@ -124,21 +125,14 @@
                                 {{ $list->last_seen >= now()->subMinutes(2) ? 'Online' : 'Offline' }}
                               </span>
                             </td>
-                            
-                                
-    
-                                <div class="dropdown">
-                                  <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                  </button>
-                                  <div class="dropdown-menu">
+                              <td>
+                                  <div class="dropdown">
                                     <a class="dropdown-item" id="delete" href="{{ route('delete.user',$list->id) }}"
                                       ><i class="bx bx-trash me-1"></i> Delete</a
                                     >
                                   </div>
                                 </div>
                               </td>
-
                             </tr>
                             @endforeach
                           </tbody>
