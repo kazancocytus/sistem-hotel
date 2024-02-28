@@ -102,7 +102,7 @@
                               <th>Phone</th>
                               <th>Last Seen</th>
                               <th>Status</th>
-                              <th>Actions</th>
+                              <th>Action</th>
                              
                             
                             </tr>
@@ -119,18 +119,16 @@
                                 {{ $list->phone }}
                               </td>
                               <td><span class="badge bg-label-warning me-1">{{ Carbon\Carbon::parse($list->last_seen)->diffForHumans() }}</span></td>
+                              
                               <td>
-
                               <span class="badge {{ $list->last_seen >= now()->subMinutes(2) ? 'bg-label-primary' : 'bg-label-danger' }} me-1">
                                 {{ $list->last_seen >= now()->subMinutes(2) ? 'Online' : 'Offline' }}
                               </span>
                             </td>
                               <td>
-                                  <div class="dropdown">
-                                    <a class="dropdown-item" id="delete" href="{{ route('delete.user',$list->id) }}"
-                                      ><i class="bx bx-trash me-1"></i> Delete</a
-                                    >
-                                  </div>
+                                <div class="dropdown">
+                                  <a class="dropdown-item" id="delete" href="{{ route('delete.user',$list->id) }}"><i class="bx bx-trash me-1"></i> Delete</a>
+                                  </button>
                                 </div>
                               </td>
                             </tr>
