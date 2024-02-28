@@ -372,15 +372,30 @@
             }
             updateTableVisibility()
 
-                
+            const totalPrice = (suitesInput.value * suitesPrice) + (deluxeInput.value * deluxePrice) + (standartInput
+                .value * standartPrice);
+            if (totalPrice === 0) {
+                if (totalRow) {
+                    totalRow.classList.add('hidden');
+                }
+            } else {
+                if (!totalRow) {
+                    totalRow = table.insertRow();
+                    const totalCell1 = totalRow.insertCell();
+                    totalCell1.classList.add('text-left', 'font-bold');
+                    totalCell1.textContent = 'Total';
+                    const totalCell2 = totalRow.insertCell();
+                    totalCell2.classList.add('text-right', 'font-bold');
+                }
+                totalRow.cells[1].textContent = '$' + totalPrice.toFixed(2);
+                totalRow.classList.remove('hidden');
+            }
         }
 
         // Increment the input value and update the table
-        
-        
+       
 
-        // Increment the input value and update the table 
-
+      
         function incrementInput(input) {
             if (input.value = 0) {
                 input.value++;
