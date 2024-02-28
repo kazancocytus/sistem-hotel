@@ -78,7 +78,6 @@ class LoginController extends Controller
 
         $this->clearLoginAttempts($request);
 
-        // dd($roles_name);
         $userRoles = auth()->user()->roles_name;
 
         if ($userRoles === "Admin") {

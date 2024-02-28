@@ -67,6 +67,7 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function () {
     Route::get('/admin/food', [AdminController::class, 'AdminFood'])->name('admin.food');
     Route::get('/admin/report', [AdminController::class, 'AdminReport'])->name('admin.report');
     Route::get('/admin/user', [AdminController::class, 'AdminUser'])->name('admin.user');
+    Route::get('/delete/user/{id}', [AdminController::class, 'DeleteUser'])->name('delete.user');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 });
 
