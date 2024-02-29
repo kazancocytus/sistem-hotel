@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Edit Food (EH)</title>
+    <title>Edit Facility (EH)</title>
 
     <meta name="description" content="" />
 
@@ -110,38 +110,6 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              
-                <!--div class="col-lg-12 mb-4 order-0">
-                  <div class="card">
-                    <div class="d-flex align-items-end row">
-                      <div class="col-sm-7">
-                        <div class="card-body">
-                          <h5 class="card-title text-primary">Hello Rallyn !</h5>
-                          <p class="mb-4">
-                            Welcome to Dashboard Admin Evergreen Hotel
-                          </p>
-
-                         
-                        </div>
-                      </div>
-                      <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="../assets/img/illustrations/woman.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div-->
-
-                <!-- Basic Bootstrap Table -->
-
-                    
                     <div class=" col-lg-12 py-5">
                         <div class="card-xl shadow">
                             <h5 class="card-header bg-colorThird"></h5>
@@ -149,37 +117,27 @@
                                 <table class="table bg-colorPrimary">
                                     <thead class=" bg-colorThird">
                                         <tr class=" bg-colorThird">
-                                        <form action="{{ route('update.facility') }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                                  <input type="hidden" id="id" name="id" value="{{ $facility->id }}">
-                                                    <th><label for="name">Name Facility</label></th>                                                 
-                                                    <th><label for="description_facility">Description</label></th>
-                                                    <th><label for="image">Image</label></th>
-                                                    <th><label for="preview">Preview</label></th>
-
-                                                    <td><label for="submit"></label></td>
-                                                       
+                                              <form action="{{ route('update.facility') }}" method="POST" enctype="multipart/form-data">
+                                                  @csrf
+                                                        <input type="hidden" id="id" name="id" value="{{ $facility->id }}">
+                                                          <th><label for="name">Name Facility</label></th>                                                 
+                                                          <th><label for="description_facility">Description</label></th>
+                                                          <th><label for="image">Image</label></th>
+                                                          <th><label for="preview">Preview</label></th>
+                                                          <td><label for="submit"></label></td>     
                                         </tr>
                                     </thead>
-                                                    <tbody class="table-border-bottom-0">
-                                                        <td><input type="text" id="name" name="name" autocomplete="off" value="{{ $facility->name }}"></td>
-                                                        <td><input type="text" id="description" name="description" value="{{ $facility->description_facility }}"></td>
-                                                        <td><input type="file" id="image" name="image" src="{{ url('assets/img/facility/'.$facility->images) }}"  onchange="getImagePreview(event)"></td>
-                                                        <td id="preview"></td>
-                                                        <td><button type="submit" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Submit</button></td>
-                                                      </form>
-                                                      
-
-                                                                                                                      
-                                                    </tbody>                  
-                                                                    
-                                                
+                                                        <tbody class="table-border-bottom-0">
+                                                            <td><input type="text" id="name" name="name" autocomplete="off" value="{{ $facility->name }}"></td>
+                                                            <td><input type="text" id="description_facility" name="description_facility" value="{{ $facility->description_facility }}"></td>
+                                                            <td><input type="file" id="image" name="image" src="{{ url('assets/img/facility/'.$facility->images) }}"  onchange="getImagePreview(event)"></td>
+                                                            <td id="preview"></td>
+                                                            <td><button type="submit" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Submit</button></td>
+                                              </form> 
+                                                        </tbody>                          
                                 </table>
-
                             </div> 
-
                         </div>
-
                     </div>
                  
                   

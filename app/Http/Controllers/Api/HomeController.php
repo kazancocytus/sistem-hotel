@@ -5,11 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Facility;
 use App\Models\Review;
-use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
+use App\Models\Food;
 
 class HomeController extends Controller
 {
@@ -27,7 +27,6 @@ class HomeController extends Controller
     {
         $facility = Facility::whereIn('id', [4, 5, 6, 7])
         ->get();
-        // dd('access page home');
         return view('homepage', ['facility' => $facility]);
     }
 
@@ -54,7 +53,6 @@ class HomeController extends Controller
 
     public function About(Review $review)
     {
-        // dd($review);
         $reviews = Review::orderBy('created_at', 'DESC')->paginate(4);
         return view('aboutpage', compact('reviews'));
     }
@@ -65,7 +63,8 @@ class HomeController extends Controller
     }
     public function Food()
     {
-        return view('foodpage');
+        $foods = Food::all();
+        return view('foodpage', ['foods' => $foods]);
     }
 
     public function Bwah()
@@ -81,6 +80,6 @@ class HomeController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('success','You Logout');
     }
 }

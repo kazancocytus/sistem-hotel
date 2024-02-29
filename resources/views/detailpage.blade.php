@@ -372,8 +372,6 @@
             }
             updateTableVisibility()
 
-                <<
-                << << < HEAD
             const totalPrice = (suitesInput.value * suitesPrice) + (deluxeInput.value * deluxePrice) + (standartInput
                 .value * standartPrice);
             if (totalPrice === 0) {
@@ -395,14 +393,9 @@
         }
 
         // Increment the input value and update the table
-        ===
-        === =
-        }
+       
 
-        // Increment the input value and update the table 
-        >>>
-        >>> > d44f00a2bd06327d355a80dd0422de89254afcbe
-
+      
         function incrementInput(input) {
             if (input.value = 0) {
                 input.value++;

@@ -427,8 +427,8 @@
         width: 130,
         type: 'donut'
       },
-      labels: ['Booking Room', 'Ballroom', 'Check-in', 'Check-out'],
-      series: [40, 10, 50, 25],
+      labels: ['Booking Room',  'Check-in', 'Check-out'],
+      series: [40, 50, 25],
       colors: [config.colors.primary, config.colors.secondary, config.colors.info, config.colors.success],
       stroke: {
         width: 5,
