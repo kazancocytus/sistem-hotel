@@ -21,23 +21,23 @@
 </head>
 
 <body>
-    @include('components.navbar')
+    @include ('components.navbar')
     <div class=" bg-colorSecondary">
         <div id="hero" class="shadow-2xl">
             <img class="w-full relative" src="{{ asset('assets/hero2.jpg') }}" alt="">
             <div
-                class="absolute font-josefin font-semibold text-colorPrimary text-9xl top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2">
+                class="absolute font-josefin font-semibold text-colorPrimary text-9xl top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl">
                 <h1>Welcome</h1>
                 <h1>To Evergreen</h1>
             </div>
         </div>
         <div class=" container p-0 m-0 self-stretc">
             <div class="container mx-auto my-auto" id="facility-list">
-                <div class="mt-60 text-center text-black text-4xl font-semibold font-josefin">EVERGREEN EXPERIENCE
+                <div class="mt-60 text-center text-black text-5xl font-black font-julius">EVERGREEN EXPERIENCE
                 </div>
-                <hr class="mx-auto w-96 rounded-full mt-3" style="height: 5px!important;">
+                <hr class="mx-auto w-96 rounded-full mt-3" style="height: 3px!important;">
                 <div>
-                    <p class="mx-28 my-10 h-36 text-center text-black text-xl font-josefin">Inspired by the beauty of
+                    <p class="mx-20 my-10 h-36 text-center text-black text-xl font-julius">Inspired by the beauty of
                         Parahyangan, Evergreen Hotel Bandung offers spectacular mountain views, indulgent dining,
                         elegant
                         guestrooms and exceptional hospitality personified by its 24-hour Butler Service. Located in the
@@ -70,7 +70,7 @@
                                     class="w-2/4 mt-28 text-center text-black text-3xl font-semibold font-josefin float-start">
                                     {{ $facilities->name }}
                                 </div>
-                                <p class="w-5/12 mt-6 ml-16 text-xl text-right float-start font-josefin">
+                                <p class="w-5/12 mt-6 ml-16 text-xl text-left float-start font-josefin">
                                     {{ $facilities->description_facility }}</p>
                             @endif
                         </div>

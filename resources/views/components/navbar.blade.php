@@ -88,7 +88,7 @@
             <div class="modal-content rounded-3xl p-6">
                 <div class="modal-header">
                     <h5 class="modal-title font-josefin text-4xl m-3" id="exampleModalLabel">Create Your Account</h5>
-                    <button type="button" class="" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"
+                    <button type="button" class="" data-bs-toggle="modal" data-bs-target="#modalLogin"><i class="bi bi-x"
                             style="font-size: 40px"></i></button>
                 </div>
                 <div class="modal-body">

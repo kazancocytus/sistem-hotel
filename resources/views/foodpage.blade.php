@@ -51,6 +51,27 @@
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of</p>
                 </div>
             </div>
+            <div class="card mx-4 my-7 rounded-xl w-80 h-80">
+                <img src=" {{ asset('assets/lounge.jpg') }} " class="card-img-top h-2/3 rounded-t-xl" alt="...">
+                <div class="card-body">
+                    <h1 class=" font-josefin text-xl font-semibold">Breakfast & Brunch</h1>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of</p>
+                </div>
+            </div>
+            <div class="card mx-4 my-7 rounded-xl w-80 h-80">
+                <img src=" {{ asset('assets/lounge.jpg') }} " class="card-img-top h-2/3 rounded-t-xl" alt="...">
+                <div class="card-body">
+                    <h1 class=" font-josefin text-xl font-semibold">Breakfast & Brunch</h1>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of</p>
+                </div>
+            </div>
+            <div class="card mx-4 my-7 rounded-xl w-80 h-80">
+                <img src=" {{ asset('assets/lounge.jpg') }} " class="card-img-top h-2/3 rounded-t-xl" alt="...">
+                <div class="card-body">
+                    <h1 class=" font-josefin text-xl font-semibold">Breakfast & Brunch</h1>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of</p>
+                </div>
+            </div>
         </div>
     </div>
 

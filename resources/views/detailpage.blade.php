@@ -22,7 +22,6 @@
 
     @include('components.navbar')
 
-
     <div class=" bg-colorSecondary">
         <div class=" container p-0 m-0 self-stretch">
             <hr class="mx-auto w-44 rounded-full mb-32" style="height: 5px!important;">
@@ -178,9 +177,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </div>
                         <!-- End Input Number -->
 
@@ -371,37 +367,10 @@
                 });
             }
             updateTableVisibility()
-
-                <<
-                << << < HEAD
-            const totalPrice = (suitesInput.value * suitesPrice) + (deluxeInput.value * deluxePrice) + (standartInput
-                .value * standartPrice);
-            if (totalPrice === 0) {
-                if (totalRow) {
-                    totalRow.classList.add('hidden');
-                }
-            } else {
-                if (!totalRow) {
-                    totalRow = table.insertRow();
-                    const totalCell1 = totalRow.insertCell();
-                    totalCell1.classList.add('text-left', 'font-bold');
-                    totalCell1.textContent = 'Total';
-                    const totalCell2 = totalRow.insertCell();
-                    totalCell2.classList.add('text-right', 'font-bold');
-                }
-                totalRow.cells[1].textContent = '$' + totalPrice.toFixed(2);
-                totalRow.classList.remove('hidden');
-            }
         }
 
         // Increment the input value and update the table
-        ===
-        === =
-        }
-
-        // Increment the input value and update the table 
-        >>>
-        >>> > d44f00a2bd06327d355a80dd0422de89254afcbe
+        // Increment the input value and update the table
 
         function incrementInput(input) {
             if (input.value = 0) {
