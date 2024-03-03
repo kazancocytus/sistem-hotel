@@ -30,4 +30,8 @@ class AgentController extends Controller
     public function DetailReservation(){
         return view('staff.detail');
     }
+
+    public function PaymentReservation(){
+        return view('staff.payment');
+    }
 }

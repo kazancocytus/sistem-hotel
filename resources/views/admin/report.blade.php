@@ -115,8 +115,8 @@
                   <div class="card h-100 w-100 bg-colorPrimary shadow">
                     <div class="card-header bg-colorThird d-flex align-items-center justify-content-between pb-0 ">
                       <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Reservation Statistics</h5>
-                        <small class=" fw-bold"> 10,234 Total Reservation This Year</small>
+                        <h5 class="m-0 me-2">Available Rooms</h5>
+                        <small class=" fw-bold"> {{ $count }}</small>
                       </div>
                     </div>
                     <div class="card-body">
@@ -207,7 +207,7 @@
                             <div>
                               <small class="text-muted d-block">Total Balance</small>
                               <div class="d-flex align-items-center">
-                                <h6 class="mb-0 me-1">$459.10</h6>
+                                <h6 class="mb-0 me-1">$ {{ $totalPrice }}</h6>
                                 <small class="text-success fw-semibold">
                                   <i class="bx bx-chevron-up"></i>
                                   42.9%

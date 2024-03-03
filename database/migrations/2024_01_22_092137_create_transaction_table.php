@@ -13,17 +13,21 @@ return new class extends Migration
     {
         Schema::create('transaction', function (Blueprint $table) {
             $table->id();
-            $table->integer('no_reservation')->index();
+            $table->string('no_reservation')->index();
             $table->string('name');
             $table->integer('no_rekening');
             $table->string('phone');
             $table->date('check_in');
             $table->date('check_out');
             $table->decimal('price', 10,2);
-            $table->integer('suites');
-            $table->integer('deluxe');
-            $table->integer('standart');
+            $table->integer('suites')->nullable();
+            $table->integer('deluxe')->nullable();
+            $table->integer('standart')->nullable();
+            $table->json('deluxe_room_number')->nullable();
+            $table->json('suite_room_number')->nullable();
+            $table->json('standart_room_number')->nullable();
             $table->timestamps();
+            // $table->foreignId('number_room_id')->references('id')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

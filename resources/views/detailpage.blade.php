@@ -210,7 +210,6 @@
                                         <td>0</td>
                                         <td>$0</td>
                                     </tr>
-                                    <input type="hidden" id="total_price" name="total_price">
                                 </tbody>
                             </table>
                         </div>
@@ -303,9 +302,9 @@
         let totalRow;
 
         function updateTable() {
+            const NoRekening = document.getElementById('no_rekening').value;
             const checkIn = new Date(Date.parse(checkInInput.value));
             const checkOut = new Date(Date.parse(checkOutInput.value));
-            const NoRekening = document.getElementById('no_rekening').value;
             const daysDifference = getDaysBetweenDates(checkIn, checkOut);
 
             if (daysDifference === 0) {
@@ -354,7 +353,6 @@
                     method: "POST",
                     url: "{{ route('store.transaction') }}",
                     data: {
-                        'total_price': totalPrice.toString(),
                         'check_out': checkOutInput.value,
                         'check_in': checkInInput.value,
                         'no_rekening': NoRekening.value,
@@ -372,24 +370,6 @@
             }
             updateTableVisibility()
 
-            const totalPrice = (suitesInput.value * suitesPrice) + (deluxeInput.value * deluxePrice) + (standartInput
-                .value * standartPrice);
-            if (totalPrice === 0) {
-                if (totalRow) {
-                    totalRow.classList.add('hidden');
-                }
-            } else {
-                if (!totalRow) {
-                    totalRow = table.insertRow();
-                    const totalCell1 = totalRow.insertCell();
-                    totalCell1.classList.add('text-left', 'font-bold');
-                    totalCell1.textContent = 'Total';
-                    const totalCell2 = totalRow.insertCell();
-                    totalCell2.classList.add('text-right', 'font-bold');
-                }
-                totalRow.cells[1].textContent = '$' + totalPrice.toFixed(2);
-                totalRow.classList.remove('hidden');
-            }
         }
 
         // Increment the input value and update the table
@@ -422,6 +402,7 @@
                 incrementInput(suitesInput)
                 debouncedUpdateTable();
                 updateTableVisibility();
+            
             } else {
                 alert('please complete check in and check out first');
                 document.getElementById('suites-increment').setAttribute('disabled', 'disabled');
@@ -451,6 +432,9 @@
                 updateTableVisibility();
             } else {
                 alert('please complete check in and check out first');
+                document.getElementById('deluxe-increment').setAttribute('disabled', 'disabled');
+                document.getElementById('deluxe-decrement').setAttribute('disabled', 'disabled');
+                return;
             }
         });
 
@@ -461,6 +445,10 @@
                 updateTableVisibility();
             } else {
                 alert('please complete check in and check out first');
+                suitesInput.setAttribute('disabled', 'disabled');
+                deluxeInput.setAttribute('disabled', 'disabled');
+                standartInput.setAttribute('disabled', 'disabled');
+                return;
             }
         });
 
@@ -471,6 +459,9 @@
                 updateTableVisibility();
             } else {
                 alert('please complete check in and check out first');
+                document.getElementById('standart-increment').setAttribute('disabled', 'disabled');
+                document.getElementById('standart-decrement').setAttribute('disabled', 'disabled');
+                return;
             }
         });
 
@@ -481,6 +472,10 @@
                 updateTableVisibility();
             } else {
                 alert('please complete check in and check out first');
+                suitesInput.setAttribute('disabled', 'disabled');
+                deluxeInput.setAttribute('disabled', 'disabled');
+                standartInput.setAttribute('disabled', 'disabled');
+                return;
             }
         });
 
