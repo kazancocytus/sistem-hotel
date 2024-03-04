@@ -113,16 +113,16 @@
             <div class="container-xxl flex-grow-1 col-lg-12 container-p-y">
               <div class="col-lg-6 order-1 mb-4">
                   <div class="card h-100 w-100 bg-colorPrimary shadow">
-                    <div class="card-header bg-colorThird d-flex align-items-center justify-content-between pb-0 ">
+                    <div class="card-header d-flex align-items-center justify-content-between pb-0 ">
                       <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Reservation Statistics</h5>
-                        <small class=" fw-bold"> 10,234 Total Reservation This Year</small>
+                        <h5 class="m-0 me-2 fw-bolder">Reservation Statistics</h5>
+                        <small class=" fw-bold"> </small>
                       </div>
                     </div>
                     <div class="card-body">
                       <div class="d-flex justify-content-between align-items-center mb-3">
                         <div class="d-flex flex-column align-items-center gap-1">
-                          <h2 class="mb-2 fw-bolder">{{ $transaction->id }}</h2>
+                          <tr><h2 class="mb-2 fw-bolder py-3">{{ $transaction->id }}</h2></tr>
                           <span>Total Reservation this month</span>
                         </div>
                         <div id="orderStatisticsChart"></div>
