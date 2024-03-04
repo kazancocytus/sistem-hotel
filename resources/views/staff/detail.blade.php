@@ -24,11 +24,11 @@
             <div class=" mb-10 row w-full  mt-10 float-start " action="">
                 <div class=" w-1/4 float-right">
                 <label class=" form-label font-josefin text-xl font-medium" id=""> Check In</label>
-                <input class="form-control rounded-xl bg-amber-100" disabled type="date" name="" id="">
+                <input class="form-control rounded-xl bg-amber-100" disabled type="date" name="check_in" id="check_in" value="">
               </div>
               <div class=" w-1/4 float-right">
                 <label class=" form-label font-josefin text-xl font-medium" id=""> Check Out</label>
-                <input class=" form-control rounded-xl bg-amber-100" disabled type="date" name="" id="">
+                <input class=" form-control rounded-xl bg-amber-100" disabled type="date" name="check_out" id="check_out" value="">
               </div>
             </div>
           </div>
@@ -37,10 +37,11 @@
             <div class="card-body">
           <h5 class="card-title font-josefin text-xl font-bold">Costumer</h5>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">Name : </li>
-            <li class="list-group-item">Email :</li>
-            <li class="list-group-item">Phone Number :</li>
-            <li class="list-group-item">Birth date :</li>
+            <li class="list-group-item">NIP : <input type="text" name="nip" id="nip" value="" disabled></li>
+            <li class="list-group-item">Name : <input type="text" name="name" id="name" value="" disabled></li>
+            <li class="list-group-item">Email : <input type="email" name="email" id="email" value="" disabled></li>
+            <li class="list-group-item">Phone Number : <input type="text" name="phone" id="phone" value="" disabled></li>
+            <li class="list-group-item">Birth date : <input type="date" name="birth_date" id="birth_date" value="" disabled></li>
           </ul>
           </div>
        </div> 
@@ -48,12 +49,14 @@
           <div class="card-body">
         <h5 class="card-title font-josefin text-xl font-bold">Booking Details</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Type rooms :</li>
-          <li class="list-group-item">Number room :</li>
-          <li class="list-group-item">Room :</li>
-          <li class="list-group-item">Price :</li>
-          <li class="list-group-item">Booking :</li>
-          <li class="list-group-item">Total :</li>
+        <li class="list-group-item">No Reservation : <input type="text" name="no_reservation" id="no_reservation" value="" disabled></li>
+          <li class="list-group-item">Suite Rooms : <input type="number" name="suite" id="suite" value="" disabled></li>
+          <li class="list-group-item">Deluxe Rooms : <input type="number" name="deluxe" id="deluxe" value="" disabled></li>
+          <li class="list-group-item">Standart Rooms : <input type="number" name="standart" id="standart" value="" disabled></li>
+          <li class="list-group-item">Number Suite Room : <input type="text" name="nip" id="nip" value="" disabled></li>
+          <li class="list-group-item">Number Deluxe Room :</li>
+          <li class="list-group-item">Number Standart Room :</li>
+          <li class="list-group-item">Total Price :</li>
         </ul>
         </div>
     </div>  

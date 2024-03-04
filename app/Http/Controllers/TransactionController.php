@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\NumberRoom;
 
+
 class TransactionController extends Controller
 {
     public function __invoke(Request $request){
@@ -62,7 +63,6 @@ class TransactionController extends Controller
             ->update(['available' => false]);
 
         
-
         $suitesPrice = 399;
         $deluxePrice = 299;
         $standartPrice = 199;
@@ -212,6 +212,83 @@ class TransactionController extends Controller
         }
 
         return response()->json(['message' => 'No rooms to free up'], 200);
+    }
+
+    public function ReservationAgent(Request $request){
+
+        $deluxeRooms = $request->input('deluxe');
+        $suiteRooms = $request->input('suite');
+        $standardRooms = $request->input('standart');
+        $checkInDate = $request->input('check_in');
+        $checkOutDate = $request->input('check_out');
+
+        $deluxeNumberRooms = NumberRoom::where('type_room', 1)
+                            ->where('available', true)
+                            ->take($deluxeRooms)
+                            ->pluck('number_room')
+                            ->toArray();
+
+        $daysDifference = Carbon::parse($checkInDate)->diffInDays(Carbon::parse($checkOutDate));
+
+        $suitesPrice = 399;
+        $deluxePrice = 299;
+        $standartPrice = 199;
+        
+        $totalPrice = ($suiteRooms * $suitesPrice + $deluxeRooms * $deluxePrice + $standartPrice * $standardRooms) * $daysDifference;
+        
+        $dataReservation = [
+            'check_in' => $checkInDate,
+            'check_out' => $checkOutDate,
+            'deluxe' => $deluxeRooms,
+            'suite' => $suiteRooms,
+            'standart' => $standardRooms,
+            'price' => $totalPrice,
+        ];
+
+
+        // dd($dataReservation);
+
+        return redirect()->route('info.reservation')->with('dataReservation', $dataReservation);
+        
+    }
+
+
+    public function AgentInfoReservation(Request $request){
+        
+        $nip = $request->input('nip');
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $phoneNumber = $request->input('phone');
+        $birthDate = $request->input('birth_date');
+
+        $infoCostumer = [
+            'nip' => $nip,
+            'name' => $name,
+            'password' => 1234,
+            'email' => $email,
+            'phone' => $phoneNumber,
+            'birth_date' => $birthDate,
+            'roles_name' => "User",
+        ];
+
+
+        return redirect()->route('payment.reservation')->with('infoCostumer', $infoCostumer);
+
+    }
+
+
+    public function AgentPaymentReservation(Request $request){
+
+        $noReservation = $request->input('no_reservation');
+        $noRekening = $request->input('no_rekening');
+
+        $paymentAgent = [
+            'no_reservation' => $noReservation,
+            'no_rekening' => $noRekening,
+        ];
+
+        return redirect()->route('detail.reservation')->with('paymentAgent', $paymentAgent);
+
     }
 
 

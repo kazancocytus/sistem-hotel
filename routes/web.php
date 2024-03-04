@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\TransactionController;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +56,10 @@ Route::middleware(['auth', 'roles_name:Agent'])->group(function(){
     Route::get('/agent/info', [AgentController::class, 'InfoReservation'])->name('info.reservation');
     Route::get('/agent/detail', [AgentController::class, 'DetailReservation'])->name('detail.reservation');
     Route::get('/agent/payment', [AgentController::class, 'PaymentReservation'])->name('payment.reservation');
+
+    Route::post('/store/agent/reservation', [TransactionController::class, 'ReservationAgent'])->name('reservation.agent');
+    Route::post('/store/agent/info', [TransactionController::class, 'AgentInfoReservation'])->name('agent.info');
+    Route::post('/store/agent/payment', [TransactionController::class, 'AgentPaymentReservation'])->name('agent.payment');
 
 });
 
