@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->timestamps();
             $table->foreignId('facility_id')->references('id')->on('facility')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('number_room_id')->references('number_room_id')->on('number_room')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('number_room_id')->references('id')->on('number_room')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

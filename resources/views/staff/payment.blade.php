@@ -17,18 +17,18 @@
   @include('staff.sidebar')
   <div>
         <div class="font-josefin text-2xl font-semibold mx-3 mt-3"> <i class="bi bi-people-fill mx-3"></i>Payment</div>
-    </div>
-    <form class="w-3/4 mx-28 py-5" action="">
+    </div>=
+    <form class="w-3/4 mx-28 py-5" action="{{ route('agent.payment') }}" method="POST">
+      @csrf
     <div class="">
-      <label class=" form-label font-josefin text-xl font-medium mt-5" id="">No Booking</label>
-      <input class="form-control rounded-xl bg-amber-100"  type="number" id=" " value="">
+      <label class=" form-label font-josefin text-xl font-medium mt-5" id="">No Reservation</label>
+      <input class="form-control rounded-xl bg-amber-100" disabled type="text"  id="no_reservation" name="no_reservation" value="{{ $reservationNumber }}">
       <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Name</label>
-      <input class="form-control rounded-xl bg-amber-100" type="text" id=" " value="">
+      <input class="form-control rounded-xl bg-amber-100" disabled type="text" id="name" name="name" value="{{ $infoCostumer['name'] }}">
       <label class=" form-label font-josefin text-xl font-medium mt-5" id="">No Rekening</label>
-      <input class="form-control rounded-xl bg-amber-100" type="text" id=" " value="">
-      <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Date</label>
-      <input class="form-control rounded-xl bg-amber-100" type="date" id=" " value="">
-  </div><button type="button" class="text-white bg-yellow-800 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 float-right ">NEXT</button>
+      <input class="form-control rounded-xl bg-amber-100" type="text" id="no_rekening" name="no_rekening" value="">
+    </div>
+  </div><button type="submit" class="text-white bg-yellow-800 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 float-right ">NEXT</button>
 
 </form>
     

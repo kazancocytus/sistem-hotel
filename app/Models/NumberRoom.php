@@ -11,8 +11,17 @@ class NumberRoom extends Model
     protected $table = 'number_room';
     protected $guarded = [];
 
+    protected $casts = [
+        'type_room' => 'integer',
+    ];
+
     public function typeRoom()
     {
         return $this->belongsTo(TypeRoom::class);
+    }
+
+    public function transaction()
+    {
+        return $this->hasMany(Transaction::class);
     }
 }
