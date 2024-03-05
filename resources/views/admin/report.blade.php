@@ -169,7 +169,7 @@
                                 <?php
                                 $checkoutCount = 0;
                                 foreach ($latestId as $latestid) {
-                                  if ($latestid->check_out < now()) {
+                                  if ($latestid->check_out >= now()) {
                                     $checkoutCount++;
                                   }
                                 }

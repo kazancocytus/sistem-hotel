@@ -12,9 +12,9 @@ class Transaction extends Model
     protected $table = 'transaction';
     protected $guarded = [];
     protected $casts = [
-        'deluxe_room_number' => 'integer',
-        'suite_room_number' => 'integer',
-        'standart_room_number' => 'integer',
+        'deluxe_room_number' => 'array',
+        'suite_room_number' => 'array',
+        'standart_room_number' => 'array',
     ];
 
     public function numberRooms()

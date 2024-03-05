@@ -60,6 +60,7 @@ Route::middleware(['auth', 'roles_name:Agent'])->group(function(){
     Route::post('/store/agent/reservation', [TransactionController::class, 'ReservationAgent'])->name('reservation.agent');
     Route::post('/store/agent/info', [TransactionController::class, 'AgentInfoReservation'])->name('agent.info');
     Route::post('/store/agent/payment', [TransactionController::class, 'AgentPaymentReservation'])->name('agent.payment');
+    Route::post('/store/agent/detail', [TransactionController::class, 'CostumerDetailTransaction'])->name('reservation.payment');
 
 });
 

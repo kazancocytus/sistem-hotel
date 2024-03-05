@@ -32,19 +32,19 @@
         </tr>
         <tr>
           <td class="p-4">Deluxe</td>
-          <td><input class= "border-none bg-amber-50 rounded-xl" type="number" id="deluxe" name="deluxe" onchange="calculateTotal()"></td>
+          <td><input class= "border-none bg-amber-50 rounded-xl" type="number" id="deluxe" name="deluxe" onchange="calculateTotal()" value="0"></td>
         </tr> 
         <tr>
           <td class="p-4">Suite</td>
-          <td><input class="border-none bg-amber-50 rounded-xl" type="number" id="suite" name="suite" onchange="calculateTotal()"></td>
+          <td><input class="border-none bg-amber-50 rounded-xl" type="number" id="suite" name="suite" onchange="calculateTotal()" value="0"></td>
         </tr>
         <tr> 
           <td class="p-4">Standar</td>
-          <td><input class="border-none bg-amber-50 rounded-xl" type="number" id="standart" name="standart" onchange="calculateTotal()"></td>
+          <td><input class="border-none bg-amber-50 rounded-xl" type="number" id="standart" name="standart" onchange="calculateTotal()" value="0"></td>
         </tr>
         <tr>
           <td class="p-4 font-black">Total</td>
-          <td>$<input class="border-none bg-amber-50 rounded-xl" type="number" id="totalPrice" name="totalPrice" disabled></td>
+          <td>$<input class="border-none bg-amber-50 rounded-xl" type="number" id="totalPrice" name="totalPrice" disabled require></td>
         </tr>
         </table>
       </div>
@@ -111,5 +111,8 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+ 
+ @include('sweetalert::alert')    
 </body>
 </html>
