@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+
 
 class AgentController extends Controller
 {   
@@ -26,12 +29,12 @@ class AgentController extends Controller
     
         $transaction = $transaction->get();
 
+        
         return view('staff.log', ['transaction' => $transaction]);
     }
 
 
     public function InfoReservation(){
-
         return view('staff.info');
     }
 
@@ -52,6 +55,17 @@ class AgentController extends Controller
         $infoCostumer = request()->session()->get('infoCostumer');
 
         return view('staff.payment', ['infoCostumer' => $infoCostumer, 'dataReservation' => $dataReservation]);
+    }
+
+    public function AgentLogout(Request $request): RedirectResponse
+    {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('agent.login')->with('success','You Logout');
     }
 
 

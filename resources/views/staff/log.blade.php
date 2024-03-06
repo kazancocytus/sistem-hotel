@@ -49,9 +49,9 @@
             <td class="p-4">{{ $transactions->suites }}</td>
             <td class="p-4">{{ $transactions->deluxe }}</td>
             <td class="p-4">{{ $transactions->standard }}</td>
-            <td class="p-4">{{ implode(', ', $transactions->suite_room_number) }}</td>
-            <td class="p-4">{{ implode(', ', $transactions->deluxe_room_number) }}</td>
-            <td class="p-4">{{ implode(', ', $transactions->standart_room_number) }}</td>
+            <td class="p-4">{{ is_array($transactions->suite_room_number) ? implode(', ', $transactions->suite_room_number) : $transactions->suite_room_number }}</td>
+            <td class="p-4">{{ is_array($transactions->deluxe_room_number) ? implode(', ', $transactions->deluxe_room_number) : $transactions->deluxe_room_number }}</td>
+            <td class="p-4">{{ is_array($transactions->standart_room_number) ? implode(', ', $transactions->standart_room_number) : $transactions->standart_room_number }}</td>
             <td class="p-4">{{ $transactions->check_in }}</td>
             <td class="p-4">{{ $transactions->check_out }}</td>
             <td class="p-4">

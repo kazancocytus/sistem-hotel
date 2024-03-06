@@ -183,7 +183,7 @@
                         <td>
                           
                           <div class="dropdown">
-                              <a class="dropdown-item" href="javascript:void(0);"
+                              <a class="dropdown-item" href="{{ route('delete.report',$transactions->id) }}"
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
                             </div>

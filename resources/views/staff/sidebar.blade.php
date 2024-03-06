@@ -23,6 +23,9 @@
           <li class="font-josefin nav-item my-2">
             <a class="nav-link" href="{{ route('log.costumer') }}"><i class="bi bi-arrow-left-right mx-2"></i>Log</a>
           </li>
+          <li class="font-josefin nav-item my-2">
+            <a class="nav-link" href="{{ route('agent.logout') }}"><i class="bi bi-arrow-left-right mx-2"></i>Log Out</a>
+          </li>
         </ul>
       </div>
     </div>
