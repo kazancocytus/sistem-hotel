@@ -116,7 +116,7 @@
                     <div class="card-header d-flex align-items-center justify-content-between pb-0 ">
                       <div class="card-title mb-0">
                         <h5 class="m-0 me-2">Reservation Statistics</h5>
-                        <small class=" fw-bold"> 546 Total Reservation This Year</small>
+                        <small class=" fw-bold"> {{ $count  }} Available Rooms</small>
                       </div>
                     </div>
                     <div class="card-body">
