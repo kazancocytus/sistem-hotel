@@ -5,13 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use App\Models\Facility;
 use App\Models\Transaction;
 use App\Models\Food;
 use App\Models\User;
-use Carbon\Carbon;
+use App\Models\NumberRoom;
 
 class AdminController extends Controller
 {
@@ -39,9 +37,23 @@ class AdminController extends Controller
         $transaction = Transaction::orderBy('id','DESC')->first();
         $totalRooms = $this->calculateTotalRooms();
         $latestId = $this->StatusCostumer();
+        $count = $this->availableRooms();
+        $totalPrice = $this->AllPrice();
         
 
-        return view('admin.report', ['totalRooms' => $totalRooms, 'transaction' => $transaction, 'latestId' => $latestId]);
+        return view('admin.report', ['totalRooms' => $totalRooms, 'transaction' => $transaction, 'latestId' => $latestId, 'count' => $count, 'totalPrice' => $totalPrice]);
+    }
+
+    public function AllPrice(){
+        $totalPrice = Transaction::sum('price');
+
+        return $totalPrice;
+    }
+
+    public function availableRooms(){
+        $count = NumberRoom::where('available', true)->count();
+
+        return $count;
     }
 
     public function AdminUser(){
@@ -93,13 +105,4 @@ class AdminController extends Controller
         return $transactions;
     }
     
-    public function ShowPDF(){
-        $mpdf = new \Mpdf\Mpdf();
-        $transaction = Transaction::orderBy('id','DESC')->first();
-        $totalRooms = $this->calculateTotalRooms();
-        $latestId = $this->StatusCostumer();
-        $mpdf->WriteHTML('hai');
-        $mpdf->Output();
-    }
-   
 }
