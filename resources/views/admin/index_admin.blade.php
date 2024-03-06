@@ -183,7 +183,7 @@
                         <td>
                           
                           <div class="dropdown">
-                              <a class="dropdown-item" href="javascript:void(0);"
+                              <a class="dropdown-item" id="delete" href="{{ route('delete.report',$transactions->id) }}"
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
                             </div>
@@ -245,7 +245,9 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+  <script src="../assets/js/delete-pop-up.js"></script>
+
 
     @include('sweetalert::alert')
   </body>

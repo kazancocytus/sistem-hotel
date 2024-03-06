@@ -77,7 +77,7 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'You Logout');
     }
 
     public function UserActivity(Request $request){
@@ -103,6 +103,13 @@ class AdminController extends Controller
         $transactions = Transaction::orderBy('check_out','DESC')->get();   
 
         return $transactions;
+    }
+
+    public function DeleteDataReport($id, Request $request){
+        $data = $request->all();
+        Transaction::findOrFail($id)->delete($data);
+        
+        return redirect()->route('admin.index');
     }
     
 }

@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/agent/login', function(){
     return view('staff/reg');
-});
+})->name('agent.login');
 
 Route::middleware(['auth', 'roles_name:Agent'])->group(function(){
     
@@ -56,10 +56,12 @@ Route::middleware(['auth', 'roles_name:Agent'])->group(function(){
     Route::get('/agent/info', [AgentController::class, 'InfoReservation'])->name('info.reservation');
     Route::get('/agent/detail', [AgentController::class, 'DetailReservation'])->name('detail.reservation');
     Route::get('/agent/payment', [AgentController::class, 'PaymentReservation'])->name('payment.reservation');
+    Route::get('/agent/logout', [AgentController::class, 'AgentLogout'])->name('agent.logout');
 
     Route::post('/store/agent/reservation', [TransactionController::class, 'ReservationAgent'])->name('reservation.agent');
     Route::post('/store/agent/info', [TransactionController::class, 'AgentInfoReservation'])->name('agent.info');
     Route::post('/store/agent/payment', [TransactionController::class, 'AgentPaymentReservation'])->name('agent.payment');
+    Route::post('/store/agent/detail', [TransactionController::class, 'CostumerDetailTransaction'])->name('reservation.payment');
 
 });
 
@@ -75,7 +77,7 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function () {
     Route::get('/admin/user', [AdminController::class, 'AdminUser'])->name('admin.user');
     Route::get('/delete/user/{id}', [AdminController::class, 'DeleteUser'])->name('delete.user');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
-    Route::get('/admin/pdf', [AdminController::class, 'ShowPDF'])->name('show.pdf');
+    Route::get('/delete/report/{id}', [AdminController::class, 'DeleteDataReport'])->name('delete.report');
     
 });
 
@@ -88,6 +90,7 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function () {
     Route::get('/edit/facility/{id}', [FacilityController::class, 'EditFacility'])->name('edit.facility');
     Route::get('/delete/facility/{id}', [FacilityController::class, 'DeleteFacility'])->name('delete.facility');
     Route::post('/update/facility', [FacilityController::class, 'UpdateFacility'])->name('update.facility');
+    
 });
 
 // Route CRUD Food for Admin

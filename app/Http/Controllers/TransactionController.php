@@ -214,46 +214,98 @@ class TransactionController extends Controller
         return response()->json(['message' => 'No rooms to free up'], 200);
     }
 
-    public function ReservationAgent(Request $request){
+     public function ReservationAgent(Request $request){
+        $request->validate([
+            'check_in' => 'required',
+            'check_out' => 'required',
+        ]);
 
-        $deluxeRooms = $request->input('deluxe');
-        $suiteRooms = $request->input('suite');
-        $standardRooms = $request->input('standart');
-        $checkInDate = $request->input('check_in');
-        $checkOutDate = $request->input('check_out');
+        $deluxeInput = $request->input('deluxe');
+        $suitesInput = $request->input('suite');
+        $standartInput = $request->input('standart');
+        $checkIn = $request->input('check_in');
+        $checkOut = $request->input('check_out');
 
-        $deluxeNumberRooms = NumberRoom::where('type_room', 1)
+        $deluxeRoomNumbers = NumberRoom::where('type_room', 1)
                             ->where('available', true)
-                            ->take($deluxeRooms)
+                            ->take($deluxeInput)
                             ->pluck('number_room')
                             ->toArray();
 
-        $daysDifference = Carbon::parse($checkInDate)->diffInDays(Carbon::parse($checkOutDate));
+        $suiteRoomNumbers = NumberRoom::where('type_room', 0)
+                            ->where('available', true)
+                            ->take($suitesInput)
+                            ->pluck('number_room')
+                            ->toArray();
 
+        $standartRoomNumbers = NumberRoom::where('type_room', 2)
+                                ->where('available', true)
+                                ->take($standartInput)
+                                ->pluck('number_room')
+                                ->toArray();
+        
+        $reservationNumber = 'RES-' . date('YmdHis');
+        
+
+        $daysDifference = Carbon::parse($checkIn)->diffInDays(Carbon::parse($checkOut));
+
+        $allRoomNumbers = array_merge($suiteRoomNumbers, $deluxeRoomNumbers, $standartRoomNumbers);    
+        $selectedRoomNumber = $allRoomNumbers[0];
+
+        if (count($suiteRoomNumbers) == $suitesInput && count($deluxeRoomNumbers) == $deluxeInput && count($standartRoomNumbers) == $standartInput) {
+            NumberRoom::whereIn('number_room', array_merge($suiteRoomNumbers, $deluxeRoomNumbers, $standartRoomNumbers))
+            ->update(['available' => false]);
+        
         $suitesPrice = 399;
         $deluxePrice = 299;
         $standartPrice = 199;
         
-        $totalPrice = ($suiteRooms * $suitesPrice + $deluxeRooms * $deluxePrice + $standartPrice * $standardRooms) * $daysDifference;
+        $totalPrice = ($suitesInput * $suitesPrice + $deluxeInput * $deluxePrice + $standartPrice * $standartInput) * $daysDifference;
         
-        $dataReservation = [
-            'check_in' => $checkInDate,
-            'check_out' => $checkOutDate,
-            'deluxe' => $deluxeRooms,
-            'suite' => $suiteRooms,
-            'standart' => $standardRooms,
-            'price' => $totalPrice,
-        ];
+            try {
 
+                $dataReservation = [
+                    'number_room_id' => $selectedRoomNumber,
+                    'no_reservation' => $reservationNumber,
+                    'deluxe_room_number' => json_encode($deluxeRoomNumbers),
+                    'suite_room_number' => json_encode($suiteRoomNumbers),
+                    'standart_room_number' => json_encode($standartRoomNumbers),
+                    'check_in' => $checkIn,
+                    'check_out' => $checkOut,
+                    'deluxe' => $deluxeInput,
+                    'suite' => $suitesInput,
+                    'standart' => $standartInput,
+                    'price' => $totalPrice,
+                ];
+                                
+                $this->AvailableRoom();
 
-        // dd($dataReservation);
+                $request->session()->put('dataReservation', $dataReservation);
+                $request->session()->save();
 
-        return redirect()->route('info.reservation')->with('dataReservation', $dataReservation);
-        
-    }
+                var_dump($dataReservation);
+                return redirect()->route('info.reservation')->with('success', '3 Step Again');
+                
+            }catch(\Exception $e){
+                return redirect()->back()
+                                ->withErrors(['error', $e->getMessage()])
+                                ->withInput();
+            }
+        } else {
+            return redirect()->back()->with('error', 'Please fill in correctly');
+        }
+}
 
 
     public function AgentInfoReservation(Request $request){
+        $request->validate([
+            'nip' => 'required|numeric|min:13,max:20',
+            'name' => 'required|max:50|string',
+            'email' => 'required|email|max:100',
+            'phone' => 'required|numeric|min:11,max:17',
+            'birth_date' => 'required|date',
+        ]);
+
         
         $nip = $request->input('nip');
         $name = $request->input('name');
@@ -264,20 +316,25 @@ class TransactionController extends Controller
         $infoCostumer = [
             'nip' => $nip,
             'name' => $name,
-            'password' => 1234,
             'email' => $email,
             'phone' => $phoneNumber,
             'birth_date' => $birthDate,
-            'roles_name' => "User",
         ];
 
+        $request->session()->put('infoCostumer', $infoCostumer);
+        $request->session()->save();
 
-        return redirect()->route('payment.reservation')->with('infoCostumer', $infoCostumer);
+
+        return redirect()->route('payment.reservation')->with('success', '2 Step again');
 
     }
 
 
     public function AgentPaymentReservation(Request $request){
+        
+        $request->validate([
+            'no_rekening' => 'required|numeric|min:10,max:20',
+        ]);
 
         $noReservation = $request->input('no_reservation');
         $noRekening = $request->input('no_rekening');
@@ -287,7 +344,52 @@ class TransactionController extends Controller
             'no_rekening' => $noRekening,
         ];
 
-        return redirect()->route('detail.reservation')->with('paymentAgent', $paymentAgent);
+        $request->session()->put('paymentAgent', $paymentAgent);
+        $request->session()->save();
+
+        return redirect()->route('detail.reservation')->with('success', '1 Step Again');
+
+    }
+
+    public function CostumerDetailTransaction(Request $request){
+        $dataReservation = request()->session()->get('dataReservation');
+        $infoCostumer = request()->session()->get('infoCostumer');
+        $paymentAgent = request()->session()->get('paymentAgent');
+
+        $name = $infoCostumer['name'];
+        $phoneNumber = $infoCostumer['phone'];
+        $noRekening = $paymentAgent['no_rekening'];
+        $numberRoomId = $dataReservation['number_room_id'];
+        $checkIn = $dataReservation['check_in'];
+        $checkOut = $dataReservation['check_out'];
+        $reservationNumber = $dataReservation['no_reservation'];
+        $suitesInput = $dataReservation['suite'];
+        $deluxeInput = $dataReservation['deluxe'];
+        $standartInput = $dataReservation['standart'];
+        $deluxeRoomNumbers = $dataReservation['deluxe_room_number'];
+        $suiteRoomNumbers = $dataReservation['suite_room_number'];
+        $standartRoomNumbers = $dataReservation['standart_room_number'];
+        $totalPrice = $dataReservation['price'];
+
+        Transaction::create([
+            'number_room_id' => $numberRoomId,
+            'no_reservation' => $reservationNumber,
+            'name' => $name,
+            'no_rekening' => $noRekening,
+            'phone' => $phoneNumber,
+            'check_in' => $checkIn,
+            'check_out' => $checkOut,
+            'price' => $totalPrice,
+            'suites' => $suitesInput,
+            'deluxe' => $deluxeInput,
+            'standart' => $standartInput,
+            'deluxe_room_number' => json_decode($deluxeRoomNumbers),
+            'suite_room_number' => json_decode($suiteRoomNumbers),
+            'standart_room_number' => json_decode($standartRoomNumbers),
+        ]);
+
+
+        return redirect()->route('log.costumer')->with('success', 'Transaction Complete');
 
     }
 
