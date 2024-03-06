@@ -377,7 +377,7 @@
 
       
         function incrementInput(input) {
-            if (input.value = 0) {
+            if (input.value == 0) {
                 input.value++;
                 updateTable();
                 updateTableVisibility();
@@ -389,7 +389,7 @@
         function decrementInput(input) {
             if (input.value > 0) {
                 input.value--
-                updateTable()
+                updateTable();
                 updateTableVisibility()
             }
         }
@@ -454,7 +454,7 @@
 
         document.getElementById('standart-increment').addEventListener('click', () => {
             if (checkInInput.value && checkOutInput.value) {
-                incrementInput(deluxeInput)
+                incrementInput(standartInput)
                 debouncedUpdateTable();
                 updateTableVisibility();
             } else {
@@ -467,7 +467,7 @@
 
         document.getElementById('standart-decrement').addEventListener('click', () => {
             if (checkInInput.value && checkOutInput.value) {
-                incrementInput(deluxeInput)
+                incrementInput(standartInput)
                 debouncedUpdateTable();
                 updateTableVisibility();
             } else {

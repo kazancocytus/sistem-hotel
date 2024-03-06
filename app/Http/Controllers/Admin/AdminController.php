@@ -109,7 +109,7 @@ class AdminController extends Controller
         $data = $request->all();
         Transaction::findOrFail($id)->delete($data);
         
-        return redirect()->route('admin.index')->with('success', 'Succesfully delete data Report');
+        return redirect()->route('admin.index');
     }
     
 }
