@@ -383,9 +383,9 @@ class TransactionController extends Controller
             'suites' => $suitesInput,
             'deluxe' => $deluxeInput,
             'standart' => $standartInput,
-            'deluxe_room_number' => $deluxeRoomNumbers,
-            'suite_room_number' => $suiteRoomNumbers,
-            'standart_room_number' => $standartRoomNumbers,
+            'deluxe_room_number' => json_decode($deluxeRoomNumbers),
+            'suite_room_number' => json_decode($suiteRoomNumbers),
+            'standart_room_number' => json_decode($standartRoomNumbers),
         ]);
 
 
