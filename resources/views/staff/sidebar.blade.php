@@ -23,6 +23,9 @@
           <li class="font-josefin nav-item my-2">
             <a class="nav-link" href="#"><i class="bi bi-arrow-left-right mx-2"></i>Log</a>
           </li>
+          <li class="font-josefin nav-item my-2">
+            <a class="nav-link" href="#"><i class="bi bi-box-arrow-in-left mx-2"></i>LogOut</a>
+          </li>
         </ul>
       </div>
     </div>
