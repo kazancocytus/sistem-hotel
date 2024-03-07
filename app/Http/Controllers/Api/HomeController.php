@@ -80,6 +80,6 @@ class HomeController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('home')->with('success','You Logout');
+        return redirect()->route('home')->with('success','You Have Been Loged-out From Your Account');
     }
 }

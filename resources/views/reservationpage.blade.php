@@ -32,7 +32,7 @@
         </div>
         @foreach ($typeRoom as $type => $typeRoom)
             <div class="block my-14 mx-10 w-auto p-6 bg-colorPrimary border border-gray-200 rounded-2xl shadow ">
-                <div class=" pl-10 pb-7 pt-10 text-left font-black text-5xl font-semibold font-julius">
+                <div class=" pl-10 pb-7 pt-10 text-left font-black text-5xl font-julius">
                     {{ $typeRoom->name }}</div>
                 <div id="default-carousel" class="relative w-full" data-carousel="slide">
                     <!-- Carousel wrapper -->
