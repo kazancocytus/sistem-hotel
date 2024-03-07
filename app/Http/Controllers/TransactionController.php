@@ -283,7 +283,6 @@ class TransactionController extends Controller
                 $request->session()->put('dataReservation', $dataReservation);
                 $request->session()->save();
 
-                var_dump($dataReservation);
                 return redirect()->route('info.reservation')->with('success', '3 Step Again');
                 
             }catch(\Exception $e){
@@ -388,6 +387,7 @@ class TransactionController extends Controller
             'standart_room_number' => json_decode($standartRoomNumbers),
         ]);
 
+        $this->AvailableRoom();
 
         return redirect()->route('log.costumer')->with('success', 'Transaction Complete');
 

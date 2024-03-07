@@ -24,6 +24,7 @@
             <i class="bi bi-search"></i>
           </button>
         </div>
+        <div class="font-josefin text-2xl font-semibold mx-5 mt-5">{{ $count }} Available Room</div>
       </form>
       <table class="w-4/5 mx-20 mt-5 form-label font-josefin text-xl font-medium bg-amber-100 rounded-xl">
         <thead>
@@ -48,7 +49,7 @@
             <td class="p-4">{{ $transactions->name }}</td>
             <td class="p-4">{{ $transactions->suites }}</td>
             <td class="p-4">{{ $transactions->deluxe }}</td>
-            <td class="p-4">{{ $transactions->standard }}</td>
+            <td class="p-4">{{ $transactions->standart }}</td>
             <td class="p-4">{{ implode(', ', $transactions->suite_room_number) }}</td>
             <td class="p-4">{{ implode(', ', $transactions->deluxe_room_number) }}</td>
             <td class="p-4">{{ implode(', ', $transactions->standart_room_number) }}</td>

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use App\Models\NumberRoom;
 
 
 class AgentController extends Controller
@@ -20,17 +22,16 @@ class AgentController extends Controller
     }
 
     public function LogCostumer(){
-        $transaction = Transaction::orderBy('created_at','DESC');
-
+        $transaction = Transaction::orderBy('created_at','DESC')->get();
+        
         if (request()->has('search')) {
             $searchTerm = request()->get('search');
             $transaction = $transaction->where('name', 'like', '%' . $searchTerm . '%');
         }
-    
-        $transaction = $transaction->get();
-
         
-        return view('staff.log', ['transaction' => $transaction]);
+        $count = NumberRoom::where('available', true)->count();
+        
+        return view('staff.log', ['transaction' => $transaction, 'count' => $count]);
     }
 
 
