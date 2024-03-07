@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Api\AgentController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use App\Models\Facility;
 use App\Models\Transaction;
 use App\Models\Food;
 use App\Models\User;
-use Carbon\Carbon;
+use App\Models\NumberRoom;
 
 class AdminController extends Controller
 {
@@ -39,9 +38,26 @@ class AdminController extends Controller
         $transaction = Transaction::orderBy('id','DESC')->first();
         $totalRooms = $this->calculateTotalRooms();
         $latestId = $this->StatusCostumer();
+        $count = $this->availableRooms();
+        $totalPrice = $this->AllPrice();
         
 
-        return view('admin.report', ['totalRooms' => $totalRooms, 'transaction' => $transaction, 'latestId' => $latestId]);
+        return view('admin.report', ['totalRooms' => $totalRooms, 'transaction' => $transaction, 'latestId' => $latestId, 'count' => $count, 'totalPrice' => $totalPrice]);
+    }
+
+    public function AllPrice(){
+        $totalPrice = Transaction::sum('price');
+
+        return $totalPrice;
+    }
+
+    public function availableRooms(){
+        $count = NumberRoom::where('available', true)->count();
+        $agentController = new AgentController;
+
+        $agentController->LogCostumer($count, $this);
+
+        return $count;
     }
 
     public function AdminUser(){
@@ -65,7 +81,7 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'You Logout');
     }
 
     public function UserActivity(Request $request){
@@ -92,14 +108,12 @@ class AdminController extends Controller
 
         return $transactions;
     }
-    
-    public function ShowPDF(){
-        $mpdf = new \Mpdf\Mpdf();
-        $transaction = Transaction::orderBy('id','DESC')->first();
-        $totalRooms = $this->calculateTotalRooms();
-        $latestId = $this->StatusCostumer();
-        $mpdf->WriteHTML('hai');
-        $mpdf->Output();
+
+    public function DeleteDataReport($id, Request $request){
+        $data = $request->all();
+        Transaction::findOrFail($id)->delete($data);
+        
+        return redirect()->route('admin.index');
     }
-   
+    
 }

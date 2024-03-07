@@ -15,13 +15,16 @@
               <img class="col-1 align-items-center w-full" src="{{asset('assets/evergreenlogobg.png')}}" />
           </li>
           <li class=" font-josefin nav-item my-2">
-            <a class="nav-link" href="#"><i class="bi bi-house-fill mx-2"></i>Home</a>
+            <a class="nav-link" href="{{ route('index.staff') }}"><i class="bi bi-house-fill mx-2"></i>Home</a>
           </li>
           <li class="font-josefin nav-item my-2">
-            <a class="nav-link" href="#"><i class="bi bi-calendar-check-fill mx-2"></i>Reservasi</a>
+            <a class="nav-link" href="{{ route('agent.reservation') }}"><i class="bi bi-calendar-check-fill mx-2"></i>Reservasi</a>
           </li>
           <li class="font-josefin nav-item my-2">
-            <a class="nav-link" href="#"><i class="bi bi-arrow-left-right mx-2"></i>Log</a>
+            <a class="nav-link" href="{{ route('log.costumer') }}"><i class="bi bi-arrow-left-right mx-2"></i>Log</a>
+          </li>
+          <li class="font-josefin nav-item my-2">
+            <a class="nav-link" href="{{ route('agent.logout') }}"><i class="bi bi-box-arrow-in-left mx-2"></i>Log Out</a>
           </li>
         </ul>
       </div>

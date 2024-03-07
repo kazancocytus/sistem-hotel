@@ -44,7 +44,7 @@ class HomeController extends Controller
     public function Reservation()
     {
         $typeRoom = DB::table('type_room')
-            ->join('number_room', 'number_room.number_room_id', '=', 'type_room.number_room_id')
+            ->join('number_room', 'number_room.id', '=', 'type_room.number_room_id')
             ->join('facility', 'facility.id', '=', 'type_room.facility_id')
             ->select('type_room.*', 'number_room.price', 'facility.description_facility')
             ->get();

@@ -11,4 +11,14 @@ class Transaction extends Model
     
     protected $table = 'transaction';
     protected $guarded = [];
+    protected $casts = [
+        'deluxe_room_number' => 'array',
+        'suite_room_number' => 'array',
+        'standart_room_number' => 'array',
+    ];
+
+    public function numberRooms()
+    {
+        return $this->belongsTo(NumberRoom::class, 'number_room_id');
+    }
 }

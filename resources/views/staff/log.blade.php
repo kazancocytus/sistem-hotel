@@ -17,43 +17,60 @@
   @include('staff.sidebar')
     
       <div class="font-josefin text-2xl font-semibold mx-5 mt-5"> <i class="bi bi-people-fill mx-3"></i>LOG</div>
-      <form action="">
-          <div class="mx-20 mt-10 input-group rounded w-1/2">
-            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <button class=" w-10 bg-colorSecondary input-group-text border-0" id="search-addon">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
+      <form action="{{ route('log.costumer') }}" method="GET">
+        <div class="mx-20 mt-10 input-group rounded w-1/2">
+          <input type="text" name="search" id="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <button class=" w-10 bg-colorSecondary input-group-text border-0" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div class="font-josefin text-2xl font-semibold mx-5 mt-5">{{ $count }} Available Room</div>
       </form>
-        <form action="">
-        <table class="w-4/5 mx-20 mt-5 form-label font-josefin text-xl font-medium bg-amber-100 rounded-xl">
-          <thead>
-          <tr >
-          <th class="p-4">No</th>
-          <th class="p-4" >Name</th>
-          <th class="p-4">Type Rooms</th>
-          <th class="p-4">Number Rooms</th>
-          <th class="p-4">Check In</th>
-          <th class="p-4">Check Out</th>
-          <th class="p-4">Status</th>
-        </tr>
-      </thead>
+      <table class="w-4/5 mx-20 mt-5 form-label font-josefin text-xl font-medium bg-amber-100 rounded-xl">
+        <thead>
+          <tr>
+            <th class="p-4">No Reservation</th>
+            <th class="p-4">Name</th>
+            <th class="p-4">Suites Room</th>
+            <th class="p-4">Deluxe Room</th>
+            <th class="p-4">Standard Room</th>
+            <th class="p-4">Suites Number Room</th>
+            <th class="p-4">Deluxe Number Room</th>
+            <th class="p-4">Standard Number Room</th>
+            <th class="p-4">Check In</th>
+            <th class="p-4">Check Out</th>
+            <th class="p-4">Status</th>
+          </tr>
+        </thead>
         <tbody>
-          <td class="p-4">1</td>
-          <td class="p-4">Haikal</td>
-          <td class="p-4">Suite</td>
-          <td class="p-4">06</td>
-          <td class="p-4">24/01/2024</td>
-          <td class="p-4">25/01/2024</td>
-          <td class="p-4"><span class="badge text-bg-success">Checked In</span></td>
+          @foreach ($transaction as $list => $transactions)
+          <tr>
+            <td class="p-4">{{ $transactions->no_reservation }}</td>
+            <td class="p-4">{{ $transactions->name }}</td>
+            <td class="p-4">{{ $transactions->suites }}</td>
+            <td class="p-4">{{ $transactions->deluxe }}</td>
+            <td class="p-4">{{ $transactions->standart }}</td>
+            <td class="p-4">{{ implode(', ', $transactions->suite_room_number) }}</td>
+            <td class="p-4">{{ implode(', ', $transactions->deluxe_room_number) }}</td>
+            <td class="p-4">{{ implode(', ', $transactions->standart_room_number) }}</td>
+            <td class="p-4">{{ $transactions->check_in }}</td>
+            <td class="p-4">{{ $transactions->check_out }}</td>
+            <td class="p-4">
+              <span class="badge {{ $transactions->check_out >= now()->subday()->startOfDay() ? 'badge text-bg-success' : 'text-bg-warning' }}">{{ $transactions->check_out >= now()->subDay()->startOfDay() ? 'Checked In' : 'Checked Out' }}</span>
+            </td>
+          </tr>
+          @endforeach
         </tbody>
-        </table>
-    </form>
+      </table>
 
 
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script> 
+
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+ 
+ @include('sweetalert::alert')
 </body>
 </html>
