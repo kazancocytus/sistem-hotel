@@ -50,6 +50,13 @@ class AdminController extends Controller
         return view('admin.user',compact('user'));
     }
 
+    public function DeleteUser($id, Request $request){
+        $user = $request->all();
+        User::findOrFail($id)->delete($user);
+
+        return redirect()->route('admin.user');
+    }
+
     public function AdminLogout(Request $request)
     {
         Auth::guard('web')->logout();
@@ -86,4 +93,13 @@ class AdminController extends Controller
         return $transactions;
     }
     
+    public function ShowPDF(){
+        $mpdf = new \Mpdf\Mpdf();
+        $transaction = Transaction::orderBy('id','DESC')->first();
+        $totalRooms = $this->calculateTotalRooms();
+        $latestId = $this->StatusCostumer();
+        $mpdf->WriteHTML('hai');
+        $mpdf->Output();
+    }
+   
 }
