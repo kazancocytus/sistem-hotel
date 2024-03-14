@@ -65,12 +65,12 @@
                                 @enderror
                         </div>
                         <div class="d-grid gap-3">
-                            <button type="submit" class=" pt-2 font-josefin text-lg text-colorBg btn btn-success">LOGIN</button>
+                            <button id="login" type="submit" class=" pt-2 font-josefin text-lg text-colorBg btn">LOGIN</button>
                             <h2
                                 style="width: 100%; text-align: center; border-bottom: 1px solid #000; line-height: 0.1em; margin: 10px 0 20px;">
                                 <span class="" style="background:#fff; padding:0 5px; font-size:10px;">OR</span>
                             </h2>
-                            <button type="button" class=" pt-2 mb-2 font-josefin text-xs text-colorBg btn btn-success"
+                            <button id="signup" type="button" class=" pt-2 mb-2 font-josefin text-xs text-colorBg btn"
                                 data-bs-toggle="modal" data-bs-target="#modalRegister">SIGN UP</button>
                         </div>
                 </div>
@@ -95,42 +95,43 @@
                     <form method="POST" action="{{ route('register') }}">
                     @csrf
                         <div class="mb-3">
-                            <label for="nip" class="form-label font-josefin">NIP</label>
+                            <label for="nip" class="form-label font-josefin mb-0">NIP</label>
                             <input type="text" class="form-control rounded-xl" id="nip" name="nip"
                                 placeholder="Input Your NIP Here" autofocus/>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label font-josefin">Email</label>
+                            <label for="email" class="form-label font-josefin mb-0">Email</label>
                             <input type="email" class="form-control rounded-xl" id="email" name="email"
                                 placeholder="Input Your Email Here" />
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="form-label font-josefin">Phone Number</label>
+                            <label for="phone" class="form-label font-josefin mb-0">Phone Number</label>
                             <input type="text" class="form-control rounded-xl" id="phone" name="phone"
                                 placeholder="Input Your Phone Number Here" />
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label font-josefin">Fullname</label>
+                            <label for="name" class="form-label font-josefin mb-0">Fullname</label>
                             <input type="text" class="form-control rounded-xl" id="name" name="name"
                                 placeholder="Input Your Fullname Here" />
                         </div>
                         <div class="mb-3">
-                            <label for="birth_date" class="form-label font-josefin">Birth Date</label>
+                            <label for="birth_date" class="form-label font-josefin mb-0">Birth Date</label>
                             <input type="date" class="form-control rounded-xl" id="birth_date" name="birth_date"
                                 placeholder="Input Your Birth Date Here" />
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label font-josefin">Password</label>
+                            <label for="password" class="form-label font-josefin mb-0">Password</label>
                             <input type="password" class="form-control rounded-xl" id="password" name="password"
                                 placeholder="Input Your Password Here" />
+                            <span class=" font-josefin italic opacity-50 text-sm">*Password At Least 6 Character</span>
                         </div>
                         <div class="mb-5">
-                            <label for="password-confirm" class="form-label font-josefin">Confirm Password</label>
+                            <label for="password-confirm" class="form-label font-josefin mb-0">Confirm Password</label>
                             <input type="password" class="form-control rounded-xl" id="password-confirm" name="password_confirmation"
                                 placeholder="Input Your Password Here" />
                         </div>
                         <div class="d-grid gap-3">
-                            <button type="submit"
+                            <button type="submit" id="signin"
                                 class=" pt-2 font-josefin text-lg text-colorBg btn btn-success">SIGN IN</button>
                         </div>
                     </form>

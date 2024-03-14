@@ -62,14 +62,14 @@
                                 <div class="w-full flex justify-between items-center">
                                     <div>
                                         <span class=" font-josefin mt-2 block font-medium text-base text-colorBg">
-                                            Deluxe Room
+                                            Suites Room
                                         </span>
                                         <span class=" font-josefin mt-1 block text-xs text-colorBg">
                                             $399 a Night
                                         </span>
                                     </div>
-                                    <div class="flex items-center gap-x-1.5 room-selected" id="deluxe-counter">
-                                        <button type="button" id="deluxe-decrement"
+                                    <div class="flex items-center gap-x-1.5 room-selected" id="suites-counter">
+                                        <button type="button" id="suites-decrement"
                                             class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-decrement>
                                             <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
@@ -79,10 +79,10 @@
                                                 <path d="M5 12h14" />
                                             </svg>
                                         </button>
-                                        <input id="deluxe-input" name="deluxe-input" min="0" data-max="10"
+                                        <input id="suites-input" name="suites-input" min="0" data-max="10"
                                             class="p-0 w-6 bg-transparent border-0 text-colorBg text-center focus:ring-0"
                                             type="text" value="0" data-hs-input-number-input>
-                                        <button type="button" id="deluxe-increment"
+                                        <button type="button" id="suites-increment"
                                             class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-increment>
                                             <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
@@ -102,14 +102,14 @@
                                 <div class="w-full flex justify-between items-center">
                                     <div>
                                         <span class=" font-josefin mt-2 block font-medium text-base text-colorBg">
-                                            Suites Room
+                                            Deluxe Room
                                         </span>
                                         <span class=" font-josefin mt-1 block text-xs text-colorBg">
                                             $299 a Night
                                         </span>
                                     </div>
-                                    <div id="suites-counter" class="flex items-center gap-x-1.5 room-selected">
-                                        <button type="button" id="suites-decrement"
+                                    <div id="deluxe-counter" class="flex items-center gap-x-1.5 room-selected">
+                                        <button type="button" id="deluxe-decrement"
                                             class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-decrement>
                                             <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
@@ -119,10 +119,10 @@
                                                 <path d="M5 12h14" />
                                             </svg>
                                         </button>
-                                        <input id="suites-input" name="suites-input" min="0" data-max="10"
+                                        <input id="deluxe-input" name="deluxe-input" min="0" data-max="10"
                                             class="p-0 w-6 bg-transparent border-0 text-colorBg text-center focus:ring-0"
                                             type="text" value="0" data-hs-input-number-input>
-                                        <button type="button" id="suites-increment"
+                                        <button type="button" id="deluxe-increment"
                                             class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-increment>
                                             <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg"
@@ -235,8 +235,8 @@
         const standartInput = document.getElementById('standart-input')
         const checkInInput = document.getElementById('check_in');
         const checkOutInput = document.getElementById('check_out');
-        const deluxePrice = 399
-        const suitesPrice = 299
+        const suitesPrice = 399
+        const deluxePrice = 299
         const standartPrice = 199
         const table = document.querySelector('table tbody');
 

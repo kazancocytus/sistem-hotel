@@ -86,7 +86,7 @@
                     </div>
                     <div class=" w-2/5 mt-10">
                         <div>
-                            <p class="font-julius font-extrabold text-2xl text-center">Awards and Certificates
+                            <p class="font-julius font-extrabold text-2xl text-center">Awards and Certificates<i class="bi bi-award ml-2 text-2xl"></i>
                             </p>
                             <hr class="mx-auto w-52 rounded-full mt-2 mb-4" style="height: 2px!important;">
                         </div>
