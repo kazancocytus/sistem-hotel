@@ -92,7 +92,7 @@ class TransactionController extends Controller
 
         $this->AvailableRoom();
 
-        return redirect()->back()
+        return redirect()->route('home')
             ->with('success', 'transaction succesfully');
         } catch(\Exception $e){
             return redirect()->back()
@@ -187,7 +187,7 @@ class TransactionController extends Controller
 
 
         $this->AvailableRoom();
-        return redirect()->back()
+        return redirect()->route('home')
             ->with('success', 'transaction succesfully');
         
         } catch(\Exception $e){
