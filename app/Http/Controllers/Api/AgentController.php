@@ -22,17 +22,20 @@ class AgentController extends Controller
     }
 
     public function LogCostumer(){
-        $transaction = Transaction::orderBy('created_at','DESC')->get();
-        
+        $transactions = Transaction::orderBy('created_at','DESC');
+    
         if (request()->has('search')) {
             $searchTerm = request()->get('search');
-            $transaction = $transaction->where('name', 'like', '%' . $searchTerm . '%');
+            $transactions->where('name', 'like', '%' . $searchTerm . '%');
         }
+        
+        $transactions = $transactions->get(); 
         
         $count = NumberRoom::where('available', true)->count();
         
-        return view('staff.log', ['transaction' => $transaction, 'count' => $count]);
+        return view('staff.log', ['transactions' => $transactions, 'count' => $count]);
     }
+    
 
 
     public function InfoReservation(){

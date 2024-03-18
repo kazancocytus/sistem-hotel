@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     @vite('resources/css/app.css')
 
 </head>
@@ -24,8 +25,8 @@
             <i class="bi bi-search"></i>
           </button>
         </div>
-        <div class="font-josefin text-2xl font-semibold mx-5 mt-5">{{ $count }} Available Room</div>
       </form>
+        <div class="font-josefin text-2xl font-semibold mx-5 mt-5">{{ $count }} Available Room</div>
       <table class="w-4/5 mx-20 mt-5 form-label font-josefin text-xl font-medium bg-amber-100 rounded-xl">
         <thead>
           <tr>
@@ -43,20 +44,20 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($transaction as $list => $transactions)
+          @foreach ($transactions as $list => $transaction)
           <tr>
-            <td class="p-4">{{ $transactions->no_reservation }}</td>
-            <td class="p-4">{{ $transactions->name }}</td>
-            <td class="p-4">{{ $transactions->suites }}</td>
-            <td class="p-4">{{ $transactions->deluxe }}</td>
-            <td class="p-4">{{ $transactions->standart }}</td>
-            <td class="p-4">{{ implode(', ', $transactions->suite_room_number) }}</td>
-            <td class="p-4">{{ implode(', ', $transactions->deluxe_room_number) }}</td>
-            <td class="p-4">{{ implode(', ', $transactions->standart_room_number) }}</td>
-            <td class="p-4">{{ $transactions->check_in }}</td>
-            <td class="p-4">{{ $transactions->check_out }}</td>
+            <td class="p-4">{{ $transaction->no_reservation }}</td>
+            <td class="p-4">{{ $transaction->name }}</td>
+            <td class="p-4">{{ $transaction->suites }}</td>
+            <td class="p-4">{{ $transaction->deluxe }}</td>
+            <td class="p-4">{{ $transaction->standart }}</td>
+            <td class="p-4">{{ json_encode($transaction->suite_room_number) }}</td>
+            <td class="p-4">{{ json_encode($transaction->deluxe_room_number) }}</td>
+            <td class="p-4">{{ json_encode($transaction->standart_room_number) }}</td>
+            <td class="p-4">{{ $transaction->check_in }}</td>
+            <td class="p-4">{{ $transaction->check_out }}</td>
             <td class="p-4">
-              <span class="badge {{ $transactions->check_out >= now()->subday()->startOfDay() ? 'badge text-bg-success' : 'text-bg-warning' }}">{{ $transactions->check_out >= now()->subDay()->startOfDay() ? 'Checked In' : 'Checked Out' }}</span>
+              <span class="badge {{ $transaction->check_out >= now()->subday()->startOfDay() ? 'badge text-bg-success' : 'text-bg-warning' }}">{{ $transaction->check_out >= now()->subDay()->startOfDay() ? 'Checked In' : 'Checked Out' }}</span>
             </td>
           </tr>
           @endforeach
