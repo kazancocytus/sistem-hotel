@@ -107,22 +107,25 @@ class TransactionController extends Controller
 }
 
     public function StoreTransaction(Request $request){
+        // validasi input html
         $request->validate([
             'no_rekening' => 'required|min:10|max:16',
             'check_in' => 'required',
             'check_out' => 'required',
         ]);
 
-        
+        // check apakah sudah login atau belum
         $user = Auth::user();
         $name = $user->name;
         $phone = $user->phone;
         
+        // membuat no reservation berdasarkan tahun-bulan-hari-jam-menit-detik
         $noReservation = 'RES-' . date('YmdHis');
         
         $checkIn = $request->input('check_in');
         $checkOut = $request->input('check_out');
         
+        // check-in dikalikan berdasar jumlah hari ke check-out
         $daysDifference = Carbon::parse($checkIn)->diffInDays(Carbon::parse($checkOut));
         
         $noRekening = $request->input('no_rekening');
@@ -132,6 +135,7 @@ class TransactionController extends Controller
         $standartInput = $request->input('standart-input');
 
 
+        // mengambil data-data type room
         $deluxeRoomNumbers = NumberRoom::where('type_room', 1)
             ->where('available', true)
             ->take($deluxeInput)
@@ -153,16 +157,18 @@ class TransactionController extends Controller
         $allRoomNumbers = array_merge($suiteRoomNumbers, $deluxeRoomNumbers, $standartRoomNumbers);    
         $selectedRoomNumber = $allRoomNumbers[0];
         
+        // jika user sudah memilih ruangan, ruangan yang dipilih akan berubah menjadi false atau tidak tersedia
         if (count($suiteRoomNumbers) == $suitesInput && count($deluxeRoomNumbers) == $deluxeInput && count($standartRoomNumbers) == $standartInput) {
             NumberRoom::whereIn('number_room', array_merge($suiteRoomNumbers, $deluxeRoomNumbers, $standartRoomNumbers))
             ->update(['available' => false]);
 
         
-
+        // harga type room
         $suitesPrice = 399;
         $deluxePrice = 299;
         $standartPrice = 199;
         
+        // menghitung total price
         $totalPrice = ($suitesInput * $suitesPrice + $deluxeInput * $deluxePrice + $standartPrice * $standartInput) * $daysDifference;
 
         
