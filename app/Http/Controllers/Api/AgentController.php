@@ -37,6 +37,7 @@ class AgentController extends Controller
         
         return view('staff.log', ['transactions' => $transactions, 'count' => $count]);
     }
+    
 
 
     public function InfoReservation()
