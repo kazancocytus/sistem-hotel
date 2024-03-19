@@ -93,7 +93,7 @@ class TransactionController extends Controller
         $this->AvailableRoom();
 
         return redirect()->route('home')
-            ->with('success', 'transaction succesfully');
+            ->with('success', 'Transaction Succesfully!');
         } catch(\Exception $e){
             return redirect()->back()
             ->withErrors(['error', $e->getMessage()])
@@ -188,7 +188,7 @@ class TransactionController extends Controller
 
         $this->AvailableRoom();
         return redirect()->route('home')
-            ->with('success', 'transaction succesfully');
+            ->with('success', 'Transaction Succesfully');
         
         } catch(\Exception $e){
             return redirect()->back()
@@ -211,7 +211,7 @@ class TransactionController extends Controller
             return response()->json(['message' => 'Rooms are now available'], 200);
         }
 
-        return response()->json(['message' => 'No rooms to free up'], 200);
+        return response()->json(['message' => 'No Room Available At The Moment'], 200);
     }
 
      public function ReservationAgent(Request $request){
@@ -283,7 +283,7 @@ class TransactionController extends Controller
                 $request->session()->put('dataReservation', $dataReservation);
                 $request->session()->save();
 
-                return redirect()->route('info.reservation')->with('success', '3 Step Again');
+                return redirect()->route('info.reservation')->with('success', '3 Step More');
                 
             }catch(\Exception $e){
                 return redirect()->back()
@@ -291,7 +291,7 @@ class TransactionController extends Controller
                                 ->withInput();
             }
         } else {
-            return redirect()->back()->with('error', 'Please fill in correctly');
+            return redirect()->back()->with('error', 'Please fill In Correctly');
         }
 }
 
@@ -324,7 +324,7 @@ class TransactionController extends Controller
         $request->session()->save();
 
 
-        return redirect()->route('payment.reservation')->with('success', '2 Step again');
+        return redirect()->route('payment.reservation')->with('success', '2 Step More');
 
     }
 
@@ -346,7 +346,7 @@ class TransactionController extends Controller
         $request->session()->put('paymentAgent', $paymentAgent);
         $request->session()->save();
 
-        return redirect()->route('detail.reservation')->with('success', '1 Step Again');
+        return redirect()->route('detail.reservation')->with('success', '1 Step More');
 
     }
 

@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Facility (EH)</title>
+    <title>Facility</title>
 
     <meta name="description" content="" />
 
@@ -75,46 +75,15 @@
 
         
         <div class="layout-page bg-colorPrimary">
-        
-
-          <nav
-            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-            id="layout-navbar"  
-          >
-            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                <i class="bx bx-menu bx-sm"></i>
-              </a>
-            </div>
-
-            <div class="navbar-nav-right d-flex align-items-center py-5" id="navbar-collapse">
-            
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
-                </div>
-              </div>
-              
               @include('admin.layout.header_admin')
-
-          </nav>
-
             <div class="container-xxl flex-grow-1 container-p-y">
-              <a href="{{ route('add.facility') }}" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Add Facility</a>
-                <div class=" col-lg-12 py-5">
-                  <div class="card shadow">
-                    <h5 class="card-header bg-colorThird"></h5>
-                    <div class="table">
+              <div class=" col-lg-12 pb-4">
+                <div class="card shadow">
+                  <div class="table-responsive rounded-lg">
                       <table class="table bg-colorPrimary">
-                        <thead class=" bg-colorThird">
-                          <tr>
-                            <th>facilitation name</th>
+                        <thead class=" bg-colorSecondary">
+                          <tr class=" font-josefin">
+                            <th>facility name</th>
                             <th>Description</th>
                             <th>Picture</th>
                             <th>Actions</th>
@@ -134,44 +103,36 @@
                               data-bs-placement="top"
                               class="avatar avatar-xl pull-up"
                               title=""
-                            >
+                              >
                               <img src="{{ url('assets/img/facility/'.$list->image) }}" alt="Avatar" class="rounded-circle" />
                             </li>
-                        </td>
-                        
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="{{ route('edit.facility',$list->id) }}"
-                                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                          </td>
+                          
+                          <td>
+                            <div class="dropdown">
+                              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('edit.facility',$list->id) }}"
+                                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
                               >
                               <a class="dropdown-item" id="delete" href="{{ route('delete.facility',$list->id) }}"
                                 ><i class="bx bx-trash me-1"></i> Delete</a
-                              >
-                            </div>
+                                >
+                              </div>
                           </div>
                         </td>
                       </tr>
-
-                          
-                          @endforeach
-                        </tbody>
-                        
-                      </table>
-                    </div>
-                  </div>
-
-
+                      @endforeach
+                    </tbody>
+                  </table>
                 </div>
-                
-
-                
-
               </div>
-
+            </div>
+            <a href="{{ route('add.facility') }}" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-5 focus:outline-none">Add Facility</a>
+          </div>
+              
 
            
           @include('admin.layout.footer_admin');

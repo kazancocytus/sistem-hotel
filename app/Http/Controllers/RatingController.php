@@ -41,7 +41,7 @@ class RatingController extends Controller
         // dd($create_review);
 
         return redirect()->back()
-                        ->with('success','Rating has been saved');
+                        ->with('success','Rating Has Been Saved');
     }
 
     /**
