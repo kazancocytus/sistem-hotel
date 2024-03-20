@@ -22,7 +22,6 @@
 
     @include('components.navbar')
 
-
     <div class=" bg-colorSecondary">
         <div class=" container p-0 m-0 self-stretch">
             <hr class="mx-auto w-44 rounded-full mb-32" style="height: 5px!important;">
@@ -69,7 +68,7 @@
                                             $399 a Night
                                         </span>
                                     </div>
-                                    <div id="suites-counter" class="flex items-center gap-x-1.5 room-selected">
+                                    <div class="flex items-center gap-x-1.5 room-selected" id="suites-counter">
                                         <button type="button" id="suites-decrement"
                                             class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-decrement>
@@ -109,7 +108,7 @@
                                             $299 a Night
                                         </span>
                                     </div>
-                                    <div class="flex items-center gap-x-1.5 room-selected" id="deluxe-counter">
+                                    <div id="deluxe-counter" class="flex items-center gap-x-1.5 room-selected">
                                         <button type="button" id="deluxe-decrement"
                                             class="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                             data-hs-input-number-decrement>
@@ -178,9 +177,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </div>
                         <!-- End Input Number -->
 
@@ -217,17 +213,10 @@
 
                         <div class=" mt-12 justify-center flex flex-row ">
                             <button type="button" href="" data-bs-toggle="modal"
-                                data-bs-target="#TransactionModal"class=" h-16 w-2/5 px-5 py-3 relative border-r-2 rounded-l-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
+                                data-bs-target="#TransactionModal"class=" h-16 w-1/2 px-5 py-3 relative rounded-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
                                 <span
                                     class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
                                 <span class="relative group-hover:text-colorSecondary">Book Now</span>
-                            </button>
-                            <button type="button" href="" data-bs-toggle="modal"
-                                data-bs-target="#PayHotelModal"
-                                class=" h-16 w-2/5 px-5 py-3 relative rounded-r-xl group overflow-hidden text-2xl font-bold bg-colorThird text-white inline-block font-josefin text-center">
-                                <span
-                                    class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-colorgreen group-hover:h-full opacity-90"></span>
-                                <span class="relative group-hover:text-colorSecondary">Pay At Hotel</span>
                             </button>
                             @include('components.modaltrans')
                         </div>

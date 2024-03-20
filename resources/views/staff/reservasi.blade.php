@@ -21,9 +21,22 @@
   <div>
         <div class="font-josefin text-2xl font-semibold mx-3 mt-3"> <i class="bi bi-people-fill mx-3"></i>Booking</div>
     </div>
-    <form class="w-3/4 mx-28 py-5" action="{{ route('reservation.agent') }}" method="post">
+    <form class="w-3/4 mx-28 pb-5" action="{{ route('reservation.agent') }}" method="post">
       @csrf
     <div class="">
+      <div class="w-3/5 mb-10 ">
+        <div class=" w-5/12 float-start mb-10">
+        <label class=" form-label font-josefin text-xl font-medium"> Check In</label>
+        <input class=" form-control rounded-xl bg-amber-100"  type="date" name="check_in" id="check_in">
+      </div> 
+      <div class=" w-5/12 float-right mb-10 "> 
+        <label class=" form-label font-josefin text-xl font-medium" > Check Out</label>
+        <input class=" form-control rounded-xl bg-amber-100" type="date" name="check_out" id="check_out" >
+      </div>
+    </div>
+  
+
+
       <div>
         <table class="w-3/4 mt-5 form-label border-y-2  border-x-2 font-josefin text-xl font-medium bg-amber-100 border-color-black">
           <tr >
@@ -47,19 +60,9 @@
           <td>$<input class="border-none bg-amber-50 rounded-xl" type="number" id="totalPrice" name="totalPrice" disabled require></td>
         </tr>
         </table>
+        <button type="submit" class="text-white bg-yellow-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5">NEXT</button>
       </div>
       
-    <div class="w-3/5  mt-10 ">
-      <div class=" w-5/12 float-start">
-      <label class=" form-label font-josefin text-xl font-medium"> Check In</label>
-      <input class=" form-control rounded-xl bg-amber-100"  type="date" name="check_in" id="check_in">
-    </div> 
-    <div class=" w-5/12 float-right "> 
-      <label class=" form-label font-josefin text-xl font-medium" > Check Out</label>
-      <input class=" form-control rounded-xl bg-amber-100" type="date" name="check_out" id="check_out" >
-    </div>
-  </div><button type="submit" class="text-white bg-yellow-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 float-right ">NEXT</button>
-
 </form>
   <script type="text/javascript">
     function calculateTotal() {

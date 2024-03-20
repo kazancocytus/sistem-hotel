@@ -31,8 +31,8 @@
         </div>
         <div class=" my-3 flex flex-wrap justify-center">
             @foreach($foods as $food)
-            <div class="card mx-4 my-7 rounded-xl w-80 h-80">
-                <img src=" {{ asset('assets/img/food/' . $food->image) }} " class="card-img-top h-2/3 rounded-t-xl" alt="...">
+            <div class="card mx-4 my-7 rounded-xl w-80 h-72">
+                <img src=" {{ asset('assets/img/food/' . $food->image) }} " class="card-img-top h-3/4 rounded-t-xl" alt="...">
                 <div class="card-body">
                     <h1 class=" font-josefin text-xl font-semibold">{{ $food->name }}</h1>
                 </div>

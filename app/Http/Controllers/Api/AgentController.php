@@ -2,47 +2,56 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Transaction;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use App\Models\NumberRoom;
 
 
 class AgentController extends Controller
-{   
-    public function IndexStaff(){
+{
+    public function IndexStaff()
+    {
         return view('staff.home');
     }
 
-    public function AgentReservation(){
+    public function AgentReservation()
+    {
         return view('staff.reservasi');
     }
 
     public function LogCostumer(){
-        $transaction = Transaction::orderBy('created_at','DESC');
-
+        $transactions = Transaction::orderBy('created_at','DESC');
+    
         if (request()->has('search')) {
             $searchTerm = request()->get('search');
-            $transaction = $transaction->where('name', 'like', '%' . $searchTerm . '%');
+            $transactions->where('name', 'like', '%' . $searchTerm . '%');
         }
-    
-        $transaction = $transaction->get();
-
         
-        return view('staff.log', ['transaction' => $transaction]);
+        $transactions = $transactions->get(); 
+        
+        $count = NumberRoom::where('available', true)->count();
+        
+        return view('staff.log', ['transactions' => $transactions, 'count' => $count]);
     }
+    
 
 
-    public function InfoReservation(){
+    public function InfoReservation()
+    {
         return view('staff.info');
     }
 
-    public function LoginStaff(){
+    public function LoginStaff()
+    {
         return view('staff.reg');
     }
 
-    public function DetailReservation(){
+    public function DetailReservation()
+    {
         $dataReservation = request()->session()->get('dataReservation');
         $infoCostumer = request()->session()->get('infoCostumer');
         $paymentAgent = request()->session()->get('paymentAgent');
@@ -50,7 +59,8 @@ class AgentController extends Controller
         return view('staff.detail', ['dataReservation' => $dataReservation, 'infoCostumer' => $infoCostumer, 'paymentAgent' => $paymentAgent]);
     }
 
-    public function PaymentReservation(){
+    public function PaymentReservation()
+    {
         $dataReservation = request()->session()->get('dataReservation');
         $infoCostumer = request()->session()->get('infoCostumer');
 
@@ -65,9 +75,6 @@ class AgentController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('agent.login')->with('success','You Logout');
+        return redirect()->route('agent.login')->with('success', 'You Logout');
     }
-
-
-
 }

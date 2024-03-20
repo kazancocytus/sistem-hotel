@@ -92,8 +92,8 @@ class TransactionController extends Controller
 
         $this->AvailableRoom();
 
-        return redirect()->back()
-            ->with('success', 'transaction succesfully');
+        return redirect()->route('home')
+            ->with('success', 'Transaction Succesfully!');
         } catch(\Exception $e){
             return redirect()->back()
             ->withErrors(['error', $e->getMessage()])
@@ -107,22 +107,25 @@ class TransactionController extends Controller
 }
 
     public function StoreTransaction(Request $request){
+        // validasi input html
         $request->validate([
             'no_rekening' => 'required|min:10|max:16',
             'check_in' => 'required',
             'check_out' => 'required',
         ]);
 
-        
+        // check apakah sudah login atau belum
         $user = Auth::user();
         $name = $user->name;
         $phone = $user->phone;
         
+        // membuat no reservation berdasarkan tahun-bulan-hari-jam-menit-detik
         $noReservation = 'RES-' . date('YmdHis');
         
         $checkIn = $request->input('check_in');
         $checkOut = $request->input('check_out');
         
+        // check-in dikalikan berdasar jumlah hari ke check-out
         $daysDifference = Carbon::parse($checkIn)->diffInDays(Carbon::parse($checkOut));
         
         $noRekening = $request->input('no_rekening');
@@ -132,6 +135,7 @@ class TransactionController extends Controller
         $standartInput = $request->input('standart-input');
 
 
+        // mengambil data-data type room
         $deluxeRoomNumbers = NumberRoom::where('type_room', 1)
             ->where('available', true)
             ->take($deluxeInput)
@@ -153,16 +157,18 @@ class TransactionController extends Controller
         $allRoomNumbers = array_merge($suiteRoomNumbers, $deluxeRoomNumbers, $standartRoomNumbers);    
         $selectedRoomNumber = $allRoomNumbers[0];
         
+        // jika user sudah memilih ruangan, ruangan yang dipilih akan berubah menjadi false atau tidak tersedia
         if (count($suiteRoomNumbers) == $suitesInput && count($deluxeRoomNumbers) == $deluxeInput && count($standartRoomNumbers) == $standartInput) {
             NumberRoom::whereIn('number_room', array_merge($suiteRoomNumbers, $deluxeRoomNumbers, $standartRoomNumbers))
             ->update(['available' => false]);
 
         
-
+        // harga type room
         $suitesPrice = 399;
         $deluxePrice = 299;
         $standartPrice = 199;
         
+        // menghitung total price
         $totalPrice = ($suitesInput * $suitesPrice + $deluxeInput * $deluxePrice + $standartPrice * $standartInput) * $daysDifference;
 
         
@@ -187,8 +193,8 @@ class TransactionController extends Controller
 
 
         $this->AvailableRoom();
-        return redirect()->back()
-            ->with('success', 'transaction succesfully');
+        return redirect()->route('home')
+            ->with('success', 'Transaction Succesfully');
         
         } catch(\Exception $e){
             return redirect()->back()
@@ -211,7 +217,7 @@ class TransactionController extends Controller
             return response()->json(['message' => 'Rooms are now available'], 200);
         }
 
-        return response()->json(['message' => 'No rooms to free up'], 200);
+        return response()->json(['message' => 'No Room Available At The Moment'], 200);
     }
 
      public function ReservationAgent(Request $request){
@@ -283,8 +289,7 @@ class TransactionController extends Controller
                 $request->session()->put('dataReservation', $dataReservation);
                 $request->session()->save();
 
-                var_dump($dataReservation);
-                return redirect()->route('info.reservation')->with('success', '3 Step Again');
+                return redirect()->route('info.reservation')->with('success', '3 Step More');
                 
             }catch(\Exception $e){
                 return redirect()->back()
@@ -292,7 +297,7 @@ class TransactionController extends Controller
                                 ->withInput();
             }
         } else {
-            return redirect()->back()->with('error', 'Please fill in correctly');
+            return redirect()->back()->with('error', 'Please fill In Correctly');
         }
 }
 
@@ -325,7 +330,7 @@ class TransactionController extends Controller
         $request->session()->save();
 
 
-        return redirect()->route('payment.reservation')->with('success', '2 Step again');
+        return redirect()->route('payment.reservation')->with('success', '2 Step More');
 
     }
 
@@ -347,7 +352,7 @@ class TransactionController extends Controller
         $request->session()->put('paymentAgent', $paymentAgent);
         $request->session()->save();
 
-        return redirect()->route('detail.reservation')->with('success', '1 Step Again');
+        return redirect()->route('detail.reservation')->with('success', '1 Step More');
 
     }
 
@@ -388,6 +393,7 @@ class TransactionController extends Controller
             'standart_room_number' => json_decode($standartRoomNumbers),
         ]);
 
+        $this->AvailableRoom();
 
         return redirect()->route('log.costumer')->with('success', 'Transaction Complete');
 

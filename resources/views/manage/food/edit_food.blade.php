@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Edit Food (EH)</title>
+    <title>Edit Food<title>
 
     <meta name="description" content="" />
 
@@ -77,31 +77,8 @@
         <div class="layout-page bg-colorPrimary">
           <!-- Navbar -->
 
-          <nav
-            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-            id="layout-navbar"
-          >
-            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                <i class="bx bx-menu bx-sm"></i>
-              </a>
-            </div>
-
-            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-              <!-- Search -->
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
-                </div>
-              </div>
+         
               @include('admin.layout.header_admin')
-          </nav>
 
           <!-- / Navbar -->
 
@@ -109,46 +86,13 @@
         
             <!-- Content -->
 
-            <div class="container-xxl flex-grow-1 container-p-y">
-              
-                <!--div class="col-lg-12 mb-4 order-0">
-                  <div class="card">
-                    <div class="d-flex align-items-end row">
-                      <div class="col-sm-7">
-                        <div class="card-body">
-                          <h5 class="card-title text-primary">Hello Rallyn !</h5>
-                          <p class="mb-4">
-                            Welcome to Dashboard Admin Evergreen Hotel
-                          </p>
-
-                         
-                        </div>
-                      </div>
-                      <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="../assets/img/illustrations/woman.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div-->
-
-                <!-- Basic Bootstrap Table -->
-
-                    
-                    <div class=" col-lg-12 py-5">
+            <div class="container-xxl flex-grow-1 container-p-y">                                  
+                    <div class=" col-lg-12 pb-5">
                         <div class="card-xl shadow">
-                            <h5 class="card-header bg-colorThird"></h5>
-                            <div class="table-responsive text-nowrap">
+                            <div class="table-responsive text-nowrap rounded-lg">
                                 <table class="table bg-colorPrimary">
                                     <thead class=" bg-colorThird" >
-                                        <tr class=" bg-colorThird">
+                                        <tr class=" bg-colorSecondary">
                                                 <form action="{{ route('update.food') }}" method="POST" enctype="multipart/form-data">
                                                     @csrf
                                                     <input type="hidden" id="id" name="id" value="{{ $food->id }}">

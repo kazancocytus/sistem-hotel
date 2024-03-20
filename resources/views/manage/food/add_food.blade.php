@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Add Food (EH)</title>
+    <title>Add Food</title>
 
     <meta name="description" content="" />
 
@@ -81,32 +81,6 @@
         <!-- Layout container -->
         <div class="layout-page bg-colorPrimary">
           <!-- Navbar -->
-
-          <nav
-            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
-            id="layout-navbar"
-          >
-            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
-              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
-                <i class="bx bx-menu bx-sm"></i>
-              </a>
-            </div>
-
-            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-              <!-- Search -->
-              <div class="navbar-nav align-items-center">
-                <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search fs-4 lh-0"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
-                  />
-                </div>
-              </div>
-
-              
               @include('admin.layout.header_admin')
           </nav>
 
@@ -117,85 +91,31 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              
-                <!--div class="col-lg-12 mb-4 order-0">
-                  <div class="card">
-                    <div class="d-flex align-items-end row">
-                      <div class="col-sm-7">
-                        <div class="card-body">
-                          <h5 class="card-title text-primary">Hello Rallyn !</h5>
-                          <p class="mb-4">
-                            Welcome to Dashboard Admin Evergreen Hotel
-                          </p>
-
-                         
-                        </div>
-                      </div>
-                      <div class="col-sm-5 text-center text-sm-left">
-                        <div class="card-body pb-0 px-0 px-md-4">
-                          <img
-                            src="../assets/img/illustrations/woman.png"
-                            height="140"
-                            alt="View Badge User"
-                            data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                            data-app-light-img="illustrations/man-with-laptop-light.png"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div-->
-
-                <!-- Basic Bootstrap Table -->
-
-                
-
-
-                    
-                    <div class=" col-lg-12 py-5">
+                    <div class=" col-lg-12 pb-5">
                         <div class="card-xl shadow">
-                            <h5 class="card-header bg-colorThird"></h5>
-                            <div class="table-responsive text-nowrap">
+                            <div class="table-responsive text-nowrap rounded-lg">
                                 <table class="table bg-colorPrimary">
-                                    <thead class=" bg-colorThird">
-                                        <tr class=" bg-colorThird">
-                                                <form action="{{ route('store.food') }}" method="POST" enctype="multipart/form-data">
-                                                    @csrf
-                                                    <th> <label for="name">Name Food</label> </th>
-                                                    <th><label for="image">Image</label></th>
-                                                    <th><label for="preview">Preview</label></th>
-                                                    <td><label for="submit"></label></td>
-                                                          
+                                    <thead class="">
+                                        <tr class="bg-colorSecondary">
+                                  <form action="{{ route('store.food') }}" method="POST" enctype="multipart/form-data">
+                                       @csrf
+                                        <th> <label for="name">Name Food</label> </th>
+                                        <th><label for="image">Image</label></th>
+                                        <th><label for="preview">Preview</label></th>
+                                        <td><label for="submit"></label></td>
                                         </tr>
                                     </thead>
-                                                    <tbody class="table-border-bottom-0">
-                                                        <td><input type="text" id="name" name="name" autocomplete="off"></td>
-                                                        <td><input type="file" id="image" name="image" onchange="getImagePreview(event)"></td>
-                                                        <td id="preview"></td>
-                                                        <td><button type="submit" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none" >Submit</button></td>
-                                                        
-                                                </form>   
-                                                
-                                                
-                                                                                                                      
-                                                    </tbody>                  
-                                                                    
-                                                
+                                    <tbody class="table-border-bottom-0">
+                                      <td><input type="text" id="name" name="name" autocomplete="off"></td>
+                                      <td><input type="file" id="image" name="image" onchange="getImagePreview(event)"></td>
+                                      <td id="preview"></td>
+                                      <td><button type="submit" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none" >Submit</button></td>
+                                    </tbody>
+                                  </form>
                                 </table>
-
-                            </div> 
-
+                            </div>
                         </div>
-
                     </div>
-                 
-                  
-                  
-                        
-                <!--/ Basic Bootstrap Table -->
-
-                <!-- / Content -->
-
              @include('admin.layout.footer_admin');
   
             </div>
@@ -235,26 +155,23 @@
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-      function getImagePreview(event)
-  {
-    var image=URL.createObjectURL(event.target.files[0]);
-    var imagediv= document.getElementById('preview');
-    var newimg=document.createElement('img');
-    imagediv.innerHTML='';
-    newimg.src=image;
-    newimg.width="150";
-    imagediv.appendChild(newimg);
-  }
-
-    </script>      
+        function getImagePreview(event) {
+            var image = URL.createObjectURL(event.target.files[0]);
+            var imagediv = document.getElementById('preview');
+            var newimg = document.createElement('img');
+            imagediv.innerHTML = '';
+            newimg.src = image;
+            newimg.width = "150";
+            imagediv.appendChild(newimg);
+        }
+    </script>
     
     
     
   </body>
 </html>
-
-

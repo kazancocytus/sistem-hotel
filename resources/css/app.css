@@ -3,3 +3,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#login {
+    background-color: #C6A969;
+    color: white;
+}
+#login:hover{
+    background-color: #597E52;
+}
+#signup {
+    background-color: #C6A969;
+    color: white;
+}
+#signup:hover{
+    background-color: #597E52;
+}
+#signin {
+    background-color: #C6A969;
+    color: white;
+}
+#signin:hover{
+    background-color: #597E52;
+}

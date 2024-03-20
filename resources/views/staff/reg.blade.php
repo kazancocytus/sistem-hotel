@@ -55,7 +55,7 @@
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required class="@error('email') is-invalid @enderror" value="{{ old('email') }}" ">
+                <input type="email" id="email" name="email" placeholder="Enter your email" required class="@error('email') is-invalid @enderror" value="{{ old('email') }}">
                 @error('email')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -72,7 +72,7 @@
                 @enderror
               </div>
               <div class="button input-box">
-                <input type="submit" value="Sumbit">
+                <input type="submit" value="Login">
               </div>
               <div class="text sign-up-text"><label for="flip">Back</label></div>
             </div>

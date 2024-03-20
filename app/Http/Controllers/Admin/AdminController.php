@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Api\AgentController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,6 +53,9 @@ class AdminController extends Controller
 
     public function availableRooms(){
         $count = NumberRoom::where('available', true)->count();
+        $agentController = new AgentController;
+
+        $agentController->LogCostumer($count, $this);
 
         return $count;
     }
@@ -77,7 +81,7 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('login')->with('success', 'You Logout');
+        return redirect()->route('login')->with('success', 'You Have Been Loged out');
     }
 
     public function UserActivity(Request $request){
