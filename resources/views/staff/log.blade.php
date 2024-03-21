@@ -50,7 +50,7 @@
           <tr>
             <td class="p-4">{{ $transaction->no_reservation }}</td>
             <td class="p-4">{{ $transaction->name }}</td>
-            <td class="p-4">{{ $transaction->suites }}</td>
+            <td class="p-4">{{ $transaction->suite }}</td>
             <td class="p-4">{{ $transaction->deluxe }}</td>
             <td class="p-4">{{ $transaction->standart }}</td>
             <td class="p-4">{{ json_encode($transaction->suite_room_number) }}</td>

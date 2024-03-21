@@ -45,6 +45,14 @@ class AdminController extends Controller
         return view('admin.report', ['totalRooms' => $totalRooms, 'transaction' => $transaction, 'latestId' => $latestId, 'count' => $count, 'totalPrice' => $totalPrice]);
     }
 
+    public function EditDataReport($id)
+    {
+        $transaction = Transaction::findOrFail($id);
+        return view('admin.edit_report', ['transaction' => $transaction]);
+    }
+
+    
+
     public function AllPrice(){
         $totalPrice = Transaction::sum('price');
 

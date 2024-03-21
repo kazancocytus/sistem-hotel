@@ -156,6 +156,9 @@
                               <a class="dropdown-item" id="delete" href="{{ route('delete.report',$transactions->id) }}"
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
+                              <a class="dropdown-item" id="edit" href="{{ route('edit.report',$transactions->id) }}"
+                                ><i class="bx bx-trash me-1"></i> Edit</a
+                              >
                             </div>
                           </div>
                         </td>
