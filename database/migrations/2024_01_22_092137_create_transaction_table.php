@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('check_in');
             $table->date('check_out');
             $table->decimal('price', 10,2);
-            $table->integer('suites')->nullable();
+            $table->integer('suite')->nullable();
             $table->integer('deluxe')->nullable();
             $table->integer('standart')->nullable();
             $table->json('deluxe_room_number')->nullable();

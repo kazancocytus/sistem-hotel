@@ -140,7 +140,7 @@
                         <td>{{ $transactions->no_reservation }} </td>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $transactions->name }}</strong></td>
                         <td>{{ $transactions->phone }}</td>
-                        <td>{{ $transactions->suites }}</td>
+                        <td>{{ $transactions->suite }}</td>
                         <td>{{ $transactions->deluxe }}</td>
                         <td>{{ $transactions->standart }}</td>
                         <td>{{ $transactions->check_in }}</td>
@@ -155,6 +155,9 @@
                           <div class="dropdown">
                               <a class="dropdown-item" id="delete" href="{{ route('delete.report',$transactions->id) }}"
                                 ><i class="bx bx-trash me-1"></i> Delete</a
+                              >
+                              <a class="dropdown-item" id="edit" href="{{ route('edit.report',$transactions->id) }}"
+                                ><i class="bx bx-trash me-1"></i> Edit</a
                               >
                             </div>
                           </div>
