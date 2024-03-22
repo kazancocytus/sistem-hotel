@@ -79,6 +79,8 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function () {
     Route::get('/edit/report/{id}', [AdminController::class, 'EditDataReport'])->name('edit.report');
     Route::get('/delete/report/{id}', [AdminController::class, 'DeleteDataReport'])->name('delete.report');
     Route::post('/admin/update/report', [TransactionController::class, 'UpdateDataReport'])->name('update.report');
+    Route::get('/admin/cetak', [AdminController::class, 'Cetak'])->name('admin.cetak');
+
     
 });
 
