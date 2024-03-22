@@ -1,4 +1,4 @@
-<nav class="static navbar fixed-top bg-amber-100" style="width: 100%; height: 10%;">
+<nav class="static navbar fixed-top bg-colorSecondary" style="width: 100%; height: 10%;">
   <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>

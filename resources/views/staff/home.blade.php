@@ -16,13 +16,14 @@
 <body>
   
   @include('staff.sidebar')
-  <section id="hero" class="px-0">
-    <div class="contrainer text-white" style="text-align: center">
-      <div class="hero-title">
-        <div class="hero-text"> WELCOME TO <br> EVERGREEN HOTEL</div>
-      </div>
-    </div>
-      </section>
+  <div id="hero" class="px-0">
+    <img class="w-full h-full relative" src="{{ asset('assets/hero3.jpg') }}" alt="">
+            <div
+                class="absolute font-julius text-colorPrimary top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl">
+                <h1 class=" text-9xl">Welcome</h1>
+                <h1 class=" text-8xl">To Evergreen</h1>
+            </div>
+          </div>
 
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

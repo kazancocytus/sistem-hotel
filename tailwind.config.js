@@ -22,6 +22,9 @@ export default {
             colorsucceshover: '#16a34a',
             colorcancelhover: '#B91C1C',
             colorchoco: '#D2B48C',
+            color1: '#556B2F',
+            color2: '#8A9A5B',
+            color3: '#A9BA9D',
         },
         extend: {
             backgroundImage:{

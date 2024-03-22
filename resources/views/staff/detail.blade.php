@@ -15,96 +15,102 @@
 
 </head>
 
-<body>
+<body class=" bg-colorgreen">
     @include('staff.sidebar')
 
     <div>
-        <div class="font-josefin text-2xl font-semibold mx-3 mt-3"> <i class="bi bi-people-fill mx-3"></i>Detail Order
+        <div class="font-josefin text-2xl font-semibold mx-40 mt-3 text-colorPrimary"> <i class="bi bi-people-fill mx-3 text-colorPrimary"></i>Detail Order
         </div>
     </div>
-    <form action="{{ route('reservation.payment') }}" method="POST">
+    <form class="w-11/12 mx-14 pb-5" action="{{ route('reservation.payment') }}" method="POST">
         @csrf
-        <div class=" w-4/5 mx-28">
+        <div class="block mt-6 w-4/5 mx-28 px-28 py-12 mb-10 bg-colorSecondary border border-gray-200 rounded-2xl shadow row">
             <div class=" container">
                 <div class=" mb-10 row w-full  mt-10 float-start " action="">
-                    <div class=" w-1/4 float-right">
+                    <div class=" w-1/3 float-right">
                         <label class=" form-label font-josefin text-xl font-medium" id=""> Check In</label>
-                        <input class="form-control rounded-xl bg-amber-100" disabled type="date" name="check_in"
+                        <input class="form-control rounded-xl bg-colorSecondary" disabled type="date" name="check_in"
                             id="check_in" value="{{ $dataReservation['check_in'] }}">
                     </div>
-                    <div class=" w-1/4 float-right">
+                    <div class=" w-1/3 float-right">
                         <label class=" form-label font-josefin text-xl font-medium" id=""> Check Out</label>
-                        <input class=" form-control rounded-xl bg-amber-100" disabled type="date" name="check_out"
+                        <input class=" form-control rounded-xl bg-colorSecondary" disabled type="date" name="check_out"
                             id="check_out" value="{{ $dataReservation['check_out'] }}">
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card w-1/2 mx-28">
+        <div class="">
             <div class="card-body">
-                <h5 class="card-title font-josefin text-xl font-bold">Costumer</h5>
+                <h5 class="card-title font-josefin text-2xl font-bold border-b-2 border-colorThird">Costumer Personal Information</h5>
                 <ul class="list-group list-group-flush">
-                    <label class=" form-label font-josefin text-xl font-medium mt-2" id="">NIP</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="text" name="nip" id="nip"
+                    <label class=" form-label font-josefin text-xl font-medium mt-4" id="">NIP</label>
+                    <input class="form-control rounded-xl bg-colorPrimary" type="text" name="nip" id="nip"
                         value="{{ $infoCostumer['nip'] }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Name</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="text" name="name" id="name"
+                    <input class="form-control rounded-xl bg-colorPrimary" type="text" name="name" id="name"
                         value="{{ $infoCostumer['name'] }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Email</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="email" name="email" id="email"
+                    <input class="form-control rounded-xl bg-colorPrimary" type="email" name="email" id="email"
                         value="{{ $infoCostumer['email'] }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Phone Number</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="text" name="phone" id="phone"
+                    <input class="form-control rounded-xl bg-colorPrimary" type="text" name="phone" id="phone"
                         value="{{ $infoCostumer['phone'] }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Birth Date</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="date" name="birth_date" id="birth_date"
+                    <input class="form-control rounded-xl bg-colorPrimary" type="date" name="birth_date" id="birth_date"
                         value="{{ $infoCostumer['birth_date'] }}" disabled>
                 </ul>
             </div>
         </div>
-        <div class="card w-1/2 mt-12 mx-28">
+        <div class="">
             <div class="card-body">
-                <h5 class="card-title font-josefin text-xl font-bold">Booking Details</h5>
+                <h5 class="card-title font-josefin text-2xl font-bold mt-20 border-b-2 border-colorThird">Booking Details</h5>
                 <ul class="list-group list-group-flush">
                     <label class=" form-label font-josefin text-xl font-medium mt-2" id="">No.
                         Reservation</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="text" name="no_reservation"
+                    <input class="form-control rounded-xl bg-colorSecondary" type="text" name="no_reservation"
                         id="no_reservation" value="{{ $dataReservation['no_reservation'] }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Suites Rooms</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="text" name="suite" id="suite"
+                    <input class="form-control rounded-xl bg-colorSecondary" type="text" name="suite" id="suite"
                         value="{{ $dataReservation['suite'] }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Deluxe Rooms</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="text" name="deluxe" id="deluxe"
+                    <input class="form-control rounded-xl bg-colorSecondary" type="text" name="deluxe" id="deluxe"
                         value="{{ $dataReservation['deluxe'] }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Standart
                         Rooms</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="text" name="standart"
+                    <input class="form-control rounded-xl bg-colorSecondary" type="text" name="standart"
                         id="standart" value="{{ $dataReservation['standart'] }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Number Suites
                         Room</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="text" name="suite_room_number"
+                    <input class="form-control rounded-xl bg-colorSecondary" type="text" name="suite_room_number"
                         id="suite_room_number"
                         value="{{ implode(',', json_decode($dataReservation['suite_room_number'])) }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Number Deluxe
                         Room</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="text" name="deluxe_room_number"
+                    <input class="form-control rounded-xl bg-colorSecondary" type="text" name="deluxe_room_number"
                         id="deluxe_room_number"
                         value="{{ implode(',', json_decode($dataReservation['deluxe_room_number'])) }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Number Standart
                         Room</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="text" name="standart_room_number"
+                    <input class="form-control rounded-xl bg-colorSecondary" type="text" name="standart_room_number"
                         id="standart_room_number"
                         value="{{ implode(',', json_decode($dataReservation['standart_room_number'])) }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Total
                         Price</label>
-                    <input class="form-control rounded-xl bg-amber-100" type="text" name="totalPrice"
+                    <input class="form-control rounded-xl bg-colorSecondary" type="text" name="totalPrice"
                         id="totalPrice" value="${{ $dataReservation['price'] }}" disabled>
                 </ul>
             </div>
         </div>
+        <button type="submit" class="mt-5 w-full">
+            <a href="#_" class=" w-1/5 relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-colorThird transition duration-300 ease-out border-2 border-colorThird rounded-full shadow-md group">
+            <span class="absolute inset-0 flex items-center justify-center w-full h-full text-colorSecondary duration-300 -translate-x-full bg-colorgreen group-hover:translate-x-0 ease">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </span>
+            <span class="absolute flex items-center justify-center w-full h-full bg-colorThird text-colorText transition-all duration-300 transform group-hover:translate-x-full ease">Next</span>
+            <span class="relative invisible">Next</span>
+            </a>
+          </button>
         </div>
-        <button type="submit"
-            class="text-white bg-yellow-800 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  mx-28 mt-5">SUBMIT</button>
     </form>
 
 
@@ -122,6 +128,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @include('sweetalert::alert')
+    @include('components.footerstaff')
+
 </body>
 
 </html>

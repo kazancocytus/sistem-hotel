@@ -15,57 +15,58 @@
     @vite('resources/css/app.css')
 
 </head>
-<body>
+<body class=" bg-colorgreen">
     @include('staff.sidebar')
 
-    <div class="font-josefin text-2xl font-semibold mx-5 mt-5"> <i class="bi bi-people-fill mx-3"></i>LOG</div>
+    <div class="font-josefin text-2xl font-semibold mx-5 mt-3 text-colorSecondary"> <i class="bi bi-people-fill mx-3 text-colorSecondary"></i>LOG</div>
+    <div class="block my-6 w-11/12 mx-14 px-16 py-12 bg-colorSecondary border border-gray-200 rounded-2xl shadow row">
     <form action="{{ route('log.costumer') }}" method="GET">
-        <div class="mx-20 mt-10 input-group rounded w-1/2">
-            <input type="text" name="search" id="search" class="form-control rounded" placeholder="Search"
+        <div class="input-group rounded w-1/2">
+            <input type="text" name="search" id="search" class="form-control rounded" placeholder="Search By Name"
                 aria-label="Search" aria-describedby="search-addon" />
             <button class=" w-10 bg-colorSecondary input-group-text border-0" type="submit">
                 <i class="bi bi-search"></i>
             </button>
         </div>
       </form>
-        <div class="font-josefin text-2xl font-semibold mx-5 mt-5">{{ $count }} Available Room</div>
-      <table class="w-4/5 mx-20 mt-5 form-label font-josefin text-xl font-medium bg-amber-100 rounded-xl">
+      <div class="font-josefin w-1/4 text-2xl font-semibold mt-5 border-b-4 border-colorThird">Available {{ $count }} Room</div>
+      <table class="w-full mt-5 form-label font-josefin text-xs font-medium bg-colorSecondary rounded-xl">
         <thead>
-          <tr>
-            <th class="p-4">No Reservation</th>
-            <th class="p-4">Name</th>
-            <th class="p-4">Suites Room</th>
-            <th class="p-4">Deluxe Room</th>
-            <th class="p-4">Standard Room</th>
-            <th class="p-4">Suites Number Room</th>
-            <th class="p-4">Deluxe Number Room</th>
-            <th class="p-4">Standard Number Room</th>
-            <th class="p-4">Check In</th>
-            <th class="p-4">Check Out</th>
-            <th class="p-4">Status</th>
+          <tr class=" border-b-4 border-colorThird">
+            <th class="px-2">No Reservation</th>
+            <th class="px-2">Name</th>
+            <th class="px-2">Suites Room</th>
+            <th class="px-2">Deluxe Room</th>
+            <th class="px-2">Standard Room</th>
+            <th class="px-2">Suites Number Room</th>
+            <th class="px-2">Deluxe Number Room</th>
+            <th class="px-2">Standard Number Room</th>
+            <th class="px-2">Check In</th>
+            <th class="px-2">Check Out</th>
+            <th class="px-2">Status</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($transactions as $list => $transaction)
-          <tr>
-            <td class="p-4">{{ $transaction->no_reservation }}</td>
-            <td class="p-4">{{ $transaction->name }}</td>
-            <td class="p-4">{{ $transaction->suites }}</td>
-            <td class="p-4">{{ $transaction->deluxe }}</td>
-            <td class="p-4">{{ $transaction->standart }}</td>
-            <td class="p-4">{{ json_encode($transaction->suite_room_number) }}</td>
-            <td class="p-4">{{ json_encode($transaction->deluxe_room_number) }}</td>
-            <td class="p-4">{{ json_encode($transaction->standart_room_number) }}</td>
-            <td class="p-4">{{ $transaction->check_in }}</td>
-            <td class="p-4">{{ $transaction->check_out }}</td>
-            <td class="p-4">
+          <tr class="border-b-2 border-colorThird">
+            <td class="p-3 border-r-2 border-colorThird">{{ $transaction->no_reservation }}</td>
+            <td class="p-3 border-r-2 border-colorThird">{{ $transaction->name }}</td>
+            <td class="p-3 border-r-2 border-colorThird">{{ $transaction->suites }}</td>
+            <td class="p-3 border-r-2 border-colorThird">{{ $transaction->deluxe }}</td>
+            <td class="p-3 border-r-2 border-colorThird">{{ $transaction->standart }}</td>
+            <td class="p-3 border-r-2 border-colorThird">{{ json_encode($transaction->suite_room_number) }}</td>
+            <td class="p-3 border-r-2 border-colorThird">{{ json_encode($transaction->deluxe_room_number) }}</td>
+            <td class="p-3 border-r-2 border-colorThird">{{ json_encode($transaction->standart_room_number) }}</td>
+            <td class="p-3 border-r-2 border-colorThird">{{ $transaction->check_in }}</td>
+            <td class="p-3 border-r-2 border-colorThird">{{ $transaction->check_out }}</td>
+            <td class="p-3">
               <span class="badge {{ $transaction->check_out >= now()->subday()->startOfDay() ? 'badge text-bg-success' : 'text-bg-warning' }}">{{ $transaction->check_out >= now()->subDay()->startOfDay() ? 'Checked In' : 'Checked Out' }}</span>
             </td>
           </tr>
           @endforeach
         </tbody>
       </table>
-
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -81,6 +82,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @include('sweetalert::alert')
+    @include('components.footerstaff')
 </body>
 
 </html>

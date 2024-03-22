@@ -9,13 +9,13 @@
     font-family: 'Nerko One', cursive;
 }
 
-#hero{
+/* #hero{
     background-image: url('../../assets/hero2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 700px;
-}
+} */
 
 
 .hero-title{

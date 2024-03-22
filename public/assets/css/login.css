@@ -11,12 +11,12 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #F1E4C3;
+  background: #C6A969;
   padding: 30px;
 }
 .container{
   position: relative;
-  max-width: 850px;
+  max-width: 1200px;
   width: 100%;
   background: #fff;
   padding: 40px 30px;
@@ -125,7 +125,10 @@ body{
   width: 20px;
 }
 .forms .form-content .input-boxes{
-  margin-top: 30px;
+  align-self: center;
+  justify-content: center;
+  align-content: center;
+  margin-top: 8px;
 }
 .forms .form-content .input-box{
   display: flex;
@@ -165,6 +168,7 @@ body{
 }
 .forms .form-content .text a:hover{
   text-decoration: underline;
+  color: #fff;
 }
 .forms .form-content .button{
   color: #fff;
@@ -181,8 +185,13 @@ body{
 .forms .form-content .button input:hover{
   background: #C6A969;
 }
-.forms .form-content label{
+.forms .form-content a{
+  align-content: center;
   color: #C6A969;
+  cursor: pointer;
+}
+.forms .form-content a:hover{
+  color: #fff;
   cursor: pointer;
 }
 .forms .form-content label:hover{
