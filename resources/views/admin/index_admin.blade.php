@@ -140,7 +140,7 @@
                         <td>{{ $transactions->no_reservation }} </td>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $transactions->name }}</strong></td>
                         <td>{{ $transactions->phone }}</td>
-                        <td>{{ $transactions->suites }}</td>
+                        <td>{{ $transactions->suite }}</td>
                         <td>{{ $transactions->deluxe }}</td>
                         <td>{{ $transactions->standart }}</td>
                         <td>{{ $transactions->check_in }}</td>
@@ -156,6 +156,9 @@
                               <a class="dropdown-item" id="delete" href="{{ route('delete.report',$transactions->id) }}"
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
+                              <a class="dropdown-item" id="edit" href="{{ route('edit.report',$transactions->id) }}"
+                                ><i class="bx bx-trash me-1"></i> Edit</a
+                              >
                             </div>
                           </div>
                         </td>
@@ -165,12 +168,19 @@
                   </table>
                 </div>
               </div>
+              <div>
+
+              </div>
+              
               <!--/ Basic Bootstrap Table -->
 
 
 
 
             </div>
+                <a href="" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2 me-2 mb-5
+                 focus:outline-none">Cetak Data</a>
+              
               
                 <!-- Expense Overview -->
               

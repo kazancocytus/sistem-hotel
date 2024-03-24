@@ -8,7 +8,6 @@ use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\TransactionController;
-use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -77,7 +76,9 @@ Route::middleware(['auth', 'roles_name:Admin'])->group(function () {
     Route::get('/admin/user', [AdminController::class, 'AdminUser'])->name('admin.user');
     Route::get('/delete/user/{id}', [AdminController::class, 'DeleteUser'])->name('delete.user');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+    Route::get('/edit/report/{id}', [AdminController::class, 'EditDataReport'])->name('edit.report');
     Route::get('/delete/report/{id}', [AdminController::class, 'DeleteDataReport'])->name('delete.report');
+    Route::post('/admin/update/report', [TransactionController::class, 'UpdateDataReport'])->name('update.report');
     
 });
 

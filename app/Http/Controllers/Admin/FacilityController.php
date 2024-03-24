@@ -41,6 +41,7 @@ class FacilityController extends Controller
 
     public function UpdateFacility(Request $request, Facility $facility): RedirectResponse{
         $fid = $request->id;
+        dd($fid);
 
         $request->validate([
             'name' => 'required',
