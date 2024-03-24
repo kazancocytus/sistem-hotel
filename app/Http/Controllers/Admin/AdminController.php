@@ -11,6 +11,7 @@ use App\Models\Transaction;
 use App\Models\Food;
 use App\Models\User;
 use App\Models\NumberRoom;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AdminController extends Controller
 {
@@ -43,6 +44,14 @@ class AdminController extends Controller
         
 
         return view('admin.report', ['totalRooms' => $totalRooms, 'transaction' => $transaction, 'latestId' => $latestId, 'count' => $count, 'totalPrice' => $totalPrice]);
+    }
+
+    public function Cetak(){
+        $data['transaction'] = Transaction::orderBy('created_at','DESC')->get();
+        $pdf = Pdf::loadView('admin.cetak.transaction', $data);
+
+        return $pdf->stream();
+        return $pdf->download('invoice.pdf');
     }
 
     public function EditDataReport($id)

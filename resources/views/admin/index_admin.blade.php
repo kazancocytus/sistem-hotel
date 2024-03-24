@@ -115,6 +115,9 @@
                 </div>
                 <!-- Basic Bootstrap Table -->
 
+                <a href="{{ route('admin.cetak') }}" target="_blank" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2 me-2 mb-5
+                 focus:outline-none">Cetak Data</a>
+
             <div class="col-lg-12 py-3">
               <div class="card shadow">
                 <div class="table-responsive rounded-lg text-nowrap">
@@ -157,7 +160,7 @@
                                 ><i class="bx bx-trash me-1"></i> Delete</a
                               >
                               <a class="dropdown-item" id="edit" href="{{ route('edit.report',$transactions->id) }}"
-                                ><i class="bx bx-trash me-1"></i> Edit</a
+                                ><i class='bx bxs-edit'></i> Edit</a
                               >
                             </div>
                           </div>
@@ -178,8 +181,7 @@
 
 
             </div>
-                <a href="" class="text-white bg-colorThird font-medium rounded-lg text-sm px-5 py-2 me-2 mb-5
-                 focus:outline-none">Cetak Data</a>
+                
               
               
                 <!-- Expense Overview -->
