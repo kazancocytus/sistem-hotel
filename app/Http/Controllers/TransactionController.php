@@ -9,102 +9,10 @@ use Carbon\Carbon;
 use App\Models\NumberRoom;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
-
+use Mpdf\Tag\Tr;
 
 class TransactionController extends Controller
 {
-    public function __invoke(Request $request)
-    {
-        $request->validate([
-            'no_rekening' => 'required|min:10|max:16',
-            'check_in' => 'required',
-            'check_out' => 'required',
-        ]);
-
-
-        $user = Auth::user();
-        $name = $user->name;
-        $phone = $user->phone;
-
-        $noReservation = 'RES-' . date('YmdHis');
-
-        $checkIn = $request->input('check_in');
-        $checkOut = $request->input('check_out');
-
-        $daysDifference = Carbon::parse($checkIn)->diffInDays(Carbon::parse($checkOut));
-
-        $noRekening = $request->input('no_rekening');
-
-        $suitesInput = $request->input('suites-input');
-        $deluxeInput = $request->input('deluxe-input');
-        $standartInput = $request->input('standart-input');
-
-
-        $deluxeRoomNumbers = NumberRoom::where('type_room', 1)
-            ->where('available', true)
-            ->take($deluxeInput)
-            ->pluck('number_room')
-            ->toArray();
-
-        $suiteRoomNumbers = NumberRoom::where('type_room', 0)
-            ->where('available', true)
-            ->take($suitesInput)
-            ->pluck('number_room')
-            ->toArray();
-
-        $standartRoomNumbers = NumberRoom::where('type_room', 2)
-            ->where('available', true)
-            ->take($standartInput)
-            ->pluck('number_room')
-            ->toArray();
-
-        $allRoomNumbers = array_merge($suiteRoomNumbers, $deluxeRoomNumbers, $standartRoomNumbers);
-        $selectedRoomNumber = $allRoomNumbers[0];
-
-        if (count($suiteRoomNumbers) == $suitesInput && count($deluxeRoomNumbers) == $deluxeInput && count($standartRoomNumbers) == $standartInput) {
-            NumberRoom::whereIn('number_room', array_merge($suiteRoomNumbers, $deluxeRoomNumbers, $standartRoomNumbers))
-                ->update(['available' => false]);
-
-
-            $suitesPrice = 399;
-            $deluxePrice = 299;
-            $standartPrice = 199;
-
-            $totalPrice = ($suitesInput * $suitesPrice + $deluxeInput * $deluxePrice + $standartPrice * $standartInput) * $daysDifference;
-
-            // dd($room);
-
-            try {
-
-                $create_transacion = Transaction::create([
-                    'number_room_id' => $selectedRoomNumber,
-                    'deluxe_room_number' => json_encode($deluxeRoomNumbers),
-                    'suite_room_number' => json_encode($suiteRoomNumbers),
-                    'standart_room_number' => json_encode($standartRoomNumbers),
-                    'no_reservation' => $noReservation,
-                    'name' => $name,
-                    'phone' => $phone,
-                    'suites' => $suitesInput,
-                    'deluxe' => $deluxeInput,
-                    'standart' => $standartInput,
-                    'price' => $totalPrice,
-                    'no_rekening' => $noRekening,
-                    'check_in' =>  $checkIn,
-                    'check_out' => $checkOut
-                ]);
-
-                $this->AvailableRoom();
-
-                return redirect()->route('home')
-                    ->with('success', 'Transaction Succesfully!');
-            } catch (\Exception $e) {
-                return redirect()->back()
-                    ->withErrors(['error', $e->getMessage()])
-                    ->withInput();
-            }
-        }
-    }
-
     public function StoreTransaction(Request $request)
     {
         // validasi input html
@@ -157,6 +65,15 @@ class TransactionController extends Controller
         $allRoomNumbers = array_merge($suiteRoomNumbers, $deluxeRoomNumbers, $standartRoomNumbers);
         $selectedRoomNumber = $allRoomNumbers[0];
 
+        $deluxeClear = json_encode($deluxeRoomNumbers, JSON_UNESCAPED_SLASHES);
+        $suiteClear = json_encode($suiteRoomNumbers, JSON_UNESCAPED_SLASHES);
+        $standartClear = json_encode($standartRoomNumbers, JSON_UNESCAPED_SLASHES);
+
+        $deluxeArrayClear = $deluxeClear;
+        $suiteArrayClear = $suiteClear;
+        $standartArrayClear = $standartClear;
+
+
         // jika user sudah memilih ruangan, ruangan yang dipilih akan berubah menjadi false atau tidak tersedia
         if (count($suiteRoomNumbers) == $suitesInput && count($deluxeRoomNumbers) == $deluxeInput && count($standartRoomNumbers) == $standartInput) {
             NumberRoom::whereIn('number_room', array_merge($suiteRoomNumbers, $deluxeRoomNumbers, $standartRoomNumbers))
@@ -176,9 +93,9 @@ class TransactionController extends Controller
 
                 $create_transacion = Transaction::create([
                     'number_room_id' => $selectedRoomNumber,
-                    'deluxe_room_number' => json_encode($deluxeRoomNumbers),
-                    'suite_room_number' => json_encode($suiteRoomNumbers),
-                    'standart_room_number' => json_encode($standartRoomNumbers),
+                    'deluxe_room_number' => json_decode($deluxeArrayClear),
+                    'suite_room_number' => json_decode($suiteArrayClear),
+                    'standart_room_number' => json_decode($standartArrayClear),
                     'no_reservation' => $noReservation,
                     'name' => $name,
                     'phone' => $phone,
@@ -192,7 +109,7 @@ class TransactionController extends Controller
                 ]);
 
 
-                $this->AvailableRoom();
+
                 return redirect()->route('home')
                     ->with('success', 'Transaction Succesfully');
             } catch (\Exception $e) {
@@ -270,7 +187,7 @@ class TransactionController extends Controller
                     'price' => $totalPrice,
                 ];
 
-                $this->AvailableRoom();
+                // $this->AvailableRoom();
 
                 $request->session()->put('dataReservation', $dataReservation);
                 $request->session()->save();
@@ -362,6 +279,7 @@ class TransactionController extends Controller
         $standartRoomNumbers = $dataReservation['standart_room_number'];
         $totalPrice = $dataReservation['price'];
 
+
         Transaction::create([
             'number_room_id' => $numberRoomId,
             'no_reservation' => $reservationNumber,
@@ -379,14 +297,13 @@ class TransactionController extends Controller
             'standart_room_number' => json_decode($standartRoomNumbers),
         ]);
 
-        $this->AvailableRoom();
+
 
         return redirect()->route('log.costumer')->with('success', 'Transaction Complete');
     }
 
     public function editAvailableRoom($type, $currentAmount, $newAmount, $rid)
     {
-        // Mapping jenis kamar ke tipe yang sesuai
         $typeMapping = ['suite' => 0, 'deluxe' => 1, 'standard' => 2];
         if (!array_key_exists($type, $typeMapping)) {
             return;
@@ -397,50 +314,39 @@ class TransactionController extends Controller
             return;
         }
 
-        // Mengambil transaksi yang sesuai
         $transaction = Transaction::findOrFail($rid);
 
-        // Mengambil nomor ruangan yang sudah ada dalam transaksi
-        $currentRoomNumbers = json_decode($transaction->{$type . '_room_number'}, true) ?? [];
+        $currentRoomNumbers = $transaction->{$type . '_room_number'} ?? [];
 
-        // Jika tidak ada perubahan pada jumlah ruangan baru, tidak perlu melakukan apapun
-        if ($newAmount == $currentAmount) {
-            return;
-        }
-
-        // Mengambil nomor ruangan yang harus dipertahankan
-        $keptRoomNumbers = $currentRoomNumbers;
-
-        // Jika ada perubahan jumlah ruangan
         if ($newAmount < $currentAmount) {
-            // Menghitung jumlah ruangan yang harus dilepaskan
             $roomsToRelease = $currentAmount - $newAmount;
 
-            // Mengambil nomor ruangan yang harus dilepaskan
-            $releasedRoomNumbers = array_slice($currentRoomNumbers, -$roomsToRelease);
+            $releasedRoomNumbers = array_slice($currentRoomNumbers, 0, -$roomsToRelease);
 
-            // Memperbarui status ketersediaan nomor ruangan yang akan dirilis
             if (!empty($releasedRoomNumbers)) {
                 NumberRoom::whereIn('number_room', $releasedRoomNumbers)
                     ->where('type_room', $roomType)
                     ->update(['available' => true]);
             }
-        }
+        } elseif ($newAmount > $currentAmount) {
+            $roomsToAdd = $newAmount - $currentAmount;
 
-        // Jika jumlah ruangan baru lebih besar dari jumlah ruangan sebelumnya, maka nomor ruangan tidak berubah
-        // Sehingga status ketersediaan nomor ruangan yang ada tidak berubah
-        // Jika jumlah ruangan baru kurang dari jumlah ruangan sebelumnya, maka nomor ruangan yang dilepaskan
-        // akan dikembalikan ke status ketersediaan yang benar sebelumnya
-        if ($newAmount < $currentAmount) {
-            // Mengembalikan status ketersediaan nomor ruangan yang dilepaskan ke status sebelumnya
-            NumberRoom::whereIn('number_room', $releasedRoomNumbers)
-                ->where('type_room', $roomType)
+            $newRoomNumbers = NumberRoom::where('type_room', $roomType)
+                ->where('available', true)
+                ->take($roomsToAdd)
+                ->pluck('number_room')
+                ->toArray();
+
+            $currentRoomNumbers = array_merge($currentRoomNumbers, $newRoomNumbers);
+
+            NumberRoom::whereIn('number_room', $newRoomNumbers)
                 ->update(['available' => false]);
         }
 
-        // Memperbarui transaksi dengan daftar nomor ruangan yang harus dipertahankan
-        $transaction->{$type . '_room_number'} = json_encode($keptRoomNumbers);
+        $transaction->{$type . '_room_number'} = $currentRoomNumbers;
         $transaction->save();
+
+
     }
 
 
@@ -506,12 +412,11 @@ class TransactionController extends Controller
 
         NumberRoom::where('available', false)->update(['available' => true]);
 
-        // Mendapatkan nomor ruangan yang digunakan dalam transaksi
-        $usedSuiteRoomNumbers = json_decode($transaction->suite_room_number ?? '[]', true);
-        $usedDeluxeRoomNumbers = json_decode($transaction->deluxe_room_number ?? '[]', true);
-        $usedStandartRoomNumbers = json_decode($transaction->standart_room_number ?? '[]', true);
+        $usedSuiteRoomNumbers = $transaction->suite_room_number ?? [];
+        $usedDeluxeRoomNumbers = $transaction->deluxe_room_number ?? [];
+        $usedStandartRoomNumbers = $transaction->standart_room_number ?? [];
+        
 
-        // Menggabungkan dan menyaring nomor ruangan yang tersedia untuk setiap tipe kamar
         $suiteRoomNumbers = NumberRoom::where('type_room', 0)
             ->where('available', true)
             ->whereNotIn('number_room', $usedSuiteRoomNumbers)
@@ -533,10 +438,8 @@ class TransactionController extends Controller
             ->pluck('number_room')
             ->toArray();
 
-        // Menggabungkan nomor kamar yang tersedia untuk semua jenis kamar
         $allRoomNumbers = array_merge($suiteRoomNumbers, $deluxeRoomNumbers, $standartRoomNumbers);
 
-        // Memperbarui status ketersediaan nomor kamar
         NumberRoom::whereIn('number_room', $allRoomNumbers)
             ->update(['available' => false]);
 
@@ -553,9 +456,9 @@ class TransactionController extends Controller
                 'standart' => $standartInput,
                 'check_in' => $checkIn,
                 'check_out' => $checkOut,
-                'deluxe_room_number' => json_encode($deluxeRoomNumbers),
-                'suite_room_number' => json_encode($suiteRoomNumbers),
-                'standart_room_number' => json_encode($standartRoomNumbers),
+                'deluxe_room_number' => $deluxeRoomNumbers,
+                'suite_room_number' => $suiteRoomNumbers,
+                'standart_room_number' => $standartRoomNumbers,
                 'price' => $totalPrice,
             ]);
 

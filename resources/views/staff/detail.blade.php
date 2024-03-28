@@ -83,17 +83,17 @@
                         Room</label>
                     <input class="form-control rounded-xl bg-colorSecondary" type="text" name="suite_room_number"
                         id="suite_room_number"
-                        value="{{ implode(',', json_decode($dataReservation['suite_room_number'])) }}" disabled>
+                        value="{{ $dataReservation['suite_room_number'] }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Number Deluxe
                         Room</label>
                     <input class="form-control rounded-xl bg-colorSecondary" type="text" name="deluxe_room_number"
                         id="deluxe_room_number"
-                        value="{{ implode(',', json_decode($dataReservation['deluxe_room_number'])) }}" disabled>
+                        value="{{ $dataReservation['deluxe_room_number'] }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Number Standart
                         Room</label>
                     <input class="form-control rounded-xl bg-colorSecondary" type="text" name="standart_room_number"
                         id="standart_room_number"
-                        value="{{ implode(',', json_decode($dataReservation['standart_room_number'])) }}" disabled>
+                        value="{{ $dataReservation['standart_room_number']  }}" disabled>
                     <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Total
                         Price</label>
                     <input class="form-control rounded-xl bg-colorSecondary" type="text" name="totalPrice"

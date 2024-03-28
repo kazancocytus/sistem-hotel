@@ -46,17 +46,17 @@
                     </tr>
                     <tr class="border-b-2 border-colorThird">
                         <td class="pt-10">Deluxe</td>
-                        <td class="text-right"><input class= "border-none bg-colorPrimary rounded-xl" type="number"
+                        <td class="text-right"><input class= "border-none bg-colorPrimary rounded-xl" type="text"
                                 id="deluxe" name="deluxe" onchange="calculateTotal()" value="0"></td>
                     </tr>
                     <tr class="border-b-2 border-colorThird">
                         <td class="pt-10">Suite</td>
-                        <td class="text-right"><input class="border-none bg-colorPrimary rounded-xl" type="number"
+                        <td class="text-right"><input class="border-none bg-colorPrimary rounded-xl" type="text"
                                 id="suite" name="suite" onchange="calculateTotal()" value="0"></td>
                     </tr>
                     <tr class="border-b-2 border-colorThird">
                         <td class="pt-10">Standar</td>
-                        <td class="text-right"><input class="border-none bg-colorPrimary rounded-xl" type="number"
+                        <td class="text-right"><input class="border-none bg-colorPrimary rounded-xl" type="text"
                                 id="standart" name="standart" onchange="calculateTotal()" value="0"></td>
                     </tr>
                     <tr class="border-b-2 border-colorThird">

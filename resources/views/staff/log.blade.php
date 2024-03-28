@@ -51,7 +51,7 @@
           <tr class="border-b-2 border-colorThird">
             <td class="p-3 border-r-2 border-colorThird">{{ $transaction->no_reservation }}</td>
             <td class="p-3 border-r-2 border-colorThird">{{ $transaction->name }}</td>
-            <td class="p-3 border-r-2 border-colorThird">{{ $transaction->suites }}</td>
+            <td class="p-3 border-r-2 border-colorThird">{{ $transaction->suite }}</td>
             <td class="p-3 border-r-2 border-colorThird">{{ $transaction->deluxe }}</td>
             <td class="p-3 border-r-2 border-colorThird">{{ $transaction->standart }}</td>
             <td class="p-3 border-r-2 border-colorThird">{{ json_encode($transaction->suite_room_number) }}</td>
