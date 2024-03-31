@@ -33,3 +33,10 @@ npm run dev
 
 ## error page
 composer require realrashid/sweet-alert
+
+
+```
+
+composer require dompdf/dompdf
+
+```
