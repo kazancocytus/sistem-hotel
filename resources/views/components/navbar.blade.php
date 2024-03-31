@@ -97,31 +97,31 @@
                         <div class="mb-3">
                             <label for="nip" class="form-label font-josefin mb-0">NIP</label>
                             <input type="text" class="form-control rounded-xl" id="nip" name="nip"
-                                placeholder="Input Your NIP Here" autofocus/>
+                                placeholder="Input Your NIP Here" value="{{ old('nip') }}" autofocus/>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label font-josefin mb-0">Email</label>
                             <input type="email" class="form-control rounded-xl" id="email" name="email"
-                                placeholder="Input Your Email Here" />
+                                placeholder="Input Your Email Here" value="{{ old('email') }}" />
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label font-josefin mb-0">Phone Number</label>
                             <input type="text" class="form-control rounded-xl" id="phone" name="phone"
-                                placeholder="Input Your Phone Number Here" />
+                                placeholder="Input Your Phone Number Here" value="{{ old('phone') }}" />
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label font-josefin mb-0">Fullname</label>
                             <input type="text" class="form-control rounded-xl" id="name" name="name"
-                                placeholder="Input Your Fullname Here" />
+                                placeholder="Input Your Fullname Here" value="{{ old('name') }}" />
                         </div>
                         <div class="mb-3">
                             <label for="birth_date" class="form-label font-josefin mb-0">Birth Date</label>
-                            <input type="date" class="form-control rounded-xl" id="birth_date" name="birth_date"
+                            <input type="date" class="form-control rounded-xl" id="birth_date" name="birth_date" value="{{ old('birth_date') }}"
                                 placeholder="Input Your Birth Date Here" />
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label font-josefin mb-0">Password</label>
-                            <input type="password" class="form-control rounded-xl" id="password" name="password"
+                            <input type="password" class="form-control rounded-xl" id="password" name="password" 
                                 placeholder="Input Your Password Here" />
                             <span class=" font-josefin italic opacity-50 text-sm">*Password At Least 6 Character</span>
                         </div>

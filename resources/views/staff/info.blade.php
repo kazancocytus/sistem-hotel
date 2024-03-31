@@ -26,15 +26,15 @@
         @csrf
         <div class=" ">
               <label class=" form-label font-josefin text-xl font-medium mt-4" id="">NIP</label>
-              <input class="form-control rounded-xl bg-colorPrimary" type="text" id="nip" name="nip">
+              <input class="form-control rounded-xl bg-colorPrimary" type="text" id="nip" name="nip" value="{{ old('nip') }}">
               <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Name</label>
-              <input class="form-control rounded-xl bg-colorPrimary" type="text" id="name" name="name" value="">
+              <input class="form-control rounded-xl bg-colorPrimary" type="text" id="name" name="name" value="{{ old('name') }}">
               <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Email</label>
-              <input class="form-control rounded-xl bg-colorPrimary" type="text" id="email" name="email" value="">
+              <input class="form-control rounded-xl bg-colorPrimary" type="text" id="email" name="email" value="{{ old('email') }}">
               <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Phone number</label>
-              <input class="form-control rounded-xl bg-colorPrimary" type="text" id="phone" name="phone" value="">
+              <input class="form-control rounded-xl bg-colorPrimary" type="text" id="phone" name="phone" value="{{ old('phonel') }}">
               <label class=" form-label font-josefin text-xl font-medium mt-4" id="">Birth Date</label>
-              <input class="form-control rounded-xl bg-colorPrimary" type="date" id="birth_date" name="birth_date" value="">
+              <input class="form-control rounded-xl bg-colorPrimary" type="date" id="birth_date" name="birth_date" value="{{ old('birth_date') }}">
               </div>
               <button type="submit" class="mt-5 w-full">
                 <a href="#_" class=" w-1/5 relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-colorThird transition duration-300 ease-out border-2 border-colorThird rounded-full shadow-md group">

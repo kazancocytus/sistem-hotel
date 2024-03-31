@@ -37,13 +37,13 @@
                                 <div class=" ml-2 h-10 text-black text-4xl"><i class="bi bi-credit-card"></i></div>
                             </div>
                             <input type="text" id="no_rekening" name="no_rekening"
-                                class=" bg-transparent border border-white text-gray-900 text-xl rounded-2xl w-4/5 ps-16 p-2.5"
+                                class=" bg-transparent border border-white text-gray-900 text-xl rounded-2xl w-4/5 ps-16 p-2.5" value="{{ old('no_rekening') }}"
                                 placeholder="Your Bank Account Number">
                         </div>
                         <div class=" object-top flex flex-col mx-10 w-1/3">
                             <div class=" row w-1/2">
                                 <label class=" font-josefin mb-2" for="check_in">Check In Date</label>
-                                <input class=" border-white text-colorBg bg-transparent rounded-2xl" type="date"
+                                <input class=" border-white text-colorBg bg-transparent rounded-2xl" type="date" value="{{ old('check_in') }}"
                                     id="check_in" name="check_in">
                             </div>
                             <div class=" mx-4 my-1 row">
@@ -51,7 +51,7 @@
                             </div>
                             <div class=" row w-1/2">
                                 <label class=" font-josefin mb-2" for="check_out">Check Out Date</label>
-                                <input class=" border-white text-colorBg bg-transparent rounded-2xl" type="date"
+                                <input class=" border-white text-colorBg bg-transparent rounded-2xl" type="date" value="{{ old('check_out') }}"
                                     id="check_out" name="check_out">
                             </div>
                         </div>

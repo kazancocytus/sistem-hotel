@@ -43,6 +43,7 @@
             <th class="px-2">Standard Number Room</th>
             <th class="px-2">Check In</th>
             <th class="px-2">Check Out</th>
+            <th class="px-2">Price</th>
             <th class="px-2">Status</th>
           </tr>
         </thead>
@@ -59,6 +60,7 @@
             <td class="p-3 border-r-2 border-colorThird">{{ json_encode($transaction->standart_room_number) }}</td>
             <td class="p-3 border-r-2 border-colorThird">{{ $transaction->check_in }}</td>
             <td class="p-3 border-r-2 border-colorThird">{{ $transaction->check_out }}</td>
+            <td class="p-3 border-r-2 border-colorThird">${{ $transaction->price }}</td>
             <td class="p-3">
               <span class="badge {{ $transaction->check_out >= now()->subday()->startOfDay() ? 'badge text-bg-success' : 'text-bg-warning' }}">{{ $transaction->check_out >= now()->subDay()->startOfDay() ? 'Checked In' : 'Checked Out' }}</span>
             </td>

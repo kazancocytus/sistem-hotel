@@ -31,12 +31,12 @@
                     <div class=" w-5/12 float-start">
                         <label class=" form-label font-josefin text-xl font-medium"> Check In</label>
                         <input class=" form-control rounded-xl bg-colorPrimary" type="date" name="check_in"
-                            id="check_in">
+                            id="check_in" value="{{ old('check_in') }}">
                     </div>
                     <div class=" w-5/12 float-right">
                         <label class=" form-label font-josefin text-xl font-medium"> Check Out</label>
                         <input class=" form-control rounded-xl bg-colorPrimary" type="date" name="check_out"
-                            id="check_out">
+                            id="check_out" value="{{ old('check_iut') }}">
                     </div>
                 </div>
                 <table class="w-full mt-2 form-label font-josefin text-xl font-medium bg-colorSecondary">

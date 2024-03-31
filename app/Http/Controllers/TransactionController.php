@@ -108,7 +108,7 @@ class TransactionController extends Controller
                     'check_out' => $checkOut
                 ]);
 
-
+                $this->AvailableRoom();
 
                 return redirect()->route('home')
                     ->with('success', 'Transaction Succesfully');
@@ -120,7 +120,27 @@ class TransactionController extends Controller
         }
     }
 
+        public function AvailableRoom()
+    {
+        // Ambil semua transaksi yang sudah berakhir
+        $finishedTransactions = Transaction::whereDate('check_out', '<=', Carbon::today())->get();
 
+        // Loop melalui setiap transaksi yang sudah berakhir
+        foreach ($finishedTransactions as $transaction) {
+            // Ambil semua nomor ruangan yang digunakan dalam transaksi ini
+            $usedRoomIds = collect([
+                $transaction->deluxe_room_number ?? [],
+                $transaction->suite_room_number ?? [],
+                $transaction->standard_room_number ?? []
+            ])->flatten();
+
+            // Perbarui status 'available' untuk setiap nomor ruangan yang digunakan dalam transaksi ini
+            NumberRoom::whereIn('id', $usedRoomIds)
+                ->update(['available' => true]);
+        }
+
+        return response()->json(['message' => 'Rooms are now available'], 200);
+    }
 
     public function ReservationAgent(Request $request)
     {
@@ -187,7 +207,6 @@ class TransactionController extends Controller
                     'price' => $totalPrice,
                 ];
 
-                // $this->AvailableRoom();
 
                 $request->session()->put('dataReservation', $dataReservation);
                 $request->session()->save();
@@ -202,6 +221,7 @@ class TransactionController extends Controller
             return redirect()->back()->with('error', 'Please fill In Correctly');
         }
     }
+
 
 
     public function AgentInfoReservation(Request $request)
@@ -350,24 +370,6 @@ class TransactionController extends Controller
     }
 
 
-    public function AvailableRoom()
-    {
-        $usedRoomIds = Transaction::whereDate('check_out', '<=', Carbon::today())
-            ->pluck('number_room_id')
-            ->toArray();
-
-        if (!empty($usedRoomIds)) {
-            NumberRoom::whereIn('id', $usedRoomIds)
-                ->update(['available' => true]);
-
-            return response()->json(['message' => 'Rooms are now available'], 200);
-        }
-
-        return response()->json(['message' => 'No Room Available At The Moment'], 200);
-    }
-
-
-
 
     public function UpdateDataReport(Request $request)
     {
@@ -400,6 +402,8 @@ class TransactionController extends Controller
         $suitesPrice = 399;
         $deluxePrice = 299;
         $standartPrice = 199;
+
+        $this->AvailableRoom();
 
         $transaction = Transaction::findOrFail($rid);
 

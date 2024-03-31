@@ -27,7 +27,7 @@
       <label class=" form-label font-josefin text-xl font-medium mt-5" id="">Name</label>
       <input class="form-control rounded-xl bg-colorPrimary" disabled type="text" id="name" name="name" value="{{ $infoCostumer['name'] }}">      
       <label class=" form-label font-josefin text-xl font-medium mt-5" id="">No Rekening</label>
-      <input class="form-control rounded-xl bg-colorPrimary" type="text" id="no_rekening" name="no_rekening" value="">
+      <input class="form-control rounded-xl bg-colorPrimary" type="text" id="no_rekening" name="no_rekening" value="{{ old('no_rekening') }}">
     </div>
     <button type="submit" class="mt-5 w-full">
       <a href="#_" class=" w-1/5 relative inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-colorThird transition duration-300 ease-out border-2 border-colorThird rounded-full shadow-md group">

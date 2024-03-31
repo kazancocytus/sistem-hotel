@@ -189,7 +189,7 @@
                         <div class="flex items-center mb-1">
                             <div class=" w-full mb-3 font-medium text-colorBg opacity-90">
                                 <input id="name" name="name"
-                                    class=" w-2/3 font-josefin rounded-xl border-t-0 border-l-0 border-r-0 border-b-2 border-colorThird drop-shadow-lg"
+                                    class=" w-2/3 font-josefin rounded-xl border-t-0 border-l-0 border-r-0 border-b-2 border-colorThird drop-shadow-lg" value="{{ old('name') }}"
                                     type="text" placeholder="Input Your Name..">
                             </div>
                         </div>
@@ -256,7 +256,7 @@
                         <!-- End Rating -->
 
                         <textarea id="text" name="text"
-                            class="py-3 block w-full bg-transparent border-t-transparent border-b-2 border-x-transparent border-b-gray-200 text-lg focus:border-blue-500 focus:border-t-transparent focus:border-x-transparent focus:border-b-colorThird focus:ring-0 font-josefin"
+                            class="py-3 block w-full bg-transparent border-t-transparent border-b-2 border-x-transparent border-b-gray-200 text-lg focus:border-blue-500 focus:border-t-transparent focus:border-x-transparent focus:border-b-colorThird focus:ring-0 font-josefin" value="{{ old('text') }}"
                             rows="4" placeholder="Tell Us Your Experience Here...">
                         </textarea>
 
