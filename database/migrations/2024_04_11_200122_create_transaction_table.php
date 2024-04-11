@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('transaction', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('number_room_id')->references('id')->onUpdate('cascade')->onDelete('cascade');
             $table->string('no_reservation')->index();
             $table->string('name');
-            $table->integer('no_rekening');
+            $table->numeric('no_rekening', 10 , 2);
             $table->string('phone');
             $table->date('check_in');
             $table->date('check_out');
@@ -27,7 +28,6 @@ return new class extends Migration
             $table->json('suite_room_number')->nullable();
             $table->json('standart_room_number')->nullable();
             $table->timestamps();
-            // $table->foreignId('number_room_id')->references('id')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
