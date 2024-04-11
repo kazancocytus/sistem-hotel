@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('transaction', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('number_room_id')->references('id')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('number_room_id')->references('id')->on('number_room')->onUpdate('cascade')->onDelete('cascade');
             $table->string('no_reservation')->index();
             $table->string('name');
-            $table->numeric('no_rekening', 10 , 2);
+            $table->string('no_rekening');
             $table->string('phone');
             $table->date('check_in');
             $table->date('check_out');

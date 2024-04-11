@@ -86,7 +86,7 @@ class LoginController extends Controller
         } else if($userRoles === "User"){
             $pageRoutes = url()->previous();
             if(!empty($pageRoutes)){
-                $redirectRoutes = (strpos($pageRoutes, route('reservation')) !== false) ? route('reservation') : route('home');
+                $redirectRoutes = (strpos($pageRoutes, route('reservation')) !== false) ? route('detail') : route('home');
             } else{
                 route('about');
             }
