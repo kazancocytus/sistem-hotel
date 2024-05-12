@@ -89,13 +89,13 @@
                     <div class="card-header d-flex align-items-center justify-content-between pb-0 ">
                       <div class="card-title mb-0">
                         <h5 class="m-0 me-2">Reservation Statistics</h5>
-                        <small class=" fw-bold"> {{ $count  }} Available Rooms</small>
+                        <small class=" fw-bold"> {{ $count }} Available Rooms</small>
                       </div>
                     </div>
                     <div class="card-body">
                       <div class="d-flex justify-content-between align-items-center mb-3">
                         <div class="d-flex flex-column align-items-center gap-1">
-                          <tr><h2 class="mb-2 fw-bolder py-3">{{ $transaction->id }}</h2></tr>
+                          <tr><h2 class="mb-2 fw-bolder py-3">{{ $transaction->id ?? '0' }}</h2></tr>
                           <span>Total Reservation this month</span>
                         </div>
                         <div id="orderStatisticsChart"></div>
@@ -125,7 +125,7 @@
                              
                             </div>
                             <div class="user-progress">
-                              <small class="fw-semibold">{{ $transaction->id }} </small>
+                              <small class="fw-semibold">{{ $transaction->id ?? 'Tidak Tersedia' }} </small>
                             </div>
                           </div>
                         </li>
