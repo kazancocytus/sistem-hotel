@@ -18,13 +18,18 @@ class NumberRoomFactory extends Factory
      */
     public function definition(): array
     {
+        $roomId = $this->faker->numberBetween(4, 120); // Mulai dari 4 untuk menghindari ID 1, 2, dan 3
+
         $roomType = $this->faker->randomElement([0, 1, 2]);
-
-        $price = ($roomType === 0) ? 399 : (($roomType === 1) ? 299 : 199);
-
+    
+        // Tentukan harga berdasarkan tipe kamar
+        $price = ($roomType === 0) ? 199 : (($roomType === 1) ? 299 : 399);
+    
         return [
+            'number_room' => $roomId,
             'type_room' => $roomType,
             'price' => $price,
         ];
     }
+    
 }
